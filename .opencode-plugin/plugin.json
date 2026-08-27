@@ -1,0 +1,31 @@
+{
+  "name": "career-alpha",
+  "version": "0.1.0",
+  "description": "AI-native career workflow for trend discovery, proof-of-work creation, evidence-first positioning, interview preparation and job-search tracking.",
+  "author": {
+    "name": "Lavine",
+    "url": "https://github.com/lavine888"
+  },
+  "homepage": "https://github.com/lavine888/career-alpha",
+  "repository": "https://github.com/lavine888/career-alpha",
+  "license": "MIT",
+  "keywords": ["career", "job-search", "ai", "proof-of-work", "interview", "career-alpha"],
+  "skills": {
+    "path": "./skills",
+    "entries": [
+      {"name": "radar", "description": "Scan emerging career trends before they become consensus"},
+      {"name": "wedge", "description": "Find asymmetric supply-demand entry points"},
+      {"name": "contributor", "description": "Build verified evidence through open-source contribution"},
+      {"name": "build", "description": "Design a 2–7 day proof-of-work project"},
+      {"name": "proof", "description": "Create evidence cards and a claim-evidence ledger"},
+      {"name": "position", "description": "Translate real evidence into job-market positioning"},
+      {"name": "interview", "description": "Pressure-test resume claims with continuous follow-up"},
+      {"name": "offer", "description": "Track applications, interviews, offers and feedback"}
+    ]
+  },
+  "install": {
+    "method": "copy",
+    "source": "skills",
+    "destination": "{opencode_skills_dir}"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "career-alpha",
+  "version": "0.1.0",
+  "description": "AI-native career operating system for trend discovery, asymmetric opportunity finding, proof-of-work building, evidence-first positioning, interview defense, and job pipeline management.",
+  "author": {
+    "name": "Lavine",
+    "url": "https://github.com/lavine888"
+  },
+  "homepage": "https://github.com/lavine888/career-alpha",
+  "repository": "https://github.com/lavine888/career-alpha",
+  "license": "MIT",
+  "keywords": ["career", "job-search", "ai", "skills", "proof-of-work", "interview", "career-alpha"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Career Alpha",
+    "shortDescription": "Find asymmetric career opportunities and turn them into verifiable proof.",
+    "longDescription": "Career Alpha helps users discover emerging career trends, identify supply-demand wedges, build proof of work, create evidence-backed positioning, defend claims in interviews, and manage job-search pipelines.",
+    "developerName": "Lavine",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/lavine888/career-alpha",
+    "defaultPrompt": [
+      "Use /radar to scan emerging career opportunities.",
+      "Use /wedge to find an asymmetric entry point.",
+      "Use /contributor to build verified open-source evidence.",
+      "Use /build to design a 2–7 day proof-of-work project.",
+      "Use /proof to turn work into an evidence ledger.",
+      "Use /position to translate evidence into job-market language.",
+      "Use /interview to pressure-test resume claims.",
+      "Use /offer to manage the job-search pipeline."
+    ],
+    "brandColor": "#0A1225"
+  }
+}

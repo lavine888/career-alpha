@@ -1,0 +1,27 @@
+cases:
+  - input: "2026 年 Agent 方向还有哪些值得提前布局的机会？"
+    expected_skill: radar
+  - input: "Agent eval 很火，我具体从哪个细分岗位切进去？"
+    expected_skill: wedge
+  - input: "帮我找几个和 AI 应用工程师匹配、能真实提交的开源贡献"
+    expected_skill: contributor
+  - input: "我想用 3 天做一个能证明 agent reliability 能力的项目"
+    expected_skill: build
+  - input: "把这些 GitHub、benchmark 和比赛材料整理成可核验的证据"
+    expected_skill: proof
+  - input: "根据这些真实项目帮我定位 Agent Engineer，并改写简历 bullet"
+    expected_skill: position
+  - input: "根据我的简历连续追问，看看哪些地方会被面试官问穿"
+    expected_skill: interview
+  - input: "把我的投递、面试、拒信和 offer 整理成管线"
+    expected_skill: offer
+  - input: "我没什么相关经历，但想转 Agent Engineer，下一步该做什么？"
+    expected_flow:
+      - position
+      - wedge
+      - build
+      - proof
+  - input: "这个项目写成主导合适吗？证据只有 repo 和一张截图"
+    expected_flow:
+      - proof
+      - position
