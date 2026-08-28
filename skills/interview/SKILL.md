@@ -73,4 +73,6 @@ Resume wording to downgrade if not fixed:
 
 ## Integrity rule
 
+按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 输出仍需补证的主张和下一步，必要时回到 proof、build 或 position。
+
 如果用户无法支持某条强主张，优先建议补知识、补证据或降低表述强度，而不是教用户“圆过去”。

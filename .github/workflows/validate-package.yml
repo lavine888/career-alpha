@@ -1,4 +1,4 @@
-name: Validate Career Alpha
+name: Validate Career Alpha package contract
 
 on:
   push:
@@ -9,9 +9,9 @@ on:
       - ".codex-plugin/**"
       - ".claude-plugin/**"
       - ".opencode-plugin/**"
-      - "scripts/validate_skills.py"
+      - "scripts/**"
       - "tests/**"
-      - ".github/workflows/validate.yml"
+      - ".github/workflows/validate-package.yml"
   pull_request:
     paths:
       - "skills/**"
@@ -20,9 +20,9 @@ on:
       - ".codex-plugin/**"
       - ".claude-plugin/**"
       - ".opencode-plugin/**"
-      - "scripts/validate_skills.py"
+      - "scripts/**"
       - "tests/**"
-      - ".github/workflows/validate.yml"
+      - ".github/workflows/validate-package.yml"
 
 jobs:
   validate:
@@ -36,5 +36,5 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate skill package
-        run: python3 scripts/validate_skills.py
+      - name: Validate package contract
+        run: python3 scripts/validate_package.py

@@ -22,6 +22,8 @@ description: Career Alpha 证据层。用于把项目、PR、实习、比赛、�
 5. 对 ownership 做边界检查：本人 / 团队 / 外部工具分别负责什么。
 6. 找出证据缺口，并给最小补证动作。
 
+需要结构化保存时，使用 [ledger template](../../assets/career-claim-ledger-template.json) 和 [JSON Schema](../../references/claim-evidence-ledger.schema.json)。模板默认 local-only；不要把招聘邮件、联系人或未脱敏材料写入公开仓库。
+
 ## Confidence levels
 
 - `VERIFIED`：有直接证据可核验。
@@ -70,6 +72,8 @@ Missing evidence:
 6. Missing evidence checklist
 
 ## Handoff
+
+按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 传递 claim、证据、ownership、confidence 和 missing evidence；下游 skill 不得静默升级置信度。
 
 - 要写成求职语言：`/position`
 - 要检验是否扛得住追问：`/interview`

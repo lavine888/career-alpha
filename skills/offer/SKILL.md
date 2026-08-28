@@ -68,6 +68,10 @@ description: Career Alpha 求职管线与机会复盘技能。用于管理投递
 - Compensation
 - Downside risk
 
+## Handoff
+
+按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 将可复用的市场信号交给 radar、wedge 或 position；逐条标记来源、时间和 VERIFIED / SUPPORTED / SELF-REPORTED 状态。
+
 ## Privacy
 
 招聘邮件、联系人和薪资等敏感信息只用于当前工作流，不建议默认写入公开作品集或 README。

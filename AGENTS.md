@@ -24,6 +24,7 @@ Use the most specific skill:
 6. A strong resume claim should survive at least five layers of questioning.
 7. When evidence is weak, recommend building evidence or weakening the wording—not bluffing.
 
+8. When skills are combined, carry a Context Packet defined in `references/handoff-contract.md`; never silently drop confidence, ownership, privacy or planned-work status.
 ## Shared references
 
 All skills may read files under `references/`. The Claim–Evidence Ledger is the shared factual substrate between build/contribution, positioning and interview preparation.

@@ -1,0 +1,11 @@
+{
+  "$schema": "../references/claim-evidence-ledger.schema.json",
+  "schema_version": "1.0",
+  "privacy": "local-only",
+  "profile": {
+    "display_name": "",
+    "target_roles": [],
+    "last_updated": null
+  },
+  "claims": []
+}

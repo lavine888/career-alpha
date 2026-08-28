@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://career-alpha.dev/schemas/claim-evidence-ledger.v1.json",
+  "title": "Career Alpha Claim–Evidence Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "privacy", "profile", "claims"],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "privacy": {
+      "enum": ["local-only", "private", "public-safe"]
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "target_roles"],
+      "properties": {
+        "display_name": {"type": "string"},
+        "target_roles": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "last_updated": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/claim"}
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "claim",
+        "context",
+        "evidence",
+        "result",
+        "ownership",
+        "confidence",
+        "status",
+        "safe_wording",
+        "strong_wording",
+        "interview_risks",
+        "missing_evidence"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^CA-[0-9]{3,}$"},
+        "claim": {"type": "string"},
+        "context": {"type": "string"},
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "result": {"type": "string"},
+        "ownership": {"$ref": "#/$defs/ownership"},
+        "confidence": {
+          "enum": ["VERIFIED", "SUPPORTED", "SELF-REPORTED", "PLANNED"]
+        },
+        "status": {
+          "enum": ["draft", "active", "archived"]
+        },
+        "safe_wording": {"type": "string"},
+        "strong_wording": {"type": "string"},
+        "interview_risks": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "missing_evidence": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "locator", "status"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "url",
+            "file",
+            "commit",
+            "screenshot",
+            "dataset",
+            "benchmark",
+            "deployment",
+            "feedback",
+            "other"
+          ]
+        },
+        "locator": {"type": "string"},
+        "status": {
+          "enum": ["accessible", "private", "pending", "unavailable"]
+        },
+        "note": {"type": "string"}
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["person", "team", "tools"],
+      "properties": {
+        "person": {"type": "string"},
+        "team": {"type": "string"},
+        "tools": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "proof"
+  short_description: "把经历整理成可核验的证据账本"
+  default_prompt: "用 /proof 把我的项目、PR、benchmark、截图和结果整理成 Evidence Card 与 Claim–Evidence Ledger，并标出证据缺口。"

@@ -59,3 +59,7 @@ description: Career Alpha 岗位定位与经历重组技能。用于根据目标
 
 ### Next Move
 如果存在高价值缺口，必须明确指出下一步应该 `/build` 什么或 `/contributor` 什么，而不是只说“继续学习”。
+
+## Handoff
+
+按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 交给 interview 或 offer 时，保留 Safe / Strong / Future 分层，不得把 Future Position 当成已验证经历。

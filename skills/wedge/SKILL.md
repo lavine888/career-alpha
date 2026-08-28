@@ -22,7 +22,7 @@ description: Career Alpha 错位竞争分析。用于把宏观趋势拆成具体
    - Infra
    - Distribution
    - Workflow / Operations
-3. 按 `references/opportunity-scoring.md` 评分：
+3. 按 [Opportunity Scoring](../../references/opportunity-scoring.md) 评分：
    - Demand urgency
    - Talent scarcity
    - Entry friction
@@ -62,6 +62,8 @@ description: Career Alpha 错位竞争分析。用于把宏观趋势拆成具体
 列出哪些事实出现后，应放弃这个楔子。
 
 ## Handoff
+
+按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 保留目标能力、证据缺口、进入摩擦和 kill criteria。
 
 - 需要自己造项目：`/build`
 - 适合通过真实协作建立证据：`/contributor`

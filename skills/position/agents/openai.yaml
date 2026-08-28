@@ -1,0 +1,4 @@
+interface:
+  display_name: "position"
+  short_description: "把真实证据翻译成岗位定位与求职表达"
+  default_prompt: "用 /position 根据我的真实证据和目标 JD 输出 Safe、Strong、Future 三档定位、简历要点、HR 开场白和下一步补证动作。"

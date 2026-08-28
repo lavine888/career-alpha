@@ -7,6 +7,8 @@ description: Career Alpha 开源贡献入口。用于根据目标岗位寻找与
 
 目标：用真实协作建立外部证据，不把“刷 PR 数量”当成目的。
 
+跨 skill 交接时，按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 保留事实、证据状态、ownership 和隐私边界。
+
 ## Workflow
 
 1. 读取目标岗位、技术栈、`/wedge` 输出和每周可投入时间。
@@ -50,5 +52,7 @@ description: Career Alpha 开源贡献入口。用于根据目标岗位寻找与
 - final status
 
 ## Handoff
+
+按 [Cross-skill Handoff Contract](../../references/handoff-contract.md) 传递给 proof，并附上仓库、PR、commit、验证命令和合并状态。
 
 完成后交给 `/proof` 建 Evidence Card，再由 `/position` 转成岗位语言。

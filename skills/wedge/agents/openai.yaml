@@ -1,0 +1,4 @@
+interface:
+  display_name: "wedge"
+  short_description: "把趋势拆成可进入、可证明的职业切入口"
+  default_prompt: "用 /wedge 把这个方向拆成任务层，按需求、稀缺性、进入摩擦和证据速度评分，并给出 7 天入口任务与放弃条件。"

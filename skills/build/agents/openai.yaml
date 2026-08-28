@@ -1,0 +1,4 @@
+interface:
+  display_name: "build"
+  short_description: "把职业缺口变成 2–7 天 Proof of Work"
+  default_prompt: "用 /build 把这个能力缺口变成一个 2–7 天可完成的 Proof of Work，明确 baseline、评测、失败案例、交付标准和 ownership。"

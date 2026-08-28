@@ -1,0 +1,11 @@
+cases:
+  - input: "我做了一个原型但没有 benchmark，简历能写提升 40% 吗？"
+    expected_skill: proof
+  - input: "我已提交 PR 但还没合并，能写 merged contribution 吗？"
+    expected_skill: proof
+  - input: "拒信都说系统设计弱，应该怎样把反馈用于下一轮？"
+    expected_skill: offer
+  - input: "岗位 JD 说需要可靠性工程，我应该做什么 72 小时项目？"
+    expected_skill: build
+  - input: "这个趋势判断来自三年前文章，还能算当前市场信号吗？"
+    expected_skill: radar

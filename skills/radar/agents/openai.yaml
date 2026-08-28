@@ -1,0 +1,4 @@
+interface:
+  display_name: "radar"
+  short_description: "扫描新兴趋势并找出可验证的提前布局方向"
+  default_prompt: "用 /radar 结合我的背景、目标地区和投入时间，核对最新需求信号，输出趋势评分、反例、kill criteria 和 30 天证据路径。"
