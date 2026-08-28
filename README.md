@@ -111,6 +111,14 @@ Career Alpha 不会直接把这些经历包装成“主导生产级 Agent 系统
 - 进取定位：可以防守但仍需说明边界；
 - 未来定位：需要先补哪些项目或协作证据。
 
+## Visual References
+
+![Career Alpha visual reference 01](assets/career-alpha-visual-01.png)
+
+![Career Alpha visual reference 02](assets/career-alpha-visual-02.png)
+
+![Career Alpha visual reference 03](assets/career-alpha-visual-03.png)
+
 ## Evidence Layer
 
 所有核心 skill 共享 Claim–Evidence Ledger。每条强主张都应拆成：
@@ -223,6 +231,9 @@ career-alpha/
 │   ├── resume-language-guide.md
 │   └── interview-defense-framework.md
 ├── assets/
+│   ├── career-alpha-visual-01.png
+│   ├── career-alpha-visual-02.png
+│   ├── career-alpha-visual-03.png
 │   └── career-claim-ledger-template.json
 ├── tests/
 │   ├── skill-routing-cases.yaml
@@ -249,10 +260,6 @@ python3 scripts/validate_package.py
 - 当前趋势和招聘市场信息尽量使用新鲜来源，并保留来源与日期。
 - 任何会产生外部写入的 fork、branch、patch、PR 或消息，都应先展示动作、验证方式和风险。
 - 公开示例只保留最小必要信息，敏感求职材料默认留在本地。
-
-## Acknowledgements
-
-Career Alpha 参考了开源 [ASu-skills](https://github.com/Hisn00w/ASu-skills) 的多入口 skill 套件、证据优先、面试追问和求职闭环设计，并进一步加入趋势发现、错位竞争和主动制造 Proof of Work。
 
 ## License
 
