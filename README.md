@@ -12,6 +12,10 @@ Career Alpha 是一套面向 AI 时代的开源求职工作流。它从趋势发
 
 > **未来两周做什么，才能让半年后的自己更值钱？**
 
+![Career Alpha journey from opportunity scanning to offer](assets/career-alpha-visual-02.png)
+
+*Career Alpha 的完整路径：从扫描机会、判断方向，到项目、证据、面试与 Offer。*
+
 ## 30 秒了解
 
 输入：
@@ -55,6 +59,10 @@ Career Alpha 是一套面向 AI 时代的开源求职工作流。它从趋势发
 ```
 
 这不是固定的线性流程。你可以从当前最需要的入口开始，也可以在任意阶段回到上游补证据或修正假设。
+
+![Proof of Work：把努力变成可验证的结果](assets/career-alpha-visual-01.png)
+
+*Proof of Work：把努力变成可验证的结果。*
 
 ## Skills
 
@@ -111,17 +119,13 @@ Career Alpha 不会直接把这些经历包装成“主导生产级 Agent 系统
 - 进取定位：可以防守但仍需说明边界；
 - 未来定位：需要先补哪些项目或协作证据。
 
-## Visual References
-
-![Career Alpha visual reference 01](assets/career-alpha-visual-01.png)
-
-![Career Alpha visual reference 02](assets/career-alpha-visual-02.png)
-
-![Career Alpha visual reference 03](assets/career-alpha-visual-03.png)
-
 ## Evidence Layer
 
 所有核心 skill 共享 Claim–Evidence Ledger。每条强主张都应拆成：
+
+![证据账本：把主张和可验证证据对应起来](assets/career-alpha-visual-03.png)
+
+*证据账本：让每条主张都有对应的证据、结果和 ownership。*
 
 ```text
 Claim:
