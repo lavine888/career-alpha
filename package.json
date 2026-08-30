@@ -7,6 +7,7 @@
   "scripts": {
     "init": "node scripts/career-alpha.mjs init",
     "demo": "node scripts/career-alpha.mjs demo",
+    "snapshot": "node scripts/career-alpha.mjs snapshot",
     "validate:skills": "python3 scripts/validate_skills.py",
     "validate:package": "python3 scripts/validate_package.py",
     "validate:node": "node scripts/validate_node_package.mjs",
