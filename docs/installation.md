@@ -131,16 +131,31 @@ This creates:
 ├── radar.json
 ├── wedges.json
 ├── ledger.json
+├── proofs.json
 └── applications.json
 ```
 
 `.career-alpha/` is ignored by git by default.
 
-To load demo local data:
+To inspect demo assets:
 
 ```bash
 npm run demo
 ```
+
+To generate a reviewable Markdown snapshot from your local workspace:
+
+```bash
+npm run snapshot
+```
+
+This writes:
+
+```text
+.career-alpha/snapshot.md
+```
+
+Review the file before sharing. The export is local-only but it is **not** an automatic privacy filter. See [Career Alpha Snapshot](career-snapshot.md).
 
 To validate the package:
 
