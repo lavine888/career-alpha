@@ -1,0 +1,8 @@
+# Local Career Alpha workspace may contain personal job-search data.
+.career-alpha/
+
+# Local / editor files
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
