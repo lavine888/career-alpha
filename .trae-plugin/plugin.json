@@ -1,0 +1,36 @@
+{
+  "name": "career-alpha",
+  "version": "0.2.0",
+  "description": "AI-native career OS for trend discovery, asymmetric opportunity finding, proof-of-work, evidence-backed positioning, interview defense and market feedback.",
+  "author": {
+    "name": "Lavine",
+    "url": "https://github.com/lavine888"
+  },
+  "homepage": "https://github.com/lavine888/career-alpha",
+  "repository": "https://github.com/lavine888/career-alpha",
+  "license": "MIT",
+  "keywords": ["career", "job-search", "ai", "proof-of-work", "career-alpha"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Career Alpha",
+    "shortDescription": "Find asymmetric career opportunities and turn them into verifiable proof.",
+    "longDescription": "Career Alpha packages radar, wedge, contributor, build, proof, position, interview and offer as eight TraeWork skills in one evidence-first career operating system.",
+    "developerName": "Lavine",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://github.com/lavine888/career-alpha",
+    "defaultPrompt": [
+      "Use /radar to scan emerging career opportunities.",
+      "Use /wedge to find an asymmetric entry point.",
+      "Use /contributor to build verified open-source evidence.",
+      "Use /build to design a proof-of-work mission.",
+      "Use /proof to build a Claim–Evidence Ledger.",
+      "Use /position to create Safe, Strong and Future positioning.",
+      "Use /interview to pressure-test claims.",
+      "Use /offer to close the loop with market feedback."
+    ],
+    "brandColor": "#0A1225",
+    "composerIcon": "./assets/career-alpha-logo.svg",
+    "logo": "./assets/career-alpha-logo.svg"
+  }
+}
