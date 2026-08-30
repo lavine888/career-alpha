@@ -9,12 +9,13 @@
 **Find your career alpha before it becomes consensus.**  
 **在机会成为共识之前，找到你的职业 Alpha。**
 
-[English](README_en.md) · [Workbench](assets/career-alpha-workbench.html) · [Agent Engineer Case](docs/agent-engineer-end-to-end.md) · [Cases](docs/cases)
+[English](README_en.md) · [Workbench](assets/career-alpha-workbench.html) · [安装](docs/installation.md) · [Case Library](docs/cases/README.md)
 
 ![License](https://img.shields.io/badge/license-MIT-2f81f7)
 ![Codex](https://img.shields.io/badge/Codex-skill-111827)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-d97757)
 ![OpenCode](https://img.shields.io/badge/OpenCode-plugin-2563eb)
+![TraeWork](https://img.shields.io/badge/TraeWork-plugin-7c3aed)
 ![Evidence First](https://img.shields.io/badge/method-evidence--first-16a34a)
 
 </div>
@@ -59,7 +60,7 @@ Career Alpha 往前多走一步：
 
 所有数据默认只保存在当前浏览器 `localStorage`，支持 JSON 导入 / 导出，不自动上传。
 
-> 打开后点击 **「载入示例」**，可以直接看到 Agent Engineer 案例。
+除了内置 Agent Engineer Demo，还可以直接导入 [`examples/workbench/`](examples/workbench/README.md) 中的四套职业案例状态。
 
 ---
 
@@ -72,7 +73,7 @@ Career Alpha 不是只为 Agent Engineer 设计。仓库用四种不同角色展
 | **[Agent Engineer](docs/agent-engineer-end-to-end.md)** | Agent Reliability / Evaluation | Harness benchmark、failure taxonomy、ablation |
 | **[AI Product Manager](docs/cases/ai-product-manager.md)** | Workflow + Evaluation PM | user workflow、eval rubric、human fallback、outcome metrics |
 | **[Quant Researcher](docs/cases/quant-researcher.md)** | Robustness-first research | cost model、sensitivity、failure regimes、reproducible pipeline |
-| **[Robotics / Physical AI](docs/cases/robotics-engineer.md)** | Eval + Reliability | fixed scenarios、recovery benchmark、sim failure taxonomy |
+| **[Robotics / Physical AI](docs/cases/robotics-engineer.md)** | Eval + Reliability | fixed scenarios、recovery benchmark、simulation boundary |
 
 四个案例都遵守同一条原则：
 
@@ -163,8 +164,6 @@ Safe / Strong / Future Position
 
 ## `/radar`：不是热点榜，是需求雷达
 
-`/radar` 会区分信号层级：
-
 ```text
 Tier A — 招聘、付费产品、first-party hiring、生产需求
 Tier B — GitHub adoption、工程博客、benchmark、真实 builder pain
@@ -172,35 +171,13 @@ Tier C — 组织 / 融资 / 新团队
 Tier D — 媒体、X、小红书、搜索热度
 ```
 
-只有热度、没有 Tier A / B 支撑的方向，会被标记为 `HYPE` 或低 confidence。
-
-统一状态：
-
-```text
-EARLY
-GROWING
-CONSENSUS
-SATURATED
-TOO_EARLY
-HYPE
-```
-
-同时强制找 **negative evidence**，避免趋势分析变成自我说服。
+只有热度、没有 Tier A / B 支撑的方向，会被标记为 `HYPE` 或低 confidence，并强制寻找 negative evidence。
 
 ---
 
 ## `/wedge`：不选最热门，选最小非对称入口
 
-Career Alpha 支持：
-
-- **Skill Wedge** — 新能力供给少；
-- **Problem Wedge** — 新痛点开始产生预算；
-- **Distribution Wedge** — 技术 × 市场 / 行业组合稀缺；
-- **Evidence Wedge** — 大家都说会，但很少人能拿出 hard proof；
-- **Organization Wedge** — 特定公司阶段需要非常规组合能力；
-- **Contribution Wedge** — 通过真实开源生态建立外部验证。
-
-核心不是“新”，而是：
+Career Alpha 支持 Skill、Problem、Distribution、Evidence、Organization、Contribution 六类 wedge。
 
 ```text
 Evidence ROI = credibility gained / (time + learning cost + coordination cost)
@@ -213,8 +190,6 @@ Evidence ROI = credibility gained / (time + learning cost + coordination cost)
 一个 Career Alpha 项目必须先回答：
 
 > **项目完成后，我能诚实多说哪一句以前不能说的话？**
-
-默认流程：
 
 ```text
 Career Claim
@@ -232,17 +207,13 @@ Artifacts
 Definition of Done
 ```
 
-优先项目 archetype：Benchmark、Reliability、Vertical Workflow、Integration、Cost / Latency、Open-source Extension、Reproduction。
-
 不会默认让你再做一个全栈 ChatGPT Clone。
 
 ---
 
 ## `/proof`：Claim–Evidence Ledger
 
-Career Alpha 的核心事实层。
-
-每条强主张拆成 atomic claims，并分别审计：
+每条强主张拆成：
 
 ```text
 Claim
@@ -267,7 +238,7 @@ Confidence 只允许：
 
 一个项目本身可以是 VERIFIED，但其中的“性能提升 28%”仍可能只是 SUPPORTED。
 
-需要结构化保存时使用：
+结构化资产：
 
 - [career-claim-ledger-template.json](assets/career-claim-ledger-template.json)
 - [claim-evidence-ledger.schema.json](references/claim-evidence-ledger.schema.json)
@@ -276,26 +247,15 @@ Confidence 只允许：
 
 ## `/position`：Safe / Strong / Future
 
-它不是简单“简历润色”。
-
-### Safe Position
-当前证据直接支持，默认可写简历。
-
-### Strong Position
-更进取，但必须能明确解释边界。
-
-### Future Position
-下一阶段想成为谁，以及 **还缺什么证据**。
+- **Safe Position** — 当前证据直接支持；
+- **Strong Position** — 更进取，但能明确解释边界；
+- **Future Position** — 下一阶段想成为谁，以及还缺什么证据。
 
 Future Position 不能被偷偷写成当前事实；它会被路由回 `/build` 或 `/contributor`。
-
-同一份 evidence 可以生成 Resume、30 秒介绍、HR opener、Founder DM、GitHub / portfolio intro 和 interview story，但所有渠道必须回到同一个 Ledger。
 
 ---
 
 ## `/interview`：不是背题，是压力测试
-
-针对高风险 claim 使用 five-layer follow-up：
 
 ```text
 What exactly did you do?
@@ -319,21 +279,9 @@ DOWNGRADE
 REMOVE
 ```
 
-如果一条简历主张扛不住，默认选择补知识、补证据或降低表述，而不是训练用户“圆过去”。
-
 ---
 
 ## `/offer`：让市场修正你的判断
-
-Pipeline 不是 Excel 档案，而是 Career Alpha 的反馈层。
-
-每个周期给：
-
-```text
-KEEP / REFINE / PIVOT
-```
-
-并回流：
 
 ```text
 trend wrong      → /radar
@@ -343,11 +291,11 @@ position unclear → /position
 interview weak   → /interview
 ```
 
+每个周期给出 `KEEP / REFINE / PIVOT`。
+
 ---
 
 ## Local Workspace / CLI
-
-Career Alpha 默认把个人求职数据和公共 skill 代码分开。
 
 ```bash
 npm run init
@@ -364,36 +312,19 @@ npm run init
 └── applications.json
 ```
 
-`.career-alpha/` 已默认加入 `.gitignore`，避免联系人、招聘反馈、薪资和私有证据误提交到公开仓库。
-
-常用命令：
+`.career-alpha/` 已默认加入 `.gitignore`。
 
 ```bash
-npm run init      # 创建本地工作区
-npm run demo      # 写入示例数据
-npm run validate  # 校验 skills + package contract
+npm run init
+npm run demo
+npm run validate
 ```
 
 ---
 
-## Cross-skill Contract
-
-所有 skills 通过 [Cross-skill Handoff Contract](references/handoff-contract.md) 共享最小 Context Packet：
-
-- Goal
-- Verified facts
-- Hypotheses / fresh signals
-- Planned work
-- Evidence references
-- Open questions
-- Recommended next skill
-- Privacy boundary
-
-> **下一个 skill 可以改写表达，但不能静默提升 confidence、扩大 ownership，或把计划写成既成事实。**
-
----
-
 ## Installation
+
+完整步骤见 **[docs/installation.md](docs/installation.md)**。
 
 ### Codex
 
@@ -402,19 +333,25 @@ npm run validate  # 校验 skills + package contract
 https://github.com/lavine888/career-alpha
 ```
 
-安装后新开一个对话，让 skill 重新加载。
+### Claude Code
 
-### Claude Code / OpenCode
+```text
+/plugin marketplace add lavine888/career-alpha
+/plugin install career-alpha@career-alpha
+```
 
-仓库包含：
+### OpenCode / TraeWork
+
+仓库已经提供四套 packaging：
 
 ```text
 .codex-plugin/
 .claude-plugin/
 .opencode-plugin/
+.trae-plugin/
 ```
 
-客户端共享同一套 `skills/`、`references/` 和 `assets/`。
+所有客户端共享同一套 `skills/`、`references/` 和 evidence contract。
 
 ---
 
@@ -422,21 +359,22 @@ https://github.com/lavine888/career-alpha
 
 ```text
 career-alpha/
-├── .codex-plugin/plugin.json
-├── .claude-plugin/plugin.json
-├── .opencode-plugin/plugin.json
+├── .codex-plugin/
+├── .claude-plugin/
+│   ├── plugin.json
+│   └── marketplace.json
+├── .opencode-plugin/
+├── .trae-plugin/
 ├── assets/
 │   ├── career-alpha-logo.svg
 │   ├── career-alpha-hero.svg
 │   ├── workbench-preview.svg
-│   ├── career-alpha-workbench.html
-│   └── career-claim-ledger-template.json
+│   └── career-alpha-workbench.html
 ├── docs/
+│   ├── installation.md
 │   ├── agent-engineer-end-to-end.md
 │   └── cases/
-│       ├── ai-product-manager.md
-│       ├── quant-researcher.md
-│       └── robotics-engineer.md
+├── examples/workbench/
 ├── lib/
 ├── skills/
 │   └── <skill>/
@@ -457,7 +395,7 @@ career-alpha/
 npm run validate
 ```
 
-校验覆盖 frontmatter、plugin JSON、skill-local/shared references、routing、ledger contract、CLI、Workbench 与 local-only workspace 约束。
+校验覆盖 frontmatter、四套 plugin manifests、skill-local/shared references、routing、ledger contract、CLI、品牌资产、Workbench 与案例 bundles。
 
 ---
 
@@ -474,14 +412,7 @@ npm run validate
 
 ## Contributing
 
-欢迎提交：
-
-- 新的真实 Career Alpha case；
-- 新 wedge / benchmark pattern；
-- failure case；
-- routing / eval case；
-- evidence protocol；
-- Workbench 改进。
+欢迎提交新的真实 Career Alpha case、wedge / benchmark pattern、failure case、routing / eval case、evidence protocol 和 Workbench 改进。
 
 Issue 已提供 **Share your Career Alpha**、New Skill 和 Bug 模板；PR 会自动运行 package validation。
 
