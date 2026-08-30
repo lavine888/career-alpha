@@ -37,7 +37,7 @@ LEDGER_SCHEMA = ROOT / "references" / "claim-evidence-ledger.schema.json"
 LEDGER_TEMPLATE = ROOT / "assets" / "career-claim-ledger-template.json"
 
 MARKDOWN_LINK = re.compile(r"\]\(([^)\n]+)\)")
-REFERENCE_LINK = re.compile(r"references/[A-Za-z0-9_.\-/]+\.md")
+REFERENCE_LINK = re.compile(r"(?:\.\./\.\./)?references/[A-Za-z0-9_.\-/]+\.md")
 CASE_START = re.compile(r"^\s{2}-\s+(input|prompt):\s*(.+)$")
 EXPECTED_SKILL = re.compile(r"^\s{4}(expected_skill|expected):\s*(.+)$")
 EXPECTED_FLOW = re.compile(r"^\s{4}(expected_flow|flow):\s*(.*)$")
@@ -166,15 +166,25 @@ def check_markdown_links(path: Path, text: str, report: Report) -> None:
             continue
         resolved = (path.parent / target).resolve()
         try:
-            resolved.relative_to(ROOT)
+            resolved.relative_to(ROOT.resolve())
         except ValueError:
             report.error(path, f"Markdown link escapes repository: {target}")
             continue
         if not resolved.exists():
             report.error(path, f"missing Markdown link target: {target}")
 
-    for reference in REFERENCE_LINK.findall(text):
-        if not (ROOT / reference).exists():
+    # Also validate plain-text reference mentions used by operational playbooks.
+    # Resolve them relative to the SKILL.md location so both
+    # `references/foo.md` (skill-local) and `../../references/foo.md`
+    # (shared) follow normal Markdown path semantics.
+    for reference in sorted(set(REFERENCE_LINK.findall(text))):
+        resolved = (path.parent / reference).resolve()
+        try:
+            resolved.relative_to(ROOT.resolve())
+        except ValueError:
+            report.error(path, f"referenced path escapes repository: {reference}")
+            continue
+        if not resolved.exists():
             report.error(path, f"missing referenced file: {reference}")
 
 
