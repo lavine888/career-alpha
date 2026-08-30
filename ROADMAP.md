@@ -8,6 +8,7 @@ Career Alpha is intentionally small at the skill-entry layer. The roadmap focuse
 - [x] Skill-local operational references
 - [x] Claim–Evidence Ledger + JSON Schema
 - [x] Cross-skill handoff contract
+- [x] Deterministic handoff integrity eval for confidence / status / ownership / privacy drift
 - [x] Local Workbench
 - [x] Local `.career-alpha/` workspace
 - [x] Codex / Claude Code / OpenCode / TraeWork packaging
@@ -15,7 +16,7 @@ Career Alpha is intentionally small at the skill-entry layer. The roadmap focuse
 - [x] Agent Engineer end-to-end case
 - [x] AI Product / Quant / Robotics case library
 - [x] Importable Workbench example bundles
-- [x] Package / routing / evidence validation in CI
+- [x] Package / routing / evidence / documentation validation in CI
 
 ## v0.3 — Real-world Validation
 
@@ -23,7 +24,8 @@ Career Alpha is intentionally small at the skill-entry layer. The roadmap focuse
 - [ ] Add outcome taxonomy for interview / recruiter / founder feedback
 - [ ] Add case-quality rubric so anecdotal wins are not treated as universal strategy
 - [x] Add role-specific source packs for AI Engineering, Product, Quant and Robotics
-- [ ] Add benchmark for skill routing and handoff consistency
+- [ ] Add semantic evals for ownership inflation, numerical claims and demo-vs-production boundaries
+- [ ] Add model-based benchmark for skill routing and end-to-end handoff consistency
 - [ ] Add Workbench case selector and direct bundle loading
 - [x] Add exportable Career Alpha report / portfolio evidence page (`npm run snapshot`)
 
