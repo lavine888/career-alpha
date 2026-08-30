@@ -63,6 +63,22 @@ Tier D 只能作为辅助。**讨论量大 ≠ 有职业需求。**
 - 尽量说明 sample size；
 - 把旧资料作为 background，不把它伪装成当前信号。
 
+### Role-specific source packs
+
+基础信号层级之外，根据目标岗位加载 [Source Packs](../../references/source-packs/README.md)。当前内置：
+
+- [AI Engineering / Agent Systems](../../references/source-packs/ai-engineering.md)
+- [AI Product / Applied AI PM](../../references/source-packs/ai-product.md)
+- [Quant Research](../../references/source-packs/quant.md)
+- [Robotics / Physical AI](../../references/source-packs/robotics.md)
+
+规则：
+
+- 目标角色明确时，先加载对应 pack 再收集候选趋势；
+- 跨域角色最多组合两个 pack，并显式写出 hybrid；
+- source pack 只改变“什么算强需求 / 强证据”的判断方式，不替代最新外部验证；
+- 没有对应 pack 时使用通用框架，并标记 `Generic Source Strategy`。
+
 ---
 
 ## 3. Build the candidate set
