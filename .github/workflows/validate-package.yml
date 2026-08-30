@@ -3,9 +3,13 @@ name: Validate Career Alpha package contract
 on:
   push:
     paths:
+      - "package.json"
+      - "lib/**"
       - "skills/**"
       - "references/**"
       - "assets/**"
+      - "docs/**"
+      - ".gitignore"
       - ".codex-plugin/**"
       - ".claude-plugin/**"
       - ".opencode-plugin/**"
@@ -14,9 +18,13 @@ on:
       - ".github/workflows/validate-package.yml"
   pull_request:
     paths:
+      - "package.json"
+      - "lib/**"
       - "skills/**"
       - "references/**"
       - "assets/**"
+      - "docs/**"
+      - ".gitignore"
       - ".codex-plugin/**"
       - ".claude-plugin/**"
       - ".opencode-plugin/**"
@@ -36,5 +44,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate package contract
-        run: python3 scripts/validate_package.py
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate skill and package contracts
+        run: |
+          python3 scripts/validate_skills.py
+          python3 scripts/validate_package.py
+          node scripts/validate_node_package.mjs
