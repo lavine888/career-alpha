@@ -1,113 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 620" role="img" aria-labelledby="title desc">
   <title id="title">Career Alpha cute-tech workflow hero</title>
-  <desc id="desc">Career Alpha career hypothesis loop in the same soft cute-tech visual language as the Workbench.</desc>
+  <desc id="desc">Career Alpha career hypothesis loop using the unified Career Alpha Orb brand system.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a1424"/>
-      <stop offset="0.52" stop-color="#08111f"/>
-      <stop offset="1" stop-color="#0b1220"/>
-    </linearGradient>
-    <linearGradient id="mascot" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#91c8ff"/>
-      <stop offset="0.52" stop-color="#bdaeff"/>
-      <stop offset="1" stop-color="#9ef0c8"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#7cb7ff"/>
-      <stop offset="0.55" stop-color="#8ce7f1"/>
-      <stop offset="1" stop-color="#9ef0c8"/>
-    </linearGradient>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#010814" flood-opacity="0.3"/>
-    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A1424"/><stop offset="0.52" stop-color="#08111F"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+    <linearGradient id="orb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7CB7FF"/><stop offset="0.52" stop-color="#CBB7FF"/><stop offset="1" stop-color="#9EF0C8"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7CB7FF"/><stop offset="0.55" stop-color="#8CE7F1"/><stop offset="1" stop-color="#9EF0C8"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#010814" flood-opacity="0.3"/></filter>
     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="28"/></filter>
   </defs>
 
   <rect width="1400" height="620" rx="42" fill="url(#bg)"/>
-  <circle cx="105" cy="68" r="100" fill="#7cb7ff" opacity="0.07" filter="url(#glow)"/>
-  <circle cx="1280" cy="90" r="125" fill="#cbb7ff" opacity="0.07" filter="url(#glow)"/>
-  <circle cx="710" cy="602" r="150" fill="#9ef0c8" opacity="0.04" filter="url(#glow)"/>
+  <circle cx="105" cy="68" r="100" fill="#7CB7FF" opacity="0.07" filter="url(#glow)"/>
+  <circle cx="1280" cy="90" r="125" fill="#CBB7FF" opacity="0.07" filter="url(#glow)"/>
+  <circle cx="710" cy="602" r="150" fill="#9EF0C8" opacity="0.04" filter="url(#glow)"/>
 
   <g font-family="Inter,Arial,sans-serif">
-    <!-- mascot -->
-    <g transform="translate(88 68) rotate(-4 31 31)" filter="url(#shadow)">
-      <rect width="62" height="62" rx="21" fill="url(#mascot)"/>
-      <ellipse cx="31" cy="33" rx="40" ry="12" fill="none" stroke="#ffe08a" stroke-width="2.4" opacity="0.82" transform="rotate(-14 31 33)"/>
-      <circle cx="20" cy="27" r="3.4" fill="#172238"/><circle cx="42" cy="27" r="3.4" fill="#172238"/>
-      <path d="M24 39 Q31 46 39 39" fill="none" stroke="#172238" stroke-width="2.4" stroke-linecap="round"/>
-      <text x="54" y="5" fill="#ffe08a" font-size="19">✦</text>
+    <!-- Formal Career Alpha Orb -->
+    <g transform="translate(88 62)" filter="url(#shadow)">
+      <rect width="72" height="72" rx="22" fill="#0D182A" stroke="#2A3D5C"/>
+      <path d="M14 39 C20 26 52 22 60 33" fill="none" stroke="#FFE08A" stroke-width="3.2" stroke-linecap="round" opacity="0.88"/>
+      <circle cx="36" cy="36" r="18" fill="url(#orb)"/>
+      <path d="M28 46 L36 28 L44 46 M31 40 H41" fill="none" stroke="#F8FAFC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+      <path d="M14 39 C22 52 52 51 60 33" fill="none" stroke="#FFE08A" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M52 20 L63 9 M63 9 L62 20 M63 9 L52 10" fill="none" stroke="#FFE08A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
-    <text x="172" y="93" fill="#f8f9fd" font-size="34" font-weight="760">Career Alpha</text>
-    <text x="172" y="122" fill="#a6b5cb" font-size="17">AI-native Career OS · cute but competent</text>
+    <text x="178" y="91" fill="#F8F9FD" font-size="34" font-weight="760">Career Alpha</text>
+    <text x="178" y="120" fill="#A6B5CB" font-size="17">AI-native Career OS · cute but competent</text>
 
     <g transform="translate(1015 70)">
-      <rect width="112" height="30" rx="15" fill="#11233b" stroke="#274564"/><circle cx="17" cy="15" r="4" fill="#9ef0c8"/><text x="29" y="20" fill="#baf3d5" font-size="11">Evidence first</text>
-      <rect x="122" width="122" height="30" rx="15" fill="#171f35" stroke="#403a60"/><text x="138" y="20" fill="#ded3ff" font-size="11">Private by default</text>
+      <rect width="112" height="30" rx="15" fill="#11233B" stroke="#274564"/><circle cx="17" cy="15" r="4" fill="#9EF0C8"/><text x="29" y="20" fill="#BAF3D5" font-size="11">Evidence first</text>
+      <rect x="122" width="122" height="30" rx="15" fill="#171F35" stroke="#403A60"/><text x="138" y="20" fill="#DED3FF" font-size="11">Private by default</text>
     </g>
 
-    <text x="88" y="208" fill="#ffffff" font-size="55" font-weight="780">Build the next valuable fact.</text>
-    <text x="88" y="248" fill="#a6b5cb" font-size="21">Find a real wedge, create proof, defend the claim, then let the market update your next move.</text>
+    <text x="88" y="208" fill="#FFFFFF" font-size="55" font-weight="780">Build the next valuable fact.</text>
+    <text x="88" y="248" fill="#A6B5CB" font-size="21">Find a real wedge, create proof, defend the claim, then let the market update your next move.</text>
 
     <g transform="translate(88 292)" filter="url(#shadow)">
-      <rect width="1224" height="214" rx="30" fill="#0e1a2e" stroke="#2a3d5c"/>
+      <rect width="1224" height="214" rx="30" fill="#0E1A2E" stroke="#2A3D5C"/>
 
-      <g transform="translate(22 26)">
-        <rect width="176" height="160" rx="24" fill="#101f35" stroke="#2a405f"/>
-        <rect x="18" y="18" width="31" height="31" rx="11" fill="#1d2942" stroke="#514772"/><text x="27" y="39" fill="#d9ccff" font-size="15">⌁</text>
-        <text x="18" y="76" fill="#8ce7f1" font-size="12" font-weight="700" letter-spacing="1.5">01 / RADAR</text>
-        <text x="18" y="107" fill="#f8f9fd" font-size="24" font-weight="700">Scan</text>
-        <text x="18" y="133" fill="#94a8c3" font-size="13">Demand before hype</text>
-      </g>
-      <path d="M207 106 H229" stroke="#7cb7ff" stroke-width="3" stroke-linecap="round"/><path d="M222 100 L230 106 L222 112" fill="none" stroke="#7cb7ff" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(22 26)"><rect width="176" height="160" rx="24" fill="#101F35" stroke="#2A405F"/><rect x="18" y="18" width="31" height="31" rx="11" fill="#1D2942" stroke="#514772"/><text x="27" y="39" fill="#D9CCFF" font-size="15">⌁</text><text x="18" y="76" fill="#8CE7F1" font-size="12" font-weight="700" letter-spacing="1.5">01 / RADAR</text><text x="18" y="107" fill="#F8F9FD" font-size="24" font-weight="700">Scan</text><text x="18" y="133" fill="#94A8C3" font-size="13">Demand before hype</text></g>
+      <path d="M207 106 H229" stroke="#7CB7FF" stroke-width="3" stroke-linecap="round"/><path d="M222 100 L230 106 L222 112" fill="none" stroke="#7CB7FF" stroke-width="3" stroke-linecap="round"/>
 
-      <g transform="translate(240 26)">
-        <rect width="176" height="160" rx="24" fill="#101f35" stroke="#2a405f"/>
-        <rect x="18" y="18" width="31" height="31" rx="11" fill="#282439" stroke="#5d5030"/><text x="27" y="39" fill="#ffe08a" font-size="15">◇</text>
-        <text x="18" y="76" fill="#ffe08a" font-size="12" font-weight="700" letter-spacing="1.5">02 / WEDGE</text>
-        <text x="18" y="107" fill="#f8f9fd" font-size="24" font-weight="700">Enter</text>
-        <text x="18" y="133" fill="#94a8c3" font-size="13">Small asymmetric edge</text>
-      </g>
-      <path d="M425 106 H447" stroke="#8ce7f1" stroke-width="3" stroke-linecap="round"/><path d="M440 100 L448 106 L440 112" fill="none" stroke="#8ce7f1" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(240 26)"><rect width="176" height="160" rx="24" fill="#101F35" stroke="#2A405F"/><rect x="18" y="18" width="31" height="31" rx="11" fill="#282439" stroke="#5D5030"/><text x="27" y="39" fill="#FFE08A" font-size="15">◇</text><text x="18" y="76" fill="#FFE08A" font-size="12" font-weight="700" letter-spacing="1.5">02 / WEDGE</text><text x="18" y="107" fill="#F8F9FD" font-size="24" font-weight="700">Enter</text><text x="18" y="133" fill="#94A8C3" font-size="13">Small asymmetric edge</text></g>
+      <path d="M425 106 H447" stroke="#8CE7F1" stroke-width="3" stroke-linecap="round"/><path d="M440 100 L448 106 L440 112" fill="none" stroke="#8CE7F1" stroke-width="3" stroke-linecap="round"/>
 
-      <g transform="translate(458 26)">
-        <rect width="176" height="160" rx="24" fill="#101f35" stroke="#2a405f"/>
-        <rect x="18" y="18" width="31" height="31" rx="11" fill="#173329" stroke="#315d4c"/><text x="27" y="39" fill="#9ef0c8" font-size="15">✓</text>
-        <text x="18" y="76" fill="#9ef0c8" font-size="12" font-weight="700" letter-spacing="1.5">03 / BUILD</text>
-        <text x="18" y="107" fill="#f8f9fd" font-size="24" font-weight="700">Create</text>
-        <text x="18" y="133" fill="#94a8c3" font-size="13">2–7 day real proof</text>
-      </g>
-      <path d="M643 106 H665" stroke="#9ef0c8" stroke-width="3" stroke-linecap="round"/><path d="M658 100 L666 106 L658 112" fill="none" stroke="#9ef0c8" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(458 26)"><rect width="176" height="160" rx="24" fill="#101F35" stroke="#2A405F"/><rect x="18" y="18" width="31" height="31" rx="11" fill="#173329" stroke="#315D4C"/><text x="27" y="39" fill="#9EF0C8" font-size="15">✓</text><text x="18" y="76" fill="#9EF0C8" font-size="12" font-weight="700" letter-spacing="1.5">03 / BUILD</text><text x="18" y="107" fill="#F8F9FD" font-size="24" font-weight="700">Create</text><text x="18" y="133" fill="#94A8C3" font-size="13">2–7 day real proof</text></g>
+      <path d="M643 106 H665" stroke="#9EF0C8" stroke-width="3" stroke-linecap="round"/><path d="M658 100 L666 106 L658 112" fill="none" stroke="#9EF0C8" stroke-width="3" stroke-linecap="round"/>
 
-      <g transform="translate(676 26)">
-        <rect width="176" height="160" rx="24" fill="#101f35" stroke="#2a405f"/>
-        <rect x="18" y="18" width="31" height="31" rx="11" fill="#211f39" stroke="#4c426d"/><text x="27" y="39" fill="#cbb7ff" font-size="15">◌</text>
-        <text x="18" y="76" fill="#cbb7ff" font-size="12" font-weight="700" letter-spacing="1.5">04 / PROOF</text>
-        <text x="18" y="107" fill="#f8f9fd" font-size="24" font-weight="700">Verify</text>
-        <text x="18" y="133" fill="#94a8c3" font-size="13">Claim → evidence</text>
-      </g>
-      <path d="M861 106 H883" stroke="#cbb7ff" stroke-width="3" stroke-linecap="round"/><path d="M876 100 L884 106 L876 112" fill="none" stroke="#cbb7ff" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(676 26)"><rect width="176" height="160" rx="24" fill="#101F35" stroke="#2A405F"/><rect x="18" y="18" width="31" height="31" rx="11" fill="#211F39" stroke="#4C426D"/><text x="27" y="39" fill="#CBB7FF" font-size="15">◌</text><text x="18" y="76" fill="#CBB7FF" font-size="12" font-weight="700" letter-spacing="1.5">04 / PROOF</text><text x="18" y="107" fill="#F8F9FD" font-size="24" font-weight="700">Verify</text><text x="18" y="133" fill="#94A8C3" font-size="13">Claim → evidence</text></g>
+      <path d="M861 106 H883" stroke="#CBB7FF" stroke-width="3" stroke-linecap="round"/><path d="M876 100 L884 106 L876 112" fill="none" stroke="#CBB7FF" stroke-width="3" stroke-linecap="round"/>
 
-      <g transform="translate(894 26)">
-        <rect width="176" height="160" rx="24" fill="#101f35" stroke="#2a405f"/>
-        <rect x="18" y="18" width="31" height="31" rx="11" fill="#342335" stroke="#65415a"/><text x="27" y="39" fill="#f7a8c6" font-size="15">✎</text>
-        <text x="18" y="76" fill="#f7a8c6" font-size="12" font-weight="700" letter-spacing="1.5">05 / POSITION</text>
-        <text x="18" y="107" fill="#f8f9fd" font-size="24" font-weight="700">Translate</text>
-        <text x="18" y="133" fill="#94a8c3" font-size="13">Safe / Strong / Future</text>
-      </g>
-      <path d="M1079 106 H1101" stroke="#f7a8c6" stroke-width="3" stroke-linecap="round"/><path d="M1094 100 L1102 106 L1094 112" fill="none" stroke="#f7a8c6" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(894 26)"><rect width="176" height="160" rx="24" fill="#101F35" stroke="#2A405F"/><rect x="18" y="18" width="31" height="31" rx="11" fill="#342335" stroke="#65415A"/><text x="27" y="39" fill="#F7A8C6" font-size="15">✎</text><text x="18" y="76" fill="#F7A8C6" font-size="12" font-weight="700" letter-spacing="1.5">05 / POSITION</text><text x="18" y="107" fill="#F8F9FD" font-size="24" font-weight="700">Translate</text><text x="18" y="133" fill="#94A8C3" font-size="13">Safe / Strong / Future</text></g>
+      <path d="M1079 106 H1101" stroke="#F7A8C6" stroke-width="3" stroke-linecap="round"/><path d="M1094 100 L1102 106 L1094 112" fill="none" stroke="#F7A8C6" stroke-width="3" stroke-linecap="round"/>
 
-      <g transform="translate(1112 26)">
-        <rect width="90" height="160" rx="24" fill="#13231f" stroke="#31594c"/>
-        <rect x="16" y="18" width="31" height="31" rx="11" fill="#19372e" stroke="#315d4c"/><text x="25" y="39" fill="#9ef0c8" font-size="15">✦</text>
-        <text x="16" y="76" fill="#9ef0c8" font-size="11" font-weight="700">06</text>
-        <text x="16" y="107" fill="#f8f9fd" font-size="21" font-weight="700">Learn</text>
-        <text x="16" y="132" fill="#94a8c3" font-size="12">Keep</text><text x="16" y="148" fill="#94a8c3" font-size="12">or pivot</text>
-      </g>
+      <g transform="translate(1112 26)"><rect width="90" height="160" rx="24" fill="#13231F" stroke="#31594C"/><rect x="16" y="18" width="31" height="31" rx="11" fill="#19372E" stroke="#315D4C"/><text x="25" y="39" fill="#9EF0C8" font-size="15">✦</text><text x="16" y="76" fill="#9EF0C8" font-size="11" font-weight="700">06</text><text x="16" y="107" fill="#F8F9FD" font-size="21" font-weight="700">Learn</text><text x="16" y="132" fill="#94A8C3" font-size="12">Keep</text><text x="16" y="148" fill="#94A8C3" font-size="12">or pivot</text></g>
     </g>
 
     <path d="M1250 530 C1240 576 1140 590 1010 590 H250 C150 590 102 565 102 520" fill="none" stroke="#405670" stroke-width="2.5" stroke-dasharray="7 9" opacity="0.8"/>
-    <path d="M102 520 L93 507 M102 520 L114 510" fill="none" stroke="#8ce7f1" stroke-width="2.8" stroke-linecap="round"/>
-    <text x="555" y="598" fill="#7388a4" font-size="13" letter-spacing="2">CAREER HYPOTHESIS LOOP</text>
+    <path d="M102 520 L93 507 M102 520 L114 510" fill="none" stroke="#8CE7F1" stroke-width="2.8" stroke-linecap="round"/>
+    <text x="555" y="598" fill="#7388A4" font-size="13" letter-spacing="2">CAREER HYPOTHESIS LOOP</text>
   </g>
 </svg>
