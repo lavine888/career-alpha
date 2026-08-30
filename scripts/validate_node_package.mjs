@@ -29,7 +29,7 @@ if (pkg) {
   if (pkg.version !== '0.2.0') fail('package.json: version must be 0.2.0');
   if (pkg.type !== 'module') fail('package.json: type must be module');
 
-  for (const script of ['init', 'demo', 'validate:skills', 'validate:package', 'validate:node', 'validate:docs', 'validate']) {
+  for (const script of ['init', 'demo', 'snapshot', 'eval:handoff', 'validate:skills', 'validate:package', 'validate:node', 'validate:docs', 'validate']) {
     if (!pkg.scripts?.[script]) fail(`package.json: missing scripts.${script}`);
   }
 
@@ -45,6 +45,8 @@ for (const relative of [
   'lib/index.js',
   'scripts/career-alpha.mjs',
   'scripts/validate_docs.mjs',
+  'scripts/eval_handoffs.mjs',
+  'tests/handoff-contract-cases.json',
   'assets/career-alpha-logo.svg',
   'assets/career-alpha-hero.svg',
   'assets/workbench-preview.svg',
@@ -109,6 +111,14 @@ for (const relative of bundleFiles) {
   }
 }
 
+const handoffCases = readJson('tests/handoff-contract-cases.json');
+if (handoffCases) {
+  if (handoffCases.schema_version !== '1.0') fail('tests/handoff-contract-cases.json: schema_version must be 1.0');
+  if (!Array.isArray(handoffCases.cases) || handoffCases.cases.length < 6) {
+    fail('tests/handoff-contract-cases.json: expected at least six integrity transition cases');
+  }
+}
+
 const gitignore = path.join(root, '.gitignore');
 if (!fs.existsSync(gitignore)) {
   fail('missing .gitignore');
@@ -133,4 +143,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Career Alpha Node package validation passed: package, marketplace, docs tooling, multi-client assets, Workbench, example bundles, and privacy contract.');
+console.log('Career Alpha Node package validation passed: package, marketplace, docs tooling, handoff eval assets, multi-client assets, Workbench, example bundles, and privacy contract.');
