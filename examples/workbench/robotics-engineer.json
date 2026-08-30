@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "targetRole": "Robotics / Physical AI Engineer",
+    "region": "Shenzhen / Hong Kong / Remote",
+    "weeklyTime": "10h / week",
+    "background": "CS / EE background; Python + basic ROS; simulation demos; limited real hardware access. Need evidence that is stronger than tutorial reproduction."
+  },
+  "trends": [
+    {"name": "Robot Data / Eval Tooling", "score": 87, "stage": "EARLY", "note": "Embodied systems need repeatable evaluation, data quality and failure analysis."},
+    {"name": "Simulation-to-real Reliability", "score": 82, "stage": "GROWING", "note": "Reliability and acceptance testing remain hard engineering problems."},
+    {"name": "ROS Observability / Recovery", "score": 77, "stage": "GROWING", "note": "Less flashy but directly connected to production debugging and operations."},
+    {"name": "Generic Humanoid Demo", "score": 42, "stage": "CONSENSUS", "note": "High attention, but individual proof is difficult without hardware and system ownership."}
+  ],
+  "wedge": {
+    "name": "Robotics Evaluation + Failure Recovery",
+    "thesis": "Evaluation, recovery and reproducibility are accessible without a robot fleet, map to real engineering pain, and create stronger proof than another simulation success video.",
+    "demand": 8,
+    "scarcity": 9,
+    "proofability": 9,
+    "timing": 8,
+    "killCriteria": "Target roles reject simulation evidence entirely or consistently require hardware/control depth that the current wedge cannot demonstrate.",
+    "nextTest": "Build a fixed-scenario simulator benchmark that records success, collisions, retries, failure types and recovery regressions."
+  },
+  "proofs": [
+    {"name": "Robot Task Evaluation Benchmark", "status": "IN PROGRESS", "evidence": "Scenario configs + benchmark runner + result JSON + failure taxonomy"},
+    {"name": "Relevant ROS / Simulator Contribution", "status": "PLANNED", "evidence": "PR + tests + maintainer review"}
+  ],
+  "claims": [
+    {"claim": "Built a reproducible simulated robotics benchmark with fixed scenarios and recovery evaluation", "confidence": "VERIFIED", "evidence": "Repo; configs; benchmark results; demo", "ownership": "Benchmark design, failure taxonomy, recovery logic", "risk": "How were random seeds and scenario difficulty controlled?"},
+    {"claim": "Improved robot reliability", "confidence": "SUPPORTED", "evidence": "Fixed-scenario success/retry metrics", "ownership": "Recovery intervention and evaluation", "risk": "Define reliability precisely and separate simulation evidence from real-world claims"}
+  ],
+  "position": {
+    "safe": "Robotics software candidate focused on evaluation, reliability and reproducible simulation workflows.",
+    "stretch": "Physical AI / robotics software candidate with hands-on task benchmarks, failure taxonomies and recovery logic.",
+    "gaps": "Hardware integration; sensor/actuator constraints; real-time systems; field failures; sim-to-real validation."
+  },
+  "applications": [
+    {"company": "Example Robotics Startup", "stage": "TARGET", "next": "Map whether role pain is eval, integration, controls or model training"},
+    {"company": "Example Physical AI Team", "stage": "OUTREACH", "next": "Share benchmark/failure-analysis artifact with clear simulation boundary"}
+  ],
+  "interview": {
+    "risk": "Overstating simulation work as real-world robotics experience",
+    "weakness": "Need explicit understanding of what assumptions break on physical hardware.",
+    "drill": "Which simulator assumptions are unrealistic, what would you log on hardware, and how would you design a sim-to-real acceptance test?"
+  }
+}
