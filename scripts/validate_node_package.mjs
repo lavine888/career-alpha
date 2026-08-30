@@ -29,11 +29,11 @@ if (pkg) {
   if (pkg.version !== '0.2.0') fail('package.json: version must be 0.2.0');
   if (pkg.type !== 'module') fail('package.json: type must be module');
 
-  for (const script of ['init', 'demo', 'validate:skills', 'validate:package', 'validate:node', 'validate']) {
+  for (const script of ['init', 'demo', 'validate:skills', 'validate:package', 'validate:node', 'validate:docs', 'validate']) {
     if (!pkg.scripts?.[script]) fail(`package.json: missing scripts.${script}`);
   }
 
-  for (const shipped of ['examples', '.trae-plugin']) {
+  for (const shipped of ['examples', '.trae-plugin', 'ROADMAP.md', 'CHANGELOG.md']) {
     if (!pkg.files?.includes(shipped)) fail(`package.json: files must include ${shipped}`);
   }
 
@@ -44,18 +44,23 @@ if (pkg) {
 for (const relative of [
   'lib/index.js',
   'scripts/career-alpha.mjs',
+  'scripts/validate_docs.mjs',
   'assets/career-alpha-logo.svg',
   'assets/career-alpha-hero.svg',
   'assets/workbench-preview.svg',
   'assets/career-alpha-workbench.html',
+  'docs/installation.md',
+  'docs/quickstart.md',
   'docs/agent-engineer-end-to-end.md',
+  'docs/cases/README.md',
   'docs/cases/ai-product-manager.md',
   'docs/cases/quant-researcher.md',
   'docs/cases/robotics-engineer.md',
-  'docs/installation.md',
   'assets/career-claim-ledger-template.json',
   '.claude-plugin/marketplace.json',
-  '.trae-plugin/plugin.json'
+  '.trae-plugin/plugin.json',
+  'ROADMAP.md',
+  'CHANGELOG.md'
 ]) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing ${relative}`);
 }
@@ -128,4 +133,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Career Alpha Node package validation passed: package, marketplace, multi-client assets, Workbench, example bundles, and privacy contract.');
+console.log('Career Alpha Node package validation passed: package, marketplace, docs tooling, multi-client assets, Workbench, example bundles, and privacy contract.');
