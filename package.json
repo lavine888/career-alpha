@@ -10,7 +10,8 @@
     "validate:skills": "python3 scripts/validate_skills.py",
     "validate:package": "python3 scripts/validate_package.py",
     "validate:node": "node scripts/validate_node_package.mjs",
-    "validate": "npm run validate:skills && npm run validate:package && npm run validate:node",
+    "validate:docs": "node scripts/validate_docs.mjs",
+    "validate": "npm run validate:skills && npm run validate:package && npm run validate:node && npm run validate:docs",
     "test": "npm run validate"
   },
   "main": "./lib/index.js",
@@ -32,6 +33,8 @@
     ".trae-plugin",
     "README.md",
     "README_en.md",
+    "ROADMAP.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "keywords": [
