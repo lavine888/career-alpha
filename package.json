@@ -24,10 +24,12 @@
     "scripts",
     "assets",
     "docs",
+    "examples",
     "references",
     ".codex-plugin",
     ".claude-plugin",
     ".opencode-plugin",
+    ".trae-plugin",
     "README.md",
     "README_en.md",
     "LICENSE"
@@ -42,7 +44,8 @@
     "resume",
     "codex",
     "claude-code",
-    "opencode"
+    "opencode",
+    "traework"
   ],
   "repository": {
     "type": "git",
