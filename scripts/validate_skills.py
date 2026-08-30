@@ -14,6 +14,7 @@ PLUGIN_FILES = [
     ROOT / ".codex-plugin" / "plugin.json",
     ROOT / ".claude-plugin" / "plugin.json",
     ROOT / ".opencode-plugin" / "plugin.json",
+    ROOT / ".trae-plugin" / "plugin.json",
 ]
 
 
