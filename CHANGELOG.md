@@ -10,11 +10,14 @@ All notable Career Alpha changes are recorded here.
 - Source-pack routing index for hybrid roles.
 - `npm run snapshot` to export the private `.career-alpha/` workspace into a reviewable Markdown Career Alpha Snapshot.
 - Snapshot documentation with explicit privacy review rules before sharing.
+- Deterministic cross-skill handoff integrity eval covering confidence escalation, planned-work promotion, ownership inflation and local-only privacy drift.
+- `docs/evals.md` explaining the current Harness eval boundary and planned semantic eval work.
 
 ### Changed
 
 - `/radar` now changes its demand / proof heuristics by target career domain instead of applying one generic signal checklist everywhere.
 - Installation docs now include the local snapshot workflow.
+- `npm run validate` and GitHub Actions now execute the handoff integrity regression suite in addition to static package, docs and routing checks.
 
 ## 0.2.0 — Productized Foundation
 
