@@ -1,0 +1,45 @@
+{
+  "profile": {
+    "targetRole": "AI Agent Engineer",
+    "region": "Shenzhen / Hong Kong / Remote",
+    "weeklyTime": "10–12h / week",
+    "background": "CS master; Python + TypeScript; several agent demos; no big-tech internship. Goal: create verifiable systems evidence rather than another generic chatbot."
+  },
+  "trends": [
+    {"name": "Agent Reliability / Eval", "score": 86, "stage": "EARLY", "note": "Production agents create demand for eval, observability and reliability."},
+    {"name": "Context Engineering", "score": 78, "stage": "GROWING", "note": "Increasingly explicit role in agent performance and cost control."},
+    {"name": "Generic RAG", "score": 34, "stage": "SATURATED", "note": "Easy to reproduce; weak differentiation unless domain/data moat exists."}
+  ],
+  "wedge": {
+    "name": "Agent Reliability / Evaluation",
+    "thesis": "Demand is moving from demo quality to production reliability. Talent supply is thinner than generic agent application roles, and proof is benchmarkable in days.",
+    "demand": 9,
+    "scarcity": 8,
+    "proofability": 9,
+    "timing": 8,
+    "killCriteria": "Target companies show no eval/reliability signal across a meaningful sample, or a 3-day prototype cannot produce a measurable result.",
+    "nextTest": "Build a fixed-task harness benchmark and compare baseline vs retry + memory + context-policy variants."
+  },
+  "proofs": [
+    {"name": "Agent Harness Reliability Benchmark", "status": "IN PROGRESS", "evidence": "Repo + benchmark.csv + architecture diagram"},
+    {"name": "Open-source eval contribution", "status": "PLANNED", "evidence": "PR link when submitted"}
+  ],
+  "claims": [
+    {"claim": "Built an agent reliability benchmark across a fixed task set", "confidence": "VERIFIED", "evidence": "GitHub repo; benchmark.csv; commit history", "ownership": "Benchmark design, retry policy, context strategy", "risk": "Why these tasks? How was success scored?"},
+    {"claim": "Improved completion rate from baseline after harness changes", "confidence": "SUPPORTED", "evidence": "Reproducible local benchmark results", "ownership": "Evaluation and harness changes", "risk": "Control for model/version variance and benchmark bias"}
+  ],
+  "position": {
+    "safe": "AI / Agent Application Engineer with hands-on evaluation and reliability work.",
+    "stretch": "Agent Systems Engineer focused on harness reliability and evaluation.",
+    "gaps": "Production observability; external users; contribution to a real agent/eval codebase."
+  },
+  "applications": [
+    {"company": "Example Agent Startup", "stage": "TARGET", "next": "Find engineering owner and map current reliability pain"},
+    {"company": "Example AI Infra Co.", "stage": "OUTREACH", "next": "Send proof-backed founder/engineer message"}
+  ],
+  "interview": {
+    "risk": "Benchmark improvement claim",
+    "weakness": "Need stronger explanation of task selection, repeated trials and model-version controls.",
+    "drill": "If retry, memory or context policy is removed one by one, which change matters most and why?"
+  }
+}
