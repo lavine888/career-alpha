@@ -1,103 +1,66 @@
 <div align="center">
 
+<img src="assets/career-alpha-logo.svg" width="128" alt="Career Alpha logo" />
+
 # Career Alpha
 
 ### AI-native Career OS
 
 **Find your career alpha before it becomes consensus.**
 
-[中文](README.md) · [Workbench](assets/career-alpha-workbench.html) · [End-to-End Case](docs/agent-engineer-end-to-end.md)
+[中文](README.md) · [Workbench](assets/career-alpha-workbench.html) · [Case Library](docs/cases/README.md)
 
 ![License](https://img.shields.io/badge/license-MIT-2f81f7)
 ![Codex](https://img.shields.io/badge/Codex-skill-111827)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-d97757)
 ![OpenCode](https://img.shields.io/badge/OpenCode-plugin-2563eb)
+![TraeWork](https://img.shields.io/badge/TraeWork-plugin-7c3aed)
 ![Evidence First](https://img.shields.io/badge/method-evidence--first-16a34a)
 
 </div>
+
+<img src="assets/career-alpha-hero.svg" width="100%" alt="Career Alpha workflow" />
 
 ---
 
 Most career tools start with:
 
-> **What have you already done, and how can we write it better?**
+> **What have you already done, and how can we make it sound better?**
 
-Career Alpha moves one step upstream:
+Career Alpha starts one step earlier:
 
-> **What should you do in the next two weeks so that you become more valuable six months from now?**
+> **What should you build in the next two weeks so that you are more valuable six months from now?**
 
-It closes the loop from **trend discovery → asymmetric wedge → proof creation → external contribution → evidence audit → positioning → interview defense → market feedback**.
+It connects **trend discovery → asymmetric wedge → deliberate proof of work → external evidence → claim audit → positioning → interview defense → market feedback**.
 
-The goal is not to polish weak facts. It is to create **better facts worth putting on a resume**.
-
-![Career Alpha journey](assets/career-alpha-visual-02.png)
+The goal is not to manufacture a better story first. It is to manufacture **better facts worth telling**.
 
 ---
 
-## ⚡ Try the Career Alpha Workbench
+## ⚡ Try the Workbench
 
-The repository includes a self-contained local Workbench:
+Open [`assets/career-alpha-workbench.html`](assets/career-alpha-workbench.html) locally in a browser. No server is required.
 
-**[`assets/career-alpha-workbench.html`](assets/career-alpha-workbench.html)**
+<img src="assets/workbench-preview.svg" width="100%" alt="Career Alpha Workbench preview" />
 
-Download it and open it in a browser. No framework, backend, account, or installation is required.
+The Workbench tracks Trend Radar, Opportunity Wedge, Proof of Work, Claim–Evidence Ledger, positioning, interview defense and the application pipeline.
 
-It tracks:
-
-- **Trend Radar** — scores and EARLY / GROWING / SATURATED states;
-- **Opportunity Wedge** — demand, scarcity, proofability, timing, kill criteria;
-- **Proof of Work** — project / PR / benchmark status;
-- **Claim–Evidence Ledger** — VERIFIED / SUPPORTED / SELF-REPORTED / PLANNED;
-- **Positioning** — Safe / Strong / missing evidence;
-- **Interview Defense** — highest-risk claim and next drill;
-- **Application Pipeline** — Target → Outreach → Interview → Offer.
-
-Data is stored in browser `localStorage` by default. The Workbench supports JSON import/export and does not automatically upload personal data.
-
-Click **Load Demo / 载入示例** to see the Agent Engineer case pre-filled.
+Data stays in browser `localStorage` by default and can be imported/exported as JSON. Ready-made bundles live in [`examples/workbench/`](examples/workbench/README.md).
 
 ---
 
-## 🎯 End-to-End Example
+## Case Library
 
-Starting point:
+| Case | Career wedge | Key proof |
+| --- | --- | --- |
+| [Agent Engineer](docs/agent-engineer-end-to-end.md) | Agent Reliability / Evaluation | fixed-task benchmark, failure taxonomy, ablation |
+| [AI Product Manager](docs/cases/ai-product-manager.md) | Workflow + Evaluation PM | workflow, eval rubric, human fallback, outcome metrics |
+| [Quant Researcher](docs/cases/quant-researcher.md) | Robustness-first research | cost model, sensitivity, failure regimes, reproducibility |
+| [Robotics / Physical AI](docs/cases/robotics-engineer.md) | Eval + Failure Recovery | fixed scenarios, recovery benchmark, simulation boundary |
 
-```text
-CS master's student
-Python + TypeScript
-several Agent demos
-no big-tech internship
-Target: AI Agent Engineer
-```
+The reusable question is:
 
-Career Alpha does not simply rewrite those demos to sound senior.
-
-```text
-/radar
-Generic RAG       → SATURATED
-Agent Eval        → EARLY / GROWING
-Agent Reliability → EARLY
-        ↓
-/wedge
-Agent Reliability / Evaluation
-        ↓
-/build
-72h Agent Harness Reliability Benchmark
-        ↓
-/proof
-benchmark + raw CSV + failure taxonomy + architecture
-        ↓
-/position
-an evidence-bounded Agent Evaluation / Reliability narrative
-        ↓
-/interview
-task sampling / baseline / ablation / model variance / ownership
-        ↓
-/offer
-use real replies, interviews and rejections to retest the hypothesis
-```
-
-Read the full walkthrough: **[Agent Engineer End-to-End Case](docs/agent-engineer-end-to-end.md)**.
+> **What fact is missing before I can honestly make the next stronger career claim?**
 
 ---
 
@@ -112,12 +75,12 @@ Read the full walkthrough: **[Agent Engineer End-to-End Case](docs/agent-enginee
 │                │
 ▼                ▼
 /contributor    /build
-real OSS proof   Proof of Work
+external proof   proof of work
 │                │
 └────────┬───────┘
          ↓
        /proof
-Claim–Evidence Ledger
+build the Claim–Evidence Ledger
          ↓
      /position
 Safe / Strong / Future Position
@@ -126,112 +89,55 @@ Safe / Strong / Future Position
 ▼                 ▼
 /interview       /offer
 pressure-test     market feedback
-claims              │
-                    └──→ back to /radar /wedge /build
+                   │
+                   └────→ back to /radar /wedge /build
 ```
 
-This is a **career hypothesis loop**, not a one-shot resume generator.
+This is a **Career Hypothesis Loop**, not a one-way resume workflow.
 
 ---
 
-## The 8 Skills
+## Eight Skills
 
-| Skill | Core question | Main output |
+| Skill | Question | Main output |
 | --- | --- | --- |
-| **`/radar`** | Which directions are forming before full consensus? | Signal hierarchy, Trend Radar, counter-evidence, timing window |
-| **`/wedge`** | What small part of the trend should I enter through? | Wedge comparison, Evidence ROI, 72h test, kill criteria |
-| **`/build`** | What can I build in 2–7 days that changes my evidence? | Mission Brief, baseline, evaluation, DoD, coding-agent prompt |
-| **`/contributor`** | How can I get external validation through real OSS work? | Repository rubric, proposed diff, PR evidence, review boundary |
-| **`/proof`** | How strong is each resume claim, really? | Atomic claim audit, Evidence Card, confidence, safe wording |
-| **`/position`** | How should these facts translate into job-market language? | Safe / Strong / Future positions, resume bullets, outreach |
-| **`/interview`** | Which claim is most likely to collapse under follow-up? | Risk Map, five-layer drill, Defense Report, downgrade decision |
-| **`/offer`** | Does the market validate the current career thesis? | Pipeline, funnel, feedback loop, KEEP / REFINE / PIVOT |
+| **`/radar`** | Which directions are forming before consensus? | source hierarchy, Trend Radar, negative evidence, timing window |
+| **`/wedge`** | What is the smallest asymmetric entry point? | wedge comparison, Evidence ROI, 72h test, kill criteria |
+| **`/build`** | What can I build in 2–7 days that changes my evidence? | mission brief, baseline, evaluation, DoD, coding-agent prompt |
+| **`/contributor`** | How can I gain real external collaboration evidence? | repo rubric, proposed diff, PR evidence, review boundary |
+| **`/proof`** | How strong is each resume claim? | atomic claim audit, Evidence Card, confidence, safe wording |
+| **`/position`** | How should evidence map to target roles? | Safe / Strong / Future positioning, resume bullets, outreach |
+| **`/interview`** | Which claim will collapse under follow-up? | risk map, five-layer drill, defense verdict |
+| **`/offer`** | Does the market validate the current hypothesis? | pipeline, funnel, feedback loop, KEEP / REFINE / PIVOT |
 
-Each skill now has its own `references/` toolbox in addition to shared cross-skill references.
-
----
-
-## Where should I start?
-
-| Your bottleneck | Start with |
-| --- | --- |
-| I do not know which AI / Agent / Quant / Robotics direction is worth preparing for | `/radar` |
-| I know the broad trend but not how to enter it | `/wedge` |
-| My resume is empty and I need a real story | `/build` |
-| I want a real GitHub PR instead of another private demo | `/contributor` |
-| I have many projects but cannot tell which claims are actually supported | `/proof` |
-| I need stronger resume / recruiter / founder language | `/position` |
-| I already have interviews and fear my project will get exposed as shallow | `/interview` |
-| I am already applying and need to learn from market feedback | `/offer` |
-
-### Common routes
-
-```text
-No relevant experience:
-/radar → /wedge → /build or /contributor → /proof → /position
-
-Existing project, but too demo-like:
-/proof → /wedge → /build → /proof → /position
-
-Good experience, weak articulation:
-/proof → /position → /interview
-
-Applications are not working:
-/offer → /position / wedge / radar
-```
+Every skill has its own operational `references/` toolkit rather than being only a prompt file.
 
 ---
 
-## `/radar`: a demand radar, not a hype list
+## Signal → Wedge → Proof
 
-`/radar` separates signal quality:
+### `/radar`
 
 ```text
 Tier A — hiring, paid products, first-party demand, production pain
 Tier B — GitHub adoption, engineering blogs, benchmarks, builder pain
-Tier C — organization / capital / new teams
-Tier D — media, social attention, search volume
+Tier C — org / funding / new team formation
+Tier D — media, social discussion, search popularity
 ```
 
-Attention without Tier A/B support is explicitly lower-confidence.
+Popularity without Tier A/B support is not automatically career alpha.
 
-Market states:
+### `/wedge`
+
+Career Alpha searches for Skill, Problem, Distribution, Evidence, Organization and Contribution wedges.
 
 ```text
-EARLY
-GROWING
-CONSENSUS
-SATURATED
-TOO_EARLY
-HYPE
+Evidence ROI = credibility gained / (time + learning cost + coordination cost)
 ```
 
-Every top thesis must also search for negative evidence.
+### `/build`
 
----
-
-## `/wedge`: choose the smallest asymmetric entry point
-
-Supported wedge patterns include:
-
-- **Skill Wedge** — new capability with thin supply;
-- **Problem Wedge** — a new pain that has started receiving budget;
-- **Distribution Wedge** — technical ability × market/domain access;
-- **Evidence Wedge** — many candidates claim it, few can prove it;
-- **Organization Wedge** — a company stage creates an unusual combination need;
-- **Contribution Wedge** — enter through a real open-source ecosystem.
-
-The optimization target is not novelty. It is evidence return on time and effort.
-
----
-
-## `/build`: define the proof before the code
-
-A Career Alpha project must answer:
-
-> **After this project, what new sentence can I honestly say that I could not say before?**
-
-Default sequence:
+A project starts from the claim it should prove:
 
 ```text
 Career Claim
@@ -249,15 +155,13 @@ Artifacts
 Definition of Done
 ```
 
-Preferred archetypes include benchmark, reliability, vertical workflow, integration, cost/latency optimization, open-source extension and reproduction.
-
-![Proof of Work](assets/career-alpha-visual-01.png)
+A generic ChatGPT clone is not the default answer.
 
 ---
 
-## `/proof`: the Claim–Evidence Ledger
+## Evidence Layer
 
-Every strong statement is decomposed and audited for:
+Every strong claim is decomposed into:
 
 ```text
 Claim
@@ -273,41 +177,35 @@ Interview Risks
 Missing Evidence
 ```
 
-Allowed confidence states:
+Allowed confidence levels:
 
 - `VERIFIED`
 - `SUPPORTED`
 - `SELF-REPORTED`
 - `PLANNED`
 
-A project can be VERIFIED while a causal performance claim inside it remains only SUPPORTED.
+A project can be VERIFIED while a specific performance claim inside it is only SUPPORTED.
 
-![Claim–Evidence Ledger](assets/career-alpha-visual-03.png)
-
-Structured files:
+Structured assets:
 
 - [career-claim-ledger-template.json](assets/career-claim-ledger-template.json)
 - [claim-evidence-ledger.schema.json](references/claim-evidence-ledger.schema.json)
 
 ---
 
-## `/position`: Safe / Strong / Future
+## Safe / Strong / Future Positioning
 
-Career Alpha separates:
+`/position` separates:
 
 - **Safe Position** — directly supported now;
-- **Strong Position** — more differentiated but still defensible with explicit boundaries;
-- **Future Position** — a next identity that still requires specific evidence.
+- **Strong Position** — ambitious but defensible with explicit boundaries;
+- **Future Position** — the next identity, plus the missing evidence required to earn it.
 
-Future Position is a build target, not a current title.
-
-The same ledger can produce resume bullets, a 30-second intro, recruiter outreach, hiring-manager / founder DMs, a GitHub project intro and interview stories without changing the underlying facts.
+Future Position is never silently rewritten as current fact.
 
 ---
 
-## `/interview`: pressure-test, do not memorize
-
-High-risk claims are attacked through layered follow-up:
+## Interview Defense
 
 ```text
 What exactly did you do?
@@ -319,7 +217,7 @@ What did teammates / AI tools do?
 What would you change now?
 ```
 
-Claim verdicts include:
+Possible verdicts:
 
 ```text
 DEFENSIBLE
@@ -331,73 +229,50 @@ DOWNGRADE
 REMOVE
 ```
 
-If a claim does not survive questioning, the default fix is to learn, add evidence, or weaken the wording—not to train a better bluff.
-
 ---
 
-## `/offer`: let the market update the thesis
-
-The pipeline records not only stages, but also:
-
-- positioning version;
-- evidence shown;
-- recruiter / engineer / founder feedback;
-- repeated objections;
-- role patterns;
-- company patterns.
-
-Each review cycle ends with:
+## Market Feedback Closes the Loop
 
 ```text
-KEEP / REFINE / PIVOT
+trend wrong      → /radar
+wedge wrong      → /wedge
+proof weak       → /build /contributor /proof
+position unclear → /position
+interview weak   → /interview
 ```
 
-and routes evidence back upstream.
+Each review cycle ends with `KEEP / REFINE / PIVOT`.
 
 ---
 
 ## Local Workspace / CLI
 
-Clone the repository and initialize a private local workspace:
-
 ```bash
-git clone https://github.com/lavine888/career-alpha.git
-cd career-alpha
 npm run init
 ```
 
-This creates a `.career-alpha/` directory containing local-only JSON files for profile, radar, wedges, proofs, ledger and applications. The directory is ignored by Git by default.
+creates:
 
-Useful commands:
-
-```bash
-npm run init       # create .career-alpha/ local workspace
-npm run demo       # print Workbench + example paths
-npm run validate   # run both validators
+```text
+.career-alpha/
+├── profile.json
+├── radar.json
+├── wedges.json
+├── ledger.json
+└── applications.json
 ```
 
-Keep `.career-alpha/` private: it may contain recruiting, evidence, and personal career data.
+`.career-alpha/` is ignored by git by default.
+
+```bash
+npm run init
+npm run demo
+npm run validate
+```
 
 ---
 
-## Cross-skill Contract
-
-All skills share a minimal Context Packet through the [Cross-skill Handoff Contract](references/handoff-contract.md):
-
-- Goal
-- Verified facts
-- Hypotheses / fresh signals
-- Planned work
-- Evidence references
-- Open questions
-- Recommended next skill
-- Privacy boundary
-
-> **A downstream skill may rewrite language, but it must not silently increase confidence, expand ownership, or turn planned work into completed work.**
-
----
-
-## Installation as Agent Skills
+## Installation
 
 ### Codex
 
@@ -406,60 +281,18 @@ Install Career Alpha from this repository and enable radar, wedge, contributor, 
 https://github.com/lavine888/career-alpha
 ```
 
-Open a new conversation after installation so the skills can reload.
+### Claude Code / OpenCode / TraeWork
 
-### Claude Code / OpenCode
-
-The repository contains:
+The repository ships four client manifests:
 
 ```text
 .codex-plugin/
 .claude-plugin/
 .opencode-plugin/
+.trae-plugin/
 ```
 
-All clients share the same `skills/`, `references/`, and `assets/`.
-
----
-
-## Repository Structure
-
-```text
-career-alpha/
-├── package.json
-├── lib/
-│   └── index.js
-├── .codex-plugin/plugin.json
-├── .claude-plugin/plugin.json
-├── .opencode-plugin/plugin.json
-├── assets/
-│   ├── career-alpha-workbench.html
-│   ├── career-alpha-visual-01.png
-│   ├── career-alpha-visual-02.png
-│   ├── career-alpha-visual-03.png
-│   └── career-claim-ledger-template.json
-├── docs/
-│   └── agent-engineer-end-to-end.md
-├── skills/
-│   └── <skill>/
-│       ├── SKILL.md
-│       ├── agents/openai.yaml
-│       └── references/
-├── references/
-│   ├── career-alpha-playbook.md
-│   ├── trend-scoring-framework.md
-│   ├── opportunity-scoring.md
-│   ├── claim-evidence-ledger.md
-│   ├── claim-evidence-ledger.schema.json
-│   └── handoff-contract.md
-├── scripts/
-│   ├── career-alpha.mjs
-│   ├── validate_skills.py
-│   └── validate_package.py
-└── tests/
-    ├── skill-routing-cases.yaml
-    └── routing-boundary-cases.yaml
-```
+All clients share the same `skills/`, `references/` and evidence contracts.
 
 ---
 
@@ -469,43 +302,24 @@ career-alpha/
 npm run validate
 ```
 
-or directly:
-
-```bash
-python3 scripts/validate_skills.py
-python3 scripts/validate_package.py
-```
-
-The validators check the eight skills, frontmatter, per-skill/shared references, plugin manifests, entry metadata, routing cases, handoff contract and ledger contract.
+Validation covers frontmatter, four plugin manifests, local/shared references, routing, ledger contracts, CLI, branding assets, Workbench markers and example bundles.
 
 ---
 
-## Contributing
+## Principles
 
-See [CONTRIBUTING](.github/CONTRIBUTING_en.md).
-
-Useful issue templates include:
-
-- **Share your Career Alpha** — contribute a de-identified real case;
-- **Propose a Skill or Workflow** — propose a distinct job-to-be-done;
-- **Bug report** — report Workbench, routing, plugin or validator issues.
-
-We prefer small, evidence-dense improvements over feature accumulation.
-
----
-
-## Design Principles
-
-1. **Asymmetric opportunity** — look for temporary demand/supply mismatch, not just popularity.
-2. **Proof before polish** — build repos, PRs, benchmarks, deployments and user evidence before adjectives.
-3. **No fabricated alpha** — never invent titles, metrics, rankings, production status or ownership.
-4. **Fresh signals, explicit uncertainty** — preserve sources, dates, samples and uncertainty.
+1. **Asymmetric opportunity** — search for temporary demand/supply gaps, not just popularity.
+2. **Proof before polish** — create evidence before optimizing language.
+3. **No fabricated alpha** — never invent titles, metrics, rankings, production claims or ownership.
+4. **Fresh signals, explicit uncertainty** — market claims should carry sources, dates and uncertainty.
 5. **Interview-defensible by default** — strong claims should survive layered follow-up.
-6. **Market feedback closes the loop** — recruiting outcomes become data for the next career hypothesis.
+6. **Market feedback closes the loop** — recruiting outcomes are new data, not just final results.
+
+---
 
 ## Acknowledgements
 
-Career Alpha borrows useful product patterns from the open-source [ASu-skills](https://github.com/Hisn00w/ASu-skills) project, including the multi-entry skill suite, evidence-first workflow, interview follow-up and recruiting loop. Career Alpha extends that model upstream with trend discovery, asymmetric opportunity selection and deliberate Proof-of-Work creation.
+Career Alpha borrows useful product patterns from [ASu-skills](https://github.com/Hisn00w/ASu-skills), including its multi-entry skill suite, evidence-first workflow, interview follow-up and recruiting loop. Career Alpha extends that model upstream into **trend discovery, asymmetric opportunity selection and deliberate Proof-of-Work creation**.
 
 ## License
 
