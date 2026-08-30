@@ -29,6 +29,8 @@
       "Use /interview to pressure-test resume claims.",
       "Use /offer to manage the job-search pipeline."
     ],
-    "brandColor": "#0A1225"
+    "brandColor": "#0A1225",
+    "composerIcon": "./assets/career-alpha-logo.svg",
+    "logo": "./assets/career-alpha-logo.svg"
   }
 }
