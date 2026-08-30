@@ -33,6 +33,20 @@ def parse_frontmatter(text: str) -> dict[str, str]:
     return result
 
 
+def referenced_markdown_paths(text: str) -> list[str]:
+    """Return local Markdown reference paths used by a skill.
+
+    Career Alpha supports both:
+      - skill-local references: references/foo.md
+      - shared references: ../../references/foo.md
+
+    Paths are resolved relative to the SKILL.md location, matching normal
+    Markdown link semantics.
+    """
+    pattern = r"(?:\.\./\.\./)?references/[A-Za-z0-9_.\-/]+\.md"
+    return sorted(set(re.findall(pattern, text)))
+
+
 def validate_skill(name: str) -> list[str]:
     errors: list[str] = []
     path = ROOT / "skills" / name / "SKILL.md"
@@ -52,9 +66,20 @@ def validate_skill(name: str) -> list[str]:
     elif len(meta["description"]) > 500:
         errors.append(f"{path.relative_to(ROOT)}: description too long")
 
-    for ref in re.findall(r"references/[A-Za-z0-9_.\-/]+\.md", text):
-        if not (ROOT / ref).exists():
+    for ref in referenced_markdown_paths(text):
+        candidate = (path.parent / ref).resolve()
+        try:
+            candidate.relative_to(ROOT.resolve())
+        except ValueError:
+            errors.append(f"{path.relative_to(ROOT)}: referenced path escapes repository: {ref}")
+            continue
+        if not candidate.exists():
             errors.append(f"{path.relative_to(ROOT)}: missing referenced file {ref}")
+
+    agent_meta = path.parent / "agents" / "openai.yaml"
+    if not agent_meta.exists():
+        errors.append(f"{path.relative_to(ROOT)}: missing agents/openai.yaml")
+
     return errors
 
 
@@ -85,7 +110,10 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
-    print(f"Career Alpha validation passed: {len(SKILLS)} skills, {len(PLUGIN_FILES)} plugin manifests.")
+    print(
+        f"Career Alpha validation passed: {len(SKILLS)} skills, "
+        f"{len(PLUGIN_FILES)} plugin manifests, local/shared references resolved."
+    )
     return 0
 
 
