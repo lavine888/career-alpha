@@ -67,7 +67,7 @@
         "claim_id": "claim-004",
         "confidence": "PLANNED",
         "status": "PLANNED",
-        "ownership": ["planned benchmark design"],
+        "ownership": ["benchmark design"],
         "privacy": "public-safe"
       },
       "output": {
