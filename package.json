@@ -9,7 +9,8 @@
     "demo": "node scripts/career-alpha.mjs demo",
     "validate:skills": "python3 scripts/validate_skills.py",
     "validate:package": "python3 scripts/validate_package.py",
-    "validate": "npm run validate:skills && npm run validate:package",
+    "validate:node": "node scripts/validate_node_package.mjs",
+    "validate": "npm run validate:skills && npm run validate:package && npm run validate:node",
     "test": "npm run validate"
   },
   "main": "./lib/index.js",
