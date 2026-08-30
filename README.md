@@ -56,11 +56,11 @@ Career Alpha 往前多走一步：
 - **Claim–Evidence Ledger** — VERIFIED / SUPPORTED / SELF-REPORTED / PLANNED；
 - **Positioning** — Safe / Strong / Future；
 - **Interview Defense** — 当前最危险的简历主张；
-- **Application Pipeline** — Target → Outreach → Interview → Offer。
+- **Application Pipeline** — Target → Outreach → Interview → Offer；
+- **Career Summary** — 根据当前证据自动提示所处阶段与下一步 Skill；
+- **Case Lab** — 离线一键切换 Agent Engineer / AI PM / Quant / Robotics 四套完整案例。
 
-所有数据默认只保存在当前浏览器 `localStorage`，支持 JSON 导入 / 导出，不自动上传。
-
-除了内置 Agent Engineer Demo，还可以直接导入 [`examples/workbench/`](examples/workbench/README.md) 中的四套职业案例状态。
+顶部 mascot 会根据当前状态切换 `waiting / focus / happy / market validated` 表情。所有数据默认只保存在当前浏览器 `localStorage`，支持 JSON 导入 / 导出，不自动上传。
 
 ---
 
@@ -317,6 +317,7 @@ npm run init
 ```bash
 npm run init
 npm run demo
+npm run snapshot
 npm run validate
 ```
 
@@ -417,10 +418,6 @@ npm run validate
 Issue 已提供 **Share your Career Alpha**、New Skill 和 Bug 模板；PR 会自动运行 package validation。
 
 ---
-
-## Acknowledgements
-
-Career Alpha 借鉴了 [ASu-skills](https://github.com/Hisn00w/ASu-skills) 的多入口 skill suite、evidence-first、面试追问和求职闭环产品化思路，并把流程向上游扩展到 **趋势发现、错位竞争和主动制造 Proof of Work**。
 
 ## License
 
