@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "name": "position preserves verified claim",
+      "input": {
+        "claim_id": "claim-001",
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["benchmark design", "evaluation"],
+        "privacy": "public-safe"
+      },
+      "output": {
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["benchmark design", "evaluation"],
+        "public_export": true,
+        "transition_authority": "position",
+        "new_direct_evidence": false
+      },
+      "expected_valid": true,
+      "expected_errors": []
+    },
+    {
+      "name": "supported claim cannot silently become verified",
+      "input": {
+        "claim_id": "claim-002",
+        "confidence": "SUPPORTED",
+        "status": "COMPLETED",
+        "ownership": ["workflow design"],
+        "privacy": "public-safe"
+      },
+      "output": {
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["workflow design"],
+        "public_export": true,
+        "transition_authority": "position",
+        "new_direct_evidence": false
+      },
+      "expected_valid": false,
+      "expected_errors": ["confidence escalation without proof authority and direct evidence"]
+    },
+    {
+      "name": "proof can upgrade confidence with new direct evidence",
+      "input": {
+        "claim_id": "claim-003",
+        "confidence": "SUPPORTED",
+        "status": "COMPLETED",
+        "ownership": ["benchmark design"],
+        "privacy": "public-safe"
+      },
+      "output": {
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["benchmark design"],
+        "public_export": true,
+        "transition_authority": "proof",
+        "new_direct_evidence": true
+      },
+      "expected_valid": true,
+      "expected_errors": []
+    },
+    {
+      "name": "planned project cannot become completed in positioning",
+      "input": {
+        "claim_id": "claim-004",
+        "confidence": "PLANNED",
+        "status": "PLANNED",
+        "ownership": ["planned benchmark design"],
+        "privacy": "public-safe"
+      },
+      "output": {
+        "confidence": "SUPPORTED",
+        "status": "COMPLETED",
+        "ownership": ["benchmark design"],
+        "public_export": true,
+        "transition_authority": "position",
+        "new_direct_evidence": false
+      },
+      "expected_valid": false,
+      "expected_errors": [
+        "planned work promoted to completed without proof authority and direct evidence",
+        "planned confidence promoted without proof authority and direct evidence"
+      ]
+    },
+    {
+      "name": "ownership cannot expand during wording rewrite",
+      "input": {
+        "claim_id": "claim-005",
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["evaluation", "retry policy"],
+        "privacy": "public-safe"
+      },
+      "output": {
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["evaluation", "retry policy", "production deployment"],
+        "public_export": true,
+        "transition_authority": "position",
+        "new_direct_evidence": false
+      },
+      "expected_valid": false,
+      "expected_errors": ["ownership expanded without proof authority and direct evidence"]
+    },
+    {
+      "name": "proof can add ownership when direct evidence is attached",
+      "input": {
+        "claim_id": "claim-006",
+        "confidence": "SUPPORTED",
+        "status": "COMPLETED",
+        "ownership": ["evaluation"],
+        "privacy": "public-safe"
+      },
+      "output": {
+        "confidence": "VERIFIED",
+        "status": "COMPLETED",
+        "ownership": ["evaluation", "benchmark implementation"],
+        "public_export": true,
+        "transition_authority": "proof",
+        "new_direct_evidence": true
+      },
+      "expected_valid": true,
+      "expected_errors": []
+    },
+    {
+      "name": "local-only evidence cannot be exported publicly",
+      "input": {
+        "claim_id": "claim-007",
+        "confidence": "SUPPORTED",
+        "status": "COMPLETED",
+        "ownership": ["customer research"],
+        "privacy": "local-only"
+      },
+      "output": {
+        "confidence": "SUPPORTED",
+        "status": "COMPLETED",
+        "ownership": ["customer research"],
+        "public_export": true,
+        "transition_authority": "position",
+        "new_direct_evidence": false
+      },
+      "expected_valid": false,
+      "expected_errors": ["local-only evidence marked for public export"]
+    },
+    {
+      "name": "local-only evidence can remain local across offer workflow",
+      "input": {
+        "claim_id": "claim-008",
+        "confidence": "SELF-REPORTED",
+        "status": "IN_PROGRESS",
+        "ownership": ["application follow-up"],
+        "privacy": "local-only"
+      },
+      "output": {
+        "confidence": "SELF-REPORTED",
+        "status": "IN_PROGRESS",
+        "ownership": ["application follow-up"],
+        "public_export": false,
+        "transition_authority": "offer",
+        "new_direct_evidence": false
+      },
+      "expected_valid": true,
+      "expected_errors": []
+    }
+  ]
+}
