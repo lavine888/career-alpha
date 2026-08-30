@@ -1,0 +1,41 @@
+name: Propose a Skill or Workflow
+about: Propose a distinct Career Alpha job-to-be-done, reference, or workflow improvement.
+title: "[Proposal] "
+labels: ["proposal"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What concrete job-to-be-done is not handled well today?
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Why existing skills are insufficient
+      description: Explain why this is not just a new reference/example for radar, wedge, build, contributor, proof, position, interview, or offer.
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: Proposed trigger and output
+      placeholder: "When should it trigger? What artifact or decision should it produce?"
+    validations:
+      required: true
+  - type: textarea
+    id: integrity
+    attributes:
+      label: Evidence / integrity boundary
+      description: What could this workflow accidentally overclaim or fabricate, and how should it prevent that?
+  - type: textarea
+    id: routing
+    attributes:
+      label: Adjacent skills / routing
+      description: What should hand off into and out of this workflow?
+  - type: textarea
+    id: example
+    attributes:
+      label: Example input → output
+      description: A short operational example is strongly preferred.
