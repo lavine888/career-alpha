@@ -28,6 +28,7 @@ MANIFESTS = {
     "Codex": ROOT / ".codex-plugin" / "plugin.json",
     "Claude Code": ROOT / ".claude-plugin" / "plugin.json",
     "OpenCode": ROOT / ".opencode-plugin" / "plugin.json",
+    "TraeWork": ROOT / ".trae-plugin" / "plugin.json",
 }
 ROUTING_FILES = (
     ROOT / "tests" / "skill-routing-cases.yaml",
@@ -173,10 +174,6 @@ def check_markdown_links(path: Path, text: str, report: Report) -> None:
         if not resolved.exists():
             report.error(path, f"missing Markdown link target: {target}")
 
-    # Also validate plain-text reference mentions used by operational playbooks.
-    # Resolve them relative to the SKILL.md location so both
-    # `references/foo.md` (skill-local) and `../../references/foo.md`
-    # (shared) follow normal Markdown path semantics.
     for reference in sorted(set(REFERENCE_LINK.findall(text))):
         resolved = (path.parent / reference).resolve()
         try:
@@ -234,7 +231,7 @@ def check_manifests(report: Report) -> None:
         if data.get("version") != EXPECTED_VERSION:
             report.error(path, f"version must be {EXPECTED_VERSION}")
 
-        if label == "Codex":
+        if label in {"Codex", "TraeWork"}:
             skills = data.get("skills")
             if not isinstance(skills, str) or not (path.parent.parent / skills).exists():
                 report.error(path, "skills must point to an existing directory")
@@ -247,6 +244,17 @@ def check_manifests(report: Report) -> None:
                         report.error(path, f"interface.{key} must be non-empty")
                 if not isinstance(interface.get("capabilities"), list) or not interface["capabilities"]:
                     report.error(path, "interface.capabilities must be a non-empty list")
+                for key in ("composerIcon", "logo"):
+                    icon = interface.get(key)
+                    if icon:
+                        resolved = (path.parent.parent / icon).resolve()
+                        try:
+                            resolved.relative_to(ROOT.resolve())
+                        except ValueError:
+                            report.error(path, f"interface.{key} escapes repository")
+                        else:
+                            if not resolved.exists():
+                                report.error(path, f"interface.{key} points to missing asset: {icon}")
 
         if label == "OpenCode":
             skills = data.get("skills")
