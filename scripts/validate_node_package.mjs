@@ -29,8 +29,12 @@ if (pkg) {
   if (pkg.version !== '0.2.0') fail('package.json: version must be 0.2.0');
   if (pkg.type !== 'module') fail('package.json: type must be module');
 
-  for (const script of ['init', 'demo', 'validate:skills', 'validate:package', 'validate']) {
+  for (const script of ['init', 'demo', 'validate:skills', 'validate:package', 'validate:node', 'validate']) {
     if (!pkg.scripts?.[script]) fail(`package.json: missing scripts.${script}`);
+  }
+
+  for (const shipped of ['examples', '.trae-plugin']) {
+    if (!pkg.files?.includes(shipped)) fail(`package.json: files must include ${shipped}`);
   }
 
   const main = pkg.main || './lib/index.js';
@@ -40,11 +44,49 @@ if (pkg) {
 for (const relative of [
   'lib/index.js',
   'scripts/career-alpha.mjs',
+  'assets/career-alpha-logo.svg',
+  'assets/career-alpha-hero.svg',
+  'assets/workbench-preview.svg',
   'assets/career-alpha-workbench.html',
   'docs/agent-engineer-end-to-end.md',
-  'assets/career-claim-ledger-template.json'
+  'docs/cases/ai-product-manager.md',
+  'docs/cases/quant-researcher.md',
+  'docs/cases/robotics-engineer.md',
+  'assets/career-claim-ledger-template.json',
+  '.trae-plugin/plugin.json'
 ]) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing ${relative}`);
+}
+
+const bundleFiles = [
+  'examples/workbench/agent-engineer.json',
+  'examples/workbench/ai-product-manager.json',
+  'examples/workbench/quant-researcher.json',
+  'examples/workbench/robotics-engineer.json'
+];
+const bundleKeys = ['profile', 'trends', 'wedge', 'proofs', 'claims', 'position', 'applications', 'interview'];
+for (const relative of bundleFiles) {
+  const data = readJson(relative);
+  if (!data) continue;
+  for (const key of bundleKeys) {
+    if (!(key in data)) fail(`${relative}: missing top-level key ${key}`);
+  }
+  if (!Array.isArray(data.trends)) fail(`${relative}: trends must be an array`);
+  if (!Array.isArray(data.proofs)) fail(`${relative}: proofs must be an array`);
+  if (!Array.isArray(data.claims)) fail(`${relative}: claims must be an array`);
+  if (!Array.isArray(data.applications)) fail(`${relative}: applications must be an array`);
+  if (!data.wedge || typeof data.wedge !== 'object') fail(`${relative}: wedge must be an object`);
+  for (const metric of ['demand', 'scarcity', 'proofability', 'timing']) {
+    const value = data.wedge?.[metric];
+    if (!Number.isFinite(value) || value < 0 || value > 10) {
+      fail(`${relative}: wedge.${metric} must be a number from 0 to 10`);
+    }
+  }
+  for (const claim of data.claims ?? []) {
+    if (!['VERIFIED', 'SUPPORTED', 'SELF-REPORTED', 'PLANNED'].includes(claim.confidence)) {
+      fail(`${relative}: invalid claim confidence ${claim.confidence}`);
+    }
+  }
 }
 
 const gitignore = path.join(root, '.gitignore');
@@ -60,7 +102,7 @@ if (!fs.existsSync(gitignore)) {
 const workbench = path.join(root, 'assets', 'career-alpha-workbench.html');
 if (fs.existsSync(workbench)) {
   const text = fs.readFileSync(workbench, 'utf8');
-  for (const marker of ['localStorage', 'career-alpha-workbench-v1', 'VERIFIED', 'SUPPORTED', 'PLANNED']) {
+  for (const marker of ['localStorage', 'career-alpha-workbench-v1', 'VERIFIED', 'SUPPORTED', 'PLANNED', '导入 JSON']) {
     if (!text.includes(marker)) fail(`Workbench missing required marker: ${marker}`);
   }
 }
@@ -71,4 +113,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Career Alpha Node package validation passed: package, CLI, Workbench, demo case, and privacy contract.');
+console.log('Career Alpha Node package validation passed: package, multi-client assets, Workbench, example bundles, and privacy contract.');
