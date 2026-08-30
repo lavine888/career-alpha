@@ -52,10 +52,25 @@ for (const relative of [
   'docs/cases/ai-product-manager.md',
   'docs/cases/quant-researcher.md',
   'docs/cases/robotics-engineer.md',
+  'docs/installation.md',
   'assets/career-claim-ledger-template.json',
+  '.claude-plugin/marketplace.json',
   '.trae-plugin/plugin.json'
 ]) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing ${relative}`);
+}
+
+const marketplace = readJson('.claude-plugin/marketplace.json');
+if (marketplace) {
+  if (marketplace.name !== 'career-alpha') fail('.claude-plugin/marketplace.json: name must be career-alpha');
+  if (!Array.isArray(marketplace.plugins) || marketplace.plugins.length !== 1) {
+    fail('.claude-plugin/marketplace.json: plugins must contain exactly one Career Alpha plugin');
+  } else {
+    const plugin = marketplace.plugins[0];
+    if (plugin.name !== 'career-alpha') fail('.claude-plugin/marketplace.json: plugin name must be career-alpha');
+    if (plugin.source !== './') fail('.claude-plugin/marketplace.json: plugin source must be ./');
+    if (plugin.version !== '0.2.0') fail('.claude-plugin/marketplace.json: plugin version must be 0.2.0');
+  }
 }
 
 const bundleFiles = [
@@ -113,4 +128,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Career Alpha Node package validation passed: package, multi-client assets, Workbench, example bundles, and privacy contract.');
+console.log('Career Alpha Node package validation passed: package, marketplace, multi-client assets, Workbench, example bundles, and privacy contract.');
