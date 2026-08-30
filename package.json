@@ -8,11 +8,12 @@
     "init": "node scripts/career-alpha.mjs init",
     "demo": "node scripts/career-alpha.mjs demo",
     "snapshot": "node scripts/career-alpha.mjs snapshot",
+    "eval:handoff": "node scripts/eval_handoffs.mjs",
     "validate:skills": "python3 scripts/validate_skills.py",
     "validate:package": "python3 scripts/validate_package.py",
     "validate:node": "node scripts/validate_node_package.mjs",
     "validate:docs": "node scripts/validate_docs.mjs",
-    "validate": "npm run validate:skills && npm run validate:package && npm run validate:node && npm run validate:docs",
+    "validate": "npm run validate:skills && npm run validate:package && npm run validate:node && npm run validate:docs && npm run eval:handoff",
     "test": "npm run validate"
   },
   "main": "./lib/index.js",
