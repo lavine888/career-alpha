@@ -33,7 +33,7 @@ Career Alpha starts one step earlier:
 
 It connects **trend discovery → asymmetric wedge → deliberate proof of work → external evidence → claim audit → positioning → interview defense → market feedback**.
 
-The goal is not to manufacture a better story first. It is to manufacture **better facts worth telling**.
+The goal is not to manufacture a better story first. It is to create **better facts worth telling**.
 
 ---
 
@@ -43,9 +43,17 @@ Open [`assets/career-alpha-workbench.html`](assets/career-alpha-workbench.html) 
 
 <img src="assets/workbench-preview.svg" width="100%" alt="Career Alpha Workbench preview" />
 
-The Workbench tracks Trend Radar, Opportunity Wedge, Proof of Work, Claim–Evidence Ledger, positioning, interview defense and the application pipeline.
+The Workbench includes:
 
-Data stays in browser `localStorage` by default and can be imported/exported as JSON. Ready-made bundles live in [`examples/workbench/`](examples/workbench/README.md).
+- Trend Radar and Opportunity Wedge;
+- Proof of Work and Claim–Evidence Ledger;
+- Safe / Strong / Future positioning;
+- Interview Defense;
+- a lightweight Kanban application pipeline;
+- an adaptive **Career Summary** that suggests the next skill based on current evidence;
+- an offline **Case Lab** for Agent Engineer, AI Product Manager, Quant Researcher and Robotics / Physical AI examples.
+
+The mascot changes mood as the loop moves from no signal → building proof → defensible evidence → market validation. Data stays in browser `localStorage` by default and can be imported/exported as JSON.
 
 ---
 
@@ -267,6 +275,7 @@ creates:
 ```bash
 npm run init
 npm run demo
+npm run snapshot
 npm run validate
 ```
 
@@ -316,10 +325,6 @@ Validation covers frontmatter, four plugin manifests, local/shared references, r
 6. **Market feedback closes the loop** — recruiting outcomes are new data, not just final results.
 
 ---
-
-## Acknowledgements
-
-Career Alpha borrows useful product patterns from [ASu-skills](https://github.com/Hisn00w/ASu-skills), including its multi-entry skill suite, evidence-first workflow, interview follow-up and recruiting loop. Career Alpha extends that model upstream into **trend discovery, asymmetric opportunity selection and deliberate Proof-of-Work creation**.
 
 ## License
 
