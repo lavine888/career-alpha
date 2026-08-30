@@ -1,0 +1,54 @@
+{
+  "name": "career-alpha",
+  "version": "0.2.0",
+  "description": "AI-native career OS for asymmetric opportunity discovery, proof-of-work building, evidence auditing, positioning, interview defense, and market feedback.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "init": "node scripts/career-alpha.mjs init",
+    "demo": "node scripts/career-alpha.mjs demo",
+    "validate:skills": "python3 scripts/validate_skills.py",
+    "validate:package": "python3 scripts/validate_package.py",
+    "validate": "npm run validate:skills && npm run validate:package",
+    "test": "npm run validate"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "skills",
+    "scripts",
+    "assets",
+    "docs",
+    "references",
+    ".codex-plugin",
+    ".claude-plugin",
+    ".opencode-plugin",
+    "README.md",
+    "README_en.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "career",
+    "job-search",
+    "agent-skill",
+    "career-alpha",
+    "proof-of-work",
+    "interview",
+    "resume",
+    "codex",
+    "claude-code",
+    "opencode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lavine888/career-alpha.git"
+  },
+  "homepage": "https://github.com/lavine888/career-alpha",
+  "engines": {
+    "node": ">=20"
+  }
+}
