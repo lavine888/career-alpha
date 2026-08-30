@@ -22,10 +22,10 @@ Career Alpha is intentionally small at the skill-entry layer. The roadmap focuse
 - [ ] Collect 10+ anonymized real Career Alpha loops
 - [ ] Add outcome taxonomy for interview / recruiter / founder feedback
 - [ ] Add case-quality rubric so anecdotal wins are not treated as universal strategy
-- [ ] Add role-specific source packs for AI Engineering, Product, Quant and Robotics
+- [x] Add role-specific source packs for AI Engineering, Product, Quant and Robotics
 - [ ] Add benchmark for skill routing and handoff consistency
 - [ ] Add Workbench case selector and direct bundle loading
-- [ ] Add exportable Career Alpha report / portfolio evidence page
+- [x] Add exportable Career Alpha report / portfolio evidence page (`npm run snapshot`)
 
 ## v0.4 — Research & Market Intelligence
 
