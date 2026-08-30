@@ -67,3 +67,4 @@ jobs:
           python3 scripts/validate_package.py
           node scripts/validate_node_package.mjs
           node scripts/validate_docs.mjs
+          node scripts/eval_handoffs.mjs
