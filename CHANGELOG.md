@@ -2,6 +2,20 @@
 
 All notable Career Alpha changes are recorded here.
 
+## Unreleased — v0.3 Real-world Validation
+
+### Added
+
+- Role-specific `/radar` source packs for AI Engineering / Agent Systems, AI Product, Quant Research and Robotics / Physical AI.
+- Source-pack routing index for hybrid roles.
+- `npm run snapshot` to export the private `.career-alpha/` workspace into a reviewable Markdown Career Alpha Snapshot.
+- Snapshot documentation with explicit privacy review rules before sharing.
+
+### Changed
+
+- `/radar` now changes its demand / proof heuristics by target career domain instead of applying one generic signal checklist everywhere.
+- Installation docs now include the local snapshot workflow.
+
 ## 0.2.0 — Productized Foundation
 
 ### Added
