@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "targetRole": "AI Product Manager / AI Product Ops",
+    "region": "China / Hong Kong / Remote",
+    "weeklyTime": "8–10h / week",
+    "background": "Business / information systems background; strong user research and storytelling; one AI hackathon and several product prototypes; weak evidence of production metrics or technical delivery ownership."
+  },
+  "trends": [
+    {"name": "AI Workflow Redesign", "score": 82, "stage": "GROWING", "note": "Teams increasingly need model capability translated into measurable business workflows."},
+    {"name": "Human-in-the-loop Eval Ops", "score": 79, "stage": "EARLY", "note": "Evaluation, fallback and review operations are becoming explicit product requirements."},
+    {"name": "Generic AI PM", "score": 51, "stage": "CONSENSUS", "note": "Role label is common; differentiated evidence is the bottleneck."},
+    {"name": "Prompt Library Management", "score": 29, "stage": "SATURATED", "note": "Easy to imitate and weak as a standalone career signal."}
+  ],
+  "wedge": {
+    "name": "AI Workflow + Evaluation PM",
+    "thesis": "The wedge is not generic AI product knowledge but the ability to redesign a workflow, define evaluation criteria, design human fallback and show measurable before/after behavior.",
+    "demand": 8,
+    "scarcity": 7,
+    "proofability": 9,
+    "timing": 8,
+    "killCriteria": "Target roles consistently value shipped-user metrics over workflow/eval design and prototypes cannot obtain any real-user signal.",
+    "nextTest": "Redesign one real knowledge-work flow and compare baseline vs AI-assisted quality, time and revision effort."
+  },
+  "proofs": [
+    {"name": "AI-assisted Research Workflow", "status": "IN PROGRESS", "evidence": "Workflow diagram + product spec + eval rubric + result table"},
+    {"name": "External User Review", "status": "PLANNED", "evidence": "User feedback / task completion notes"}
+  ],
+  "claims": [
+    {"claim": "Designed an AI-assisted research workflow with evidence verification and human approval", "confidence": "VERIFIED", "evidence": "Workflow diagram; prototype; product spec", "ownership": "Workflow design, evaluation rubric, fallback logic", "risk": "Why is this a product problem rather than just prompt engineering?"},
+    {"claim": "Reduced first-draft time", "confidence": "SUPPORTED", "evidence": "Baseline/intervention timestamps if collected", "ownership": "Experiment design and workflow changes", "risk": "Was quality preserved? How was revision effort measured?"}
+  ],
+  "position": {
+    "safe": "AI product builder focused on workflow redesign, evaluation and human-in-the-loop systems.",
+    "stretch": "AI Product candidate who can define workflow metrics, evaluation criteria and operational guardrails for LLM products.",
+    "gaps": "Real users; production rollout; retention/usage metrics; cross-functional delivery ownership."
+  },
+  "applications": [
+    {"company": "Example AI Workflow Startup", "stage": "TARGET", "next": "Map workflow/evaluation pain before outreach"},
+    {"company": "Example SaaS Co.", "stage": "OUTREACH", "next": "Send product case with baseline/eval artifacts"}
+  ],
+  "interview": {
+    "risk": "Claiming product impact without production user metrics",
+    "weakness": "Current proof is strong on workflow/evaluation but weak on shipped adoption and business outcomes.",
+    "drill": "What user behavior changed, how did you measure quality, and what would you instrument in production?"
+  }
+}
