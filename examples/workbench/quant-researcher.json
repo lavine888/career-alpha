@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "targetRole": "Quant Researcher / Systematic Research",
+    "region": "Hong Kong / Singapore / Remote",
+    "weeklyTime": "10–12h / week",
+    "background": "Math / CS background; Python and basic backtesting; several factor notebooks; no institutional quant internship. Need stronger evidence of research discipline, robustness and data quality."
+  },
+  "trends": [
+    {"name": "Research Reproducibility / Data QA", "score": 84, "stage": "GROWING", "note": "Research teams value trustworthy pipelines and fast invalidation of bad results."},
+    {"name": "Alternative Data Pipelines", "score": 76, "stage": "GROWING", "note": "Useful but data access and licensing increase entry cost."},
+    {"name": "Execution / Microstructure Tooling", "score": 74, "stage": "EARLY", "note": "High technical depth and stronger systems differentiation."},
+    {"name": "Generic Factor Backtests", "score": 31, "stage": "SATURATED", "note": "Easy to overfit and common in student portfolios."}
+  ],
+  "wedge": {
+    "name": "Robustness-first Systematic Research",
+    "thesis": "A reproducible research process with data QA, transaction costs, sensitivity analysis and failure regimes is harder to fake and more interview-defensible than another high-Sharpe notebook.",
+    "demand": 8,
+    "scarcity": 8,
+    "proofability": 9,
+    "timing": 7,
+    "killCriteria": "Target roles consistently prioritize low-level systems/C++ execution work and research-hygiene evidence does not improve interview traction.",
+    "nextTest": "Take one simple factor and build a reproducible package with cost model, subperiod robustness, lag checks and failure-regime analysis."
+  },
+  "proofs": [
+    {"name": "Robust Factor Research Package", "status": "IN PROGRESS", "evidence": "Config + research memo + experiment table + sensitivity outputs"},
+    {"name": "Data QA / Reproducibility Tests", "status": "PLANNED", "evidence": "Test suite + data provenance notes"}
+  ],
+  "claims": [
+    {"claim": "Built a reproducible factor-research pipeline with transaction-cost and robustness checks", "confidence": "VERIFIED", "evidence": "Code; config; research memo; experiment table", "ownership": "Research design, implementation, robustness analysis", "risk": "Universe construction? survivorship? data leakage?"},
+    {"claim": "Found a profitable alpha signal", "confidence": "SELF-REPORTED", "evidence": "Backtest only", "ownership": "Research", "risk": "Out-of-sample validity, costs and overfitting make this unsafe as a strong claim"}
+  ],
+  "position": {
+    "safe": "Quant-oriented researcher with reproducibility, data QA and robustness-first research habits.",
+    "stretch": "Systematic research candidate able to turn a trading hypothesis into a defensible experiment with cost, sensitivity and failure-regime analysis.",
+    "gaps": "Live execution; production infra; real risk management; deeper C++/systems evidence for some roles."
+  },
+  "applications": [
+    {"company": "Example Systematic Fund", "stage": "TARGET", "next": "Map research vs quant-dev expectations before applying"},
+    {"company": "Example Quant Team", "stage": "OUTREACH", "next": "Share reproducible research memo rather than headline Sharpe"}
+  ],
+  "interview": {
+    "risk": "Any precise performance metric without robust methodology",
+    "weakness": "Backtest can be challenged on universe, costs, lags and data leakage.",
+    "drill": "What happens to the signal under delayed execution, higher costs, another subperiod and a slightly different universe?"
+  }
+}
