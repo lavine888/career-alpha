@@ -1,0 +1,57 @@
+name: Share your Career Alpha
+about: Share a de-identified real-world Career Alpha loop and what the market actually taught you.
+title: "[Case] "
+labels: ["case"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing a real case. Please remove names, emails, phone numbers, recruiter contacts, compensation, private links, NDA material, and unpublished company data. Do not invent metrics or outcomes.
+  - type: textarea
+    id: background
+    attributes:
+      label: Starting point
+      description: Background, target role/market, constraints, and what evidence you already had.
+      placeholder: "Example: CS student, Python/TypeScript, several agent demos, targeting AI Agent Engineer..."
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Original career hypothesis
+      description: What did you initially believe was a good direction or wedge?
+    validations:
+      required: true
+  - type: textarea
+    id: actions
+    attributes:
+      label: What you actually did
+      description: Radar research, wedge selection, proof of work, open-source contribution, positioning, interview prep, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence created
+      description: Repos, benchmarks, merged PRs, deployments, user feedback, or other de-identified proof.
+  - type: textarea
+    id: market
+    attributes:
+      label: Market feedback
+      description: What did recruiters, engineers, founders, interviews, or applications actually signal?
+  - type: textarea
+    id: update
+    attributes:
+      label: KEEP / REFINE / PIVOT
+      description: Which hypothesis changed, and why?
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed private recruiter/contact/compensation/NDA information.
+          required: true
+        - label: Any metrics or outcomes I included are real or explicitly marked as approximate/self-reported.
+          required: true
