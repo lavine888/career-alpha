@@ -29,8 +29,8 @@
       "Use /interview to pressure-test claims.",
       "Use /offer to close the loop with market feedback."
     ],
-    "brandColor": "#0A1225",
-    "composerIcon": "./assets/career-alpha-logo.svg",
+    "brandColor": "#08111F",
+    "composerIcon": "./assets/career-alpha-logo-small.svg",
     "logo": "./assets/career-alpha-logo.svg"
   }
 }
