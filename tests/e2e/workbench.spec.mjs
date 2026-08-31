@@ -2,6 +2,10 @@ import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 
 async function openClean(page, { onboarded = true, legacyState = null } = {}) {
+  page.on('pageerror', error => console.error('WORKBENCH_PAGEERROR:', error.message));
+  page.on('console', msg => {
+    if (msg.type() === 'error') console.error('WORKBENCH_CONSOLE_ERROR:', msg.text());
+  });
   await page.addInitScript(({ onboarded, legacyState }) => {
     localStorage.clear();
     if (onboarded) localStorage.setItem('career-alpha-onboarded-v1', '1');
@@ -19,11 +23,9 @@ test('onboarding persists target and weekly time', async ({ page }) => {
   await page.locator('#guideNext').click();
   await page.locator('#guideTime').fill('8h / week');
   await page.locator('#guideNext').click();
-
   await expect(page.locator('[data-profile="targetRole"]')).toHaveValue('Agent Engineer');
   await expect(page.locator('[data-profile="weeklyTime"]')).toHaveValue('8h / week');
   await expect(page.locator('#guideModal')).toBeHidden();
-
   await page.reload();
   await expect(page.locator('[data-profile="targetRole"]')).toHaveValue('Agent Engineer');
   const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('career-alpha-workbench-v2')));
@@ -35,18 +37,14 @@ test('case data survives reload and share card renders', async ({ page }) => {
   page.once('dialog', dialog => dialog.accept());
   await page.locator('#caseSelect').selectOption('agent');
   await page.locator('#loadCase').click();
-
   await expect(page.locator('[data-wedge="name"]')).toHaveValue('Agent Reliability / Evaluation');
   await expect(page.locator('#verifiedCount')).toHaveText('1');
-
   const proofStatus = page.locator('#proofList .proof select').first();
   await proofStatus.selectOption('DONE');
   await expect(page.locator('#summaryMove')).toHaveText('/position');
-
   await page.reload();
   await expect(page.locator('[data-wedge="name"]')).toHaveValue('Agent Reliability / Evaluation');
   await expect(page.locator('#summaryMove')).toHaveText('/position');
-
   await page.locator('#shareBtn').click();
   await expect(page.locator('#shareModal')).toBeVisible();
   await expect(page.locator('#shareCanvas')).toHaveAttribute('width', '1600');
@@ -75,7 +73,6 @@ test('exported JSON contains schema version', async ({ page }) => {
   page.once('dialog', dialog => dialog.accept());
   await page.locator('#caseSelect').selectOption('agent');
   await page.locator('#loadCase').click();
-
   const downloadPromise = page.waitForEvent('download');
   await page.locator('#exportBtn').click();
   const download = await downloadPromise;
