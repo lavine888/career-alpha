@@ -282,7 +282,7 @@ career-alpha/
 
 欢迎提交真实匿名 Career Alpha loop、wedge / benchmark pattern、failure case、routing/eval case 和 Workbench 改进。
 
-查看 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [ROADMAP.md](ROADMAP.md)。
+查看 [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) 与 [ROADMAP.md](ROADMAP.md)。
 
 ## License
 
