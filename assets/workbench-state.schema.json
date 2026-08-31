@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lavine888/career-alpha/assets/workbench-state.schema.json",
+  "title": "Career Alpha Workbench State",
+  "type": "object",
+  "required": ["schema_version", "profile", "trends", "wedge", "proofs", "claims", "position", "applications", "interview"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "profile": {
+      "type": "object",
+      "required": ["targetRole", "region", "weeklyTime", "background"],
+      "properties": {
+        "targetRole": {"type": "string"},
+        "region": {"type": "string"},
+        "weeklyTime": {"type": "string"},
+        "background": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "trends": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "score", "stage", "note"],
+        "properties": {
+          "name": {"type": "string"},
+          "score": {"type": "number", "minimum": 0, "maximum": 100},
+          "stage": {"enum": ["EARLY", "GROWING", "CONSENSUS", "SATURATED"]},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "wedge": {
+      "type": "object",
+      "required": ["name", "thesis", "demand", "scarcity", "proofability", "timing", "killCriteria", "nextTest"],
+      "properties": {
+        "name": {"type": "string"},
+        "thesis": {"type": "string"},
+        "demand": {"type": "number", "minimum": 0, "maximum": 10},
+        "scarcity": {"type": "number", "minimum": 0, "maximum": 10},
+        "proofability": {"type": "number", "minimum": 0, "maximum": 10},
+        "timing": {"type": "number", "minimum": 0, "maximum": 10},
+        "killCriteria": {"type": "string"},
+        "nextTest": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "proofs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "evidence"],
+        "properties": {
+          "name": {"type": "string"},
+          "status": {"enum": ["PLANNED", "IN PROGRESS", "DONE"]},
+          "evidence": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "confidence", "evidence", "ownership", "risk"],
+        "properties": {
+          "claim": {"type": "string"},
+          "confidence": {"enum": ["VERIFIED", "SUPPORTED", "SELF-REPORTED", "PLANNED"]},
+          "evidence": {"type": "string"},
+          "ownership": {"type": "string"},
+          "risk": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "position": {
+      "type": "object",
+      "required": ["safe", "stretch", "gaps"],
+      "properties": {
+        "safe": {"type": "string"},
+        "stretch": {"type": "string"},
+        "gaps": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "applications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["company", "stage", "next"],
+        "properties": {
+          "company": {"type": "string"},
+          "stage": {"enum": ["TARGET", "OUTREACH", "APPLIED", "INTERVIEW", "OFFER", "REJECTED"]},
+          "next": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "interview": {
+      "type": "object",
+      "required": ["risk", "weakness", "drill"],
+      "properties": {
+        "risk": {"type": "string"},
+        "weakness": {"type": "string"},
+        "drill": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
