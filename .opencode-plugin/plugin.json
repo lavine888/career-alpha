@@ -1,11 +1,8 @@
 {
   "name": "career-alpha",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AI-native career workflow for trend discovery, proof-of-work creation, evidence-first positioning, interview preparation and job-search tracking.",
-  "author": {
-    "name": "Lavine",
-    "url": "https://github.com/lavine888"
-  },
+  "author": {"name": "Lavine", "url": "https://github.com/lavine888"},
   "homepage": "https://github.com/lavine888/career-alpha",
   "repository": "https://github.com/lavine888/career-alpha",
   "license": "MIT",
@@ -23,9 +20,5 @@
       {"name": "offer", "description": "Track applications, interviews, offers and feedback"}
     ]
   },
-  "install": {
-    "method": "copy",
-    "source": "skills",
-    "destination": "{opencode_skills_dir}"
-  }
+  "install": {"method": "copy", "source": "skills", "destination": "{opencode_skills_dir}"}
 }
