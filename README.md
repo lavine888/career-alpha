@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/career-alpha-logo.svg" width="128" alt="Career Alpha logo" />
+<img src="assets/career-alpha-logo.svg" width="120" alt="Career Alpha logo" />
 
 # Career Alpha
 
@@ -9,8 +9,9 @@
 **Find your career alpha before it becomes consensus.**  
 **在机会成为共识之前，找到你的职业 Alpha。**
 
-[English](README_en.md) · [Workbench](assets/career-alpha-workbench.html) · [安装](docs/installation.md) · [Case Library](docs/cases/README.md)
+[English](README_en.md) · [打开 Workbench](assets/career-alpha-workbench.html) · [5 分钟上手](docs/quickstart.md) · [安装](docs/installation.md) · [案例](docs/cases/README.md)
 
+![Version](https://img.shields.io/badge/version-0.3.0-cbb7ff)
 ![License](https://img.shields.io/badge/license-MIT-2f81f7)
 ![Codex](https://img.shields.io/badge/Codex-skill-111827)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-d97757)
@@ -32,52 +33,48 @@ Career Alpha 往前多走一步：
 
 > **未来两周你应该做什么，才能让半年后的自己更值钱？**
 
-它从 **趋势发现 → 错位机会 → 主动造经历 → 外部协作 → 证据审计 → 岗位定位 → 面试防守 → 市场反馈** 建立一个完整闭环。
+它不是先包装简历，而是从 **趋势 → 错位机会 → Proof of Work → 证据 → 定位 → 面试 → 市场反馈** 建立一个 Career Hypothesis Loop。
 
-不是先包装简历，而是先制造 **值得被写进简历的事实**。
+**Don’t fake experience. Build real evidence faster.**
 
 ---
 
-## ⚡ 直接体验：Career Alpha Workbench
+## ⚡ Workbench v0.3
 
-仓库包含一个本地可用的 Workbench：
-
-**[`assets/career-alpha-workbench.html`](assets/career-alpha-workbench.html)**
-
-下载后浏览器直接打开，无需服务器。
+[`assets/career-alpha-workbench.html`](assets/career-alpha-workbench.html) 是一个单文件、本地优先的职业操作台。浏览器直接打开即可使用，不需要服务器。
 
 <img src="assets/workbench-preview.svg" width="100%" alt="Career Alpha Workbench preview" />
 
-它可以维护：
+v0.3 包含：
 
-- **Trend Radar** — 趋势、分数、EARLY / GROWING / SATURATED；
-- **Opportunity Wedge** — Demand、Scarcity、Proofability、Timing 与 kill criteria；
-- **Proof of Work** — 项目 / PR / benchmark 完成状态；
-- **Claim–Evidence Ledger** — VERIFIED / SUPPORTED / SELF-REPORTED / PLANNED；
-- **Positioning** — Safe / Strong / Future；
-- **Interview Defense** — 当前最危险的简历主张；
-- **Application Pipeline** — Target → Outreach → Interview → Offer；
-- **Career Summary** — 根据当前证据自动提示所处阶段与下一步 Skill；
-- **Case Lab** — 离线一键切换 Agent Engineer / AI PM / Quant / Robotics 四套完整案例。
+- **3-step Start Guide** — 根据目标岗位、现有证据和每周投入，推荐从 `/radar`、`/proof`、`/position` 或 `/offer` 开始；
+- **Trend Radar** — 记录需求信号、阶段和反证；
+- **Opportunity Wedge** — Demand / Scarcity / Proofability / Timing + kill criteria；
+- **Proof of Work** — 管理可验证项目、PR、benchmark 和完成状态；
+- **Claim–Evidence Ledger** — `VERIFIED / SUPPORTED / SELF-REPORTED / PLANNED`；
+- **Career Health** — 分开显示 Signal Confidence / Evidence Strength / Market Validation，不制造假的总分；
+- **Career Summary** — 自动给出当前 wedge 和下一步 skill；
+- **Application Pipeline** — Discover → Active → Outcome；
+- **Interview Defense** — 追踪最危险的主张和下一轮压力测试；
+- **Case Lab** — 离线切换 Agent Engineer / AI PM / Quant / Robotics 四套完整状态；
+- **Share Card** — 本地生成 1600×900 Career Alpha Snapshot PNG；
+- **Adaptive Buddy** — 根据证据和市场状态切换 sleepy / focus / happy / celebrate。
 
-顶部 mascot 会根据当前状态切换 `waiting / focus / happy / market validated` 表情。所有数据默认只保存在当前浏览器 `localStorage`，支持 JSON 导入 / 导出，不自动上传。
+### Local-first 数据边界
 
----
+Workbench 不自动上传任何职业数据。
 
-## 🎯 4 个 End-to-End Cases
+```text
+localStorage key: career-alpha-workbench-v2
+state schema:     1.0
+```
 
-Career Alpha 不是只为 Agent Engineer 设计。仓库用四种不同角色展示同一套方法如何迁移：
+v0.3 新增 [`assets/workbench-state.schema.json`](assets/workbench-state.schema.json)：
 
-| Case | 核心 Career Alpha | 关键 Proof of Work |
-| --- | --- | --- |
-| **[Agent Engineer](docs/agent-engineer-end-to-end.md)** | Agent Reliability / Evaluation | Harness benchmark、failure taxonomy、ablation |
-| **[AI Product Manager](docs/cases/ai-product-manager.md)** | Workflow + Evaluation PM | user workflow、eval rubric、human fallback、outcome metrics |
-| **[Quant Researcher](docs/cases/quant-researcher.md)** | Robustness-first research | cost model、sensitivity、failure regimes、reproducible pipeline |
-| **[Robotics / Physical AI](docs/cases/robotics-engineer.md)** | Eval + Reliability | fixed scenarios、recovery benchmark、simulation boundary |
-
-四个案例都遵守同一条原则：
-
-> **不要先问“怎么包装这个项目”，先问“还缺什么事实，才能让我诚实地多说一句更强的话”。**
+- 旧 `career-alpha-workbench-v1` 数据会自动迁移；
+- JSON 导入会先 normalize，再进入当前状态；
+- 未知的未来 `schema_version` 会被拒绝，避免静默破坏数据；
+- 导出文件始终包含 `schema_version: "1.0"`。
 
 ---
 
@@ -85,213 +82,112 @@ Career Alpha 不是只为 Agent Engineer 设计。仓库用四种不同角色展
 
 ```text
 /radar
-  ↓ 发现正在形成的真实需求
+  ↓ 发现真实需求
 /wedge
-  ↓ 选择供需错位的最小进入点
-┌────────────────┐
-│                │
-▼                ▼
-/contributor    /build
-真实开源贡献     Proof of Work
-│                │
-└────────┬───────┘
-         ↓
-       /proof
-建立 Claim–Evidence Ledger
-         ↓
-     /position
-Safe / Strong / Future Position
-         ↓
-┌────────┴────────┐
-▼                 ▼
-/interview       /offer
-面试压力测试      投递与市场反馈
-                   │
-                   └────→ 回流 /radar /wedge /build
+  ↓ 找最小非对称入口
+┌───────────────┐
+▼               ▼
+/contributor   /build
+外部协作证据    Proof of Work
+└───────┬───────┘
+        ↓
+      /proof
+Claim–Evidence Ledger
+        ↓
+    /position
+Safe / Strong / Future
+        ↓
+┌───────┴───────┐
+▼               ▼
+/interview     /offer
+压力测试        市场反馈
+                  │
+                  └──→ 回流 /radar /wedge /build
 ```
-
-这不是一次性的线性流程，而是 **Career Hypothesis Loop**。
 
 ---
 
 ## 8 个 Skills
 
-| Skill | 它解决什么 | 主要交付 |
+| Skill | 问题 | 主要交付 |
 | --- | --- | --- |
-| **`/radar`** | 哪些方向正在形成、但还没完全成为共识？ | Trend Radar、source hierarchy、反证、时间窗口 |
-| **`/wedge`** | 我应该从这个趋势的哪个小切口进入？ | Wedge comparison、Evidence ROI、72h test、kill criteria |
-| **`/build`** | 用 2–7 天造出什么事实最值钱？ | Mission Brief、baseline、evaluation、DoD、coding-agent prompt |
-| **`/contributor`** | 如何通过真实开源协作获得外部证据？ | Repo rubric、拟改动、PR evidence、review boundary |
-| **`/proof`** | 简历上的主张到底有多硬？ | Atomic claim audit、Evidence Card、confidence、safe wording |
-| **`/position`** | 这些事实应该如何翻译成岗位语言？ | Safe / Strong / Future、resume bullet、HR / Founder outreach |
-| **`/interview`** | 哪一句最容易被面试官问穿？ | Risk Map、five-layer drill、Defense Report、downgrade decision |
-| **`/offer`** | 市场真实反馈是否支持当前假设？ | Pipeline、funnel、feedback loop、KEEP / REFINE / PIVOT |
+| **`/radar`** | 什么正在形成，但还没成为共识？ | Signal hierarchy、反证、时间窗口 |
+| **`/wedge`** | 从哪里切进去最有非对称优势？ | Wedge comparison、72h test、kill criteria |
+| **`/build`** | 2–7 天造什么事实最值钱？ | Mission Brief、baseline、evaluation、DoD |
+| **`/contributor`** | 如何用真实开源协作建立外部证据？ | Repo rubric、PR evidence、review boundary |
+| **`/proof`** | 哪些职业主张真的站得住？ | Atomic claim audit、confidence、ownership |
+| **`/position`** | 如何把事实翻译成岗位语言？ | Safe / Strong / Future positioning |
+| **`/interview`** | 哪句话最容易被问穿？ | Risk Map、five-layer drill、Defense Report |
+| **`/offer`** | 市场是否支持当前职业假设？ | Pipeline、feedback loop、KEEP / REFINE / PIVOT |
 
-每个 skill 都有自己的 `references/` 工具箱，不只是一个 prompt 文件。
-
----
-
-## 第一次用，从哪里开始？
-
-| 你的问题 | 推荐入口 |
-| --- | --- |
-| 不知道 AI / Agent / Quant / Robotics 接下来学什么 | `/radar` |
-| 知道大方向，但不知道怎么切进去 | `/wedge` |
-| 简历太空，想造一段真正能讲的经历 | `/build` |
-| 想用真实 GitHub PR 建立协作证据 | `/contributor` |
-| 项目很多，但不知道哪些话真的有证据 | `/proof` |
-| 想把真实经历写成更强的岗位语言 | `/position` |
-| 已经有面试，怕项目被问穿 | `/interview` |
-| 已经开始投递，需要用市场反馈修正策略 | `/offer` |
-
-### 常见路径
-
-```text
-没有相关经历：
-/radar → /wedge → /build 或 /contributor → /proof → /position
-
-已有项目，但很像 Demo：
-/proof → /wedge → /build → /proof → /position
-
-已有经历，不会表达：
-/proof → /position → /interview
-
-已经投递，但反馈很差：
-/offer → /position / wedge / radar
-```
+每个 skill 都有独立 `references/`，而不是只有一段 prompt。
 
 ---
 
-## `/radar`：不是热点榜，是需求雷达
+## 🎯 4 个 End-to-End Cases
 
-```text
-Tier A — 招聘、付费产品、first-party hiring、生产需求
-Tier B — GitHub adoption、工程博客、benchmark、真实 builder pain
-Tier C — 组织 / 融资 / 新团队
-Tier D — 媒体、X、小红书、搜索热度
-```
+| Case | 核心 Wedge | Proof of Work |
+| --- | --- | --- |
+| **[Agent Engineer](docs/agent-engineer-end-to-end.md)** | Agent Reliability / Evaluation | harness benchmark、failure taxonomy、ablation |
+| **[AI Product Manager](docs/cases/ai-product-manager.md)** | Workflow + Evaluation PM | workflow、eval rubric、human fallback、outcome metrics |
+| **[Quant Researcher](docs/cases/quant-researcher.md)** | Robustness-first Research | cost model、sensitivity、failure regimes |
+| **[Robotics / Physical AI](docs/cases/robotics-engineer.md)** | Eval + Reliability | fixed scenarios、recovery benchmark、simulation boundary |
 
-只有热度、没有 Tier A / B 支撑的方向，会被标记为 `HYPE` 或低 confidence，并强制寻找 negative evidence。
+共同原则：
 
----
-
-## `/wedge`：不选最热门，选最小非对称入口
-
-Career Alpha 支持 Skill、Problem、Distribution、Evidence、Organization、Contribution 六类 wedge。
-
-```text
-Evidence ROI = credibility gained / (time + learning cost + coordination cost)
-```
+> **不要先问“怎么包装这个项目”，先问“还缺什么事实，才能让我诚实地多说一句更强的话”。**
 
 ---
 
-## `/build`：先定义证据，再写代码
+## Integrity：Evidence First 不是一句 slogan
 
-一个 Career Alpha 项目必须先回答：
+Career Alpha 的状态转换受到两个回归测试约束：
 
-> **项目完成后，我能诚实多说哪一句以前不能说的话？**
-
-```text
-Career Claim
-   ↓
-Baseline
-   ↓
-Intervention
-   ↓
-Evaluation
-   ↓
-Failure Cases
-   ↓
-Artifacts
-   ↓
-Definition of Done
+```bash
+npm run eval:handoff
+npm run eval:integrity
 ```
 
-不会默认让你再做一个全栈 ChatGPT Clone。
+它们专门阻止：
+
+- `PLANNED` 被偷偷写成 completed；
+- 团队成果被扩张成个人 sole ownership；
+- weak evidence 被升级成 `VERIFIED`；
+- backtest 被描述成 production result；
+- simulation / demo 被描述成 real-world deployment；
+- `/radar → /wedge → /proof` 时 uncertainty 无依据消失。
+
+真实案例收集也有独立协议：[`docs/real-cases/`](docs/real-cases/README.md)。
 
 ---
 
-## `/proof`：Claim–Evidence Ledger
+## Browser E2E
 
-每条强主张拆成：
-
-```text
-Claim
-Evidence
-Result
-Ownership
-Confidence
-Status
-Causal Risk
-Resume-safe Wording
-Strong Wording Requirements
-Interview Risks
-Missing Evidence
-```
-
-Confidence 只允许：
-
-- `VERIFIED`
-- `SUPPORTED`
-- `SELF-REPORTED`
-- `PLANNED`
-
-一个项目本身可以是 VERIFIED，但其中的“性能提升 28%”仍可能只是 SUPPORTED。
-
-结构化资产：
-
-- [career-claim-ledger-template.json](assets/career-claim-ledger-template.json)
-- [claim-evidence-ledger.schema.json](references/claim-evidence-ledger.schema.json)
-
----
-
-## `/position`：Safe / Strong / Future
-
-- **Safe Position** — 当前证据直接支持；
-- **Strong Position** — 更进取，但能明确解释边界；
-- **Future Position** — 下一阶段想成为谁，以及还缺什么证据。
-
-Future Position 不能被偷偷写成当前事实；它会被路由回 `/build` 或 `/contributor`。
-
----
-
-## `/interview`：不是背题，是压力测试
+v0.3 不再只检查“HTML 里有没有按钮文字”。Playwright 会真的打开 Workbench 并执行：
 
 ```text
-What exactly did you do?
-Why this approach?
-What alternative did you reject?
-How did you measure it?
-What failed?
-What did teammates / AI tools do?
-What would you change now?
+Onboarding
+→ Case Lab
+→ localStorage persistence
+→ v1 → v2 migration
+→ Share Card rendering
+→ schema-aware JSON export
 ```
 
-输出 verdict：
+运行：
 
-```text
-DEFENSIBLE
-DEFENSIBLE_WITH_BOUNDARY
-KNOWLEDGE_GAP
-EVIDENCE_GAP
-OWNERSHIP_GAP
-DOWNGRADE
-REMOVE
+```bash
+npm install
+npx playwright install chromium
+npm run test:e2e
 ```
 
----
+完整验证：
 
-## `/offer`：让市场修正你的判断
-
-```text
-trend wrong      → /radar
-wedge wrong      → /wedge
-proof weak       → /build /contributor /proof
-position unclear → /position
-interview weak   → /interview
+```bash
+npm run validate
+npm run test:e2e
 ```
-
-每个周期给出 `KEEP / REFINE / PIVOT`。
 
 ---
 
@@ -299,33 +195,19 @@ interview weak   → /interview
 
 ```bash
 npm run init
-```
-
-会生成本地：
-
-```text
-.career-alpha/
-├── profile.json
-├── radar.json
-├── wedges.json
-├── ledger.json
-└── applications.json
-```
-
-`.career-alpha/` 已默认加入 `.gitignore`。
-
-```bash
-npm run init
 npm run demo
 npm run snapshot
-npm run validate
 ```
+
+`npm run init` 会创建本地 `.career-alpha/` 工作区；它已默认加入 `.gitignore`。
+
+`npm run snapshot` 会生成一个可人工复核的 Career Alpha Markdown Snapshot，公开前仍需要你自己检查隐私内容。
 
 ---
 
 ## Installation
 
-完整步骤见 **[docs/installation.md](docs/installation.md)**。
+完整步骤见 [docs/installation.md](docs/installation.md)。
 
 ### Codex
 
@@ -341,9 +223,7 @@ https://github.com/lavine888/career-alpha
 /plugin install career-alpha@career-alpha
 ```
 
-### OpenCode / TraeWork
-
-仓库已经提供四套 packaging：
+仓库同时提供：
 
 ```text
 .codex-plugin/
@@ -352,7 +232,7 @@ https://github.com/lavine888/career-alpha
 .trae-plugin/
 ```
 
-所有客户端共享同一套 `skills/`、`references/` 和 evidence contract。
+四套客户端共享同一套 `skills/`、`references/` 和 evidence contract。
 
 ---
 
@@ -360,64 +240,49 @@ https://github.com/lavine888/career-alpha
 
 ```text
 career-alpha/
-├── .codex-plugin/
-├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
-├── .opencode-plugin/
-├── .trae-plugin/
 ├── assets/
 │   ├── career-alpha-logo.svg
+│   ├── career-alpha-mascot.svg
 │   ├── career-alpha-hero.svg
+│   ├── career-alpha-workbench.html
 │   ├── workbench-preview.svg
-│   └── career-alpha-workbench.html
-├── docs/
-│   ├── installation.md
-│   ├── agent-engineer-end-to-end.md
-│   └── cases/
-├── examples/workbench/
-├── lib/
-├── skills/
-│   └── <skill>/
-│       ├── SKILL.md
-│       ├── agents/openai.yaml
-│       └── references/
+│   └── workbench-state.schema.json
+├── skills/<skill>/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/
 ├── references/
-├── scripts/
+├── docs/
+│   ├── cases/
+│   └── real-cases/
+├── examples/workbench/
 ├── tests/
+│   ├── e2e/
+│   └── integrity-eval-cases.json
+├── scripts/
+├── playwright.config.mjs
+├── ROADMAP.md
 └── package.json
 ```
 
 ---
 
-## Validation
-
-```bash
-npm run validate
-```
-
-校验覆盖 frontmatter、四套 plugin manifests、skill-local/shared references、routing、ledger contract、CLI、品牌资产、Workbench 与案例 bundles。
-
----
-
 ## Design Principles
 
-1. **Asymmetric opportunity** — 不只看最热门，寻找需求与供给暂时错位的地方。
+1. **Asymmetric opportunity** — 不只追最热门，找需求和人才供给暂时错位的位置。
 2. **Proof before polish** — 先建立 Repo / PR / Benchmark / Deployment / User Feedback，再优化表达。
-3. **No fabricated alpha** — 不虚构 title、数字、排名、技术栈、production、ownership。
-4. **Fresh signals, explicit uncertainty** — 趋势必须标注来源、日期、样本与 uncertainty。
-5. **Interview-defensible by default** — 写进简历的主张默认应该扛得住至少五层追问。
-6. **Market feedback closes the loop** — 求职不是最后一步，而是下一轮职业假设的数据源。
+3. **No fabricated alpha** — 不虚构 title、数字、排名、production、ownership。
+4. **Fresh signals, explicit uncertainty** — 趋势判断保留来源、日期、样本和 uncertainty。
+5. **Interview-defensible by default** — 强主张必须准备好连续追问。
+6. **Market feedback closes the loop** — 投递结果不是终点，而是下一轮职业假设的数据。
 
 ---
 
 ## Contributing
 
-欢迎提交新的真实 Career Alpha case、wedge / benchmark pattern、failure case、routing / eval case、evidence protocol 和 Workbench 改进。
+欢迎提交真实匿名 Career Alpha loop、wedge / benchmark pattern、failure case、routing/eval case 和 Workbench 改进。
 
-Issue 已提供 **Share your Career Alpha**、New Skill 和 Bug 模板；PR 会自动运行 package validation。
-
----
+查看 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [ROADMAP.md](ROADMAP.md)。
 
 ## License
 
