@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "name": "planned project cannot become completed through positioning",
+      "input": {"claim":"Build an agent benchmark","confidence":"PLANNED","status":"PLANNED","ownership":["planned benchmark design"],"evidence":[],"context_uncertainty":["task set not yet built"]},
+      "output": {"claim":"Built an agent benchmark","confidence":"VERIFIED","status":"COMPLETED","ownership":["benchmark design"],"evidence":[],"transition_authority":"position","new_direct_evidence":false,"context_uncertainty":["task set not yet built"]},
+      "expected_valid": false,
+      "expected_error_codes": ["PLANNED_PROMOTED","CONFIDENCE_ESCALATION","OWNERSHIP_EXPANSION"]
+    },
+    {
+      "name": "team result cannot become sole ownership",
+      "input": {"claim":"Team improved task completion","confidence":"SUPPORTED","status":"COMPLETED","ownership":["evaluation design"],"evidence":["team benchmark"],"context_uncertainty":[]},
+      "output": {"claim":"Led and delivered the reliability improvement","confidence":"SUPPORTED","status":"COMPLETED","ownership":["evaluation design","system implementation","team leadership"],"evidence":["team benchmark"],"transition_authority":"position","new_direct_evidence":false,"context_uncertainty":[]},
+      "expected_valid": false,
+      "expected_error_codes": ["OWNERSHIP_EXPANSION"]
+    },
+    {
+      "name": "backtest cannot become production trading result",
+      "input": {"claim":"Strategy showed positive backtest returns","confidence":"SELF-REPORTED","status":"COMPLETED","ownership":["research"],"evidence":["backtest notebook"],"environment":"backtest","context_uncertainty":["transaction costs","live execution"]},
+      "output": {"claim":"Generated profitable production trading alpha","confidence":"VERIFIED","status":"COMPLETED","ownership":["research"],"evidence":["backtest notebook"],"environment":"production","transition_authority":"position","new_direct_evidence":false,"context_uncertainty":[]},
+      "expected_valid": false,
+      "expected_error_codes": ["CONFIDENCE_ESCALATION","ENVIRONMENT_ESCALATION","UNCERTAINTY_DROPPED"]
+    },
+    {
+      "name": "weak evidence cannot silently become verified",
+      "input": {"claim":"Reduced workflow time","confidence":"SUPPORTED","status":"COMPLETED","ownership":["workflow design"],"evidence":["single local run"],"context_uncertainty":["sample size"]},
+      "output": {"claim":"Reduced workflow time by 35%","confidence":"VERIFIED","status":"COMPLETED","ownership":["workflow design"],"evidence":["single local run"],"transition_authority":"proof","new_direct_evidence":false,"context_uncertainty":["sample size"]},
+      "expected_valid": false,
+      "expected_error_codes": ["CONFIDENCE_ESCALATION"]
+    },
+    {
+      "name": "radar uncertainty must survive wedge handoff",
+      "input": {"claim":"Agent eval demand is emerging","confidence":"SUPPORTED","status":"COMPLETED","ownership":[],"evidence":["job posts","engineering blogs"],"context_uncertainty":["small hiring sample","regional bias"]},
+      "output": {"claim":"Agent eval is a strong wedge","confidence":"SUPPORTED","status":"COMPLETED","ownership":[],"evidence":["job posts","engineering blogs"],"transition_authority":"wedge","new_direct_evidence":false,"context_uncertainty":[]},
+      "expected_valid": false,
+      "expected_error_codes": ["UNCERTAINTY_DROPPED"]
+    },
+    {
+      "name": "proof may upgrade confidence with new direct evidence",
+      "input": {"claim":"Benchmark may improve reliability","confidence":"SUPPORTED","status":"IN_PROGRESS","ownership":["evaluation design"],"evidence":["baseline"],"context_uncertainty":["repeatability"]},
+      "output": {"claim":"Benchmark improved fixed-task reliability","confidence":"VERIFIED","status":"COMPLETED","ownership":["evaluation design"],"evidence":["baseline","repeated benchmark","commit history"],"transition_authority":"proof","new_direct_evidence":true,"context_uncertainty":["external generalization"]},
+      "expected_valid": true,
+      "expected_error_codes": []
+    },
+    {
+      "name": "simulation boundary retained in robotics positioning",
+      "input": {"claim":"Improved simulated task recovery","confidence":"VERIFIED","status":"COMPLETED","ownership":["recovery logic"],"evidence":["sim benchmark"],"environment":"simulation","context_uncertainty":["sim-to-real transfer"]},
+      "output": {"claim":"Improved simulated task recovery","confidence":"VERIFIED","status":"COMPLETED","ownership":["recovery logic"],"evidence":["sim benchmark"],"environment":"simulation","transition_authority":"position","new_direct_evidence":false,"context_uncertainty":["sim-to-real transfer"]},
+      "expected_valid": true,
+      "expected_error_codes": []
+    },
+    {
+      "name": "new external review can expand supported ownership only when evidenced",
+      "input": {"claim":"Contributed evaluation tests","confidence":"SUPPORTED","status":"SUBMITTED","ownership":["test implementation"],"evidence":["PR"],"context_uncertainty":["maintainer acceptance"]},
+      "output": {"claim":"Contributed evaluation tests merged upstream","confidence":"VERIFIED","status":"MERGED","ownership":["test implementation"],"evidence":["PR","maintainer review","merge commit"],"transition_authority":"proof","new_direct_evidence":true,"context_uncertainty":[]},
+      "expected_valid": true,
+      "expected_error_codes": []
+    }
+  ]
+}
