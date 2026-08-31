@@ -1,11 +1,8 @@
 {
   "name": "career-alpha",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AI-native career operating system for trend discovery, asymmetric opportunity finding, proof-of-work building, evidence-first positioning, interview defense, and job pipeline management.",
-  "author": {
-    "name": "Lavine",
-    "url": "https://github.com/lavine888"
-  },
+  "author": {"name": "Lavine", "url": "https://github.com/lavine888"},
   "homepage": "https://github.com/lavine888/career-alpha",
   "repository": "https://github.com/lavine888/career-alpha",
   "license": "MIT",
