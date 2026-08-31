@@ -1,11 +1,8 @@
 {
   "name": "career-alpha",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AI-native career OS for trend discovery, asymmetric opportunity finding, proof-of-work, evidence-backed positioning, interview defense and market feedback.",
-  "author": {
-    "name": "Lavine",
-    "url": "https://github.com/lavine888"
-  },
+  "author": {"name": "Lavine", "url": "https://github.com/lavine888"},
   "homepage": "https://github.com/lavine888/career-alpha",
   "repository": "https://github.com/lavine888/career-alpha",
   "license": "MIT",
