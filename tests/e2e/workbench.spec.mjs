@@ -1,14 +1,18 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 
-test.beforeEach(async ({ page }) => {
+async function openClean(page, { onboarded = true, legacyState = null } = {}) {
+  await page.addInitScript(({ onboarded, legacyState }) => {
+    localStorage.clear();
+    if (onboarded) localStorage.setItem('career-alpha-onboarded-v1', '1');
+    if (legacyState) localStorage.setItem('career-alpha-workbench-v1', JSON.stringify(legacyState));
+  }, { onboarded, legacyState });
   await page.goto('/career-alpha-workbench.html');
-  await page.evaluate(() => localStorage.clear());
-  await page.reload();
-});
+}
 
 test('onboarding persists target and weekly time', async ({ page }) => {
-  await expect(page.locator('#guideModal')).toBeVisible();
+  await openClean(page, { onboarded: false });
+  await expect(page.locator('#guideModal')).toBeVisible({ timeout: 2000 });
   await page.locator('#guideRole').fill('Agent Engineer');
   await page.locator('#guideNext').click();
   await page.locator('[data-e="projects"]').click();
@@ -27,7 +31,7 @@ test('onboarding persists target and weekly time', async ({ page }) => {
 });
 
 test('case data survives reload and share card renders', async ({ page }) => {
-  await page.locator('#skipGuide').click();
+  await openClean(page);
   page.once('dialog', dialog => dialog.accept());
   await page.locator('#caseSelect').selectOption('agent');
   await page.locator('#loadCase').click();
@@ -50,20 +54,16 @@ test('case data survives reload and share card renders', async ({ page }) => {
 });
 
 test('legacy v1 local state migrates to schema v1.0', async ({ page }) => {
-  await page.locator('#skipGuide').click();
-  await page.evaluate(() => {
-    localStorage.removeItem('career-alpha-workbench-v2');
-    localStorage.setItem('career-alpha-workbench-v1', JSON.stringify({
-      profile: { targetRole: 'Quant Researcher', region: 'HK', weeklyTime: '6h', background: 'legacy' },
-      trends: [],
-      wedge: { name: 'Robustness', thesis: '', demand: 8, scarcity: 7, proofability: 8, timing: 7, killCriteria: '', nextTest: '' },
-      proofs: [], claims: [],
-      position: { safe: '', stretch: '', gaps: '' },
-      applications: [],
-      interview: { risk: '', weakness: '', drill: '' }
-    }));
-  });
-  await page.reload();
+  const legacyState = {
+    profile: { targetRole: 'Quant Researcher', region: 'HK', weeklyTime: '6h', background: 'legacy' },
+    trends: [],
+    wedge: { name: 'Robustness', thesis: '', demand: 8, scarcity: 7, proofability: 8, timing: 7, killCriteria: '', nextTest: '' },
+    proofs: [], claims: [],
+    position: { safe: '', stretch: '', gaps: '' },
+    applications: [],
+    interview: { risk: '', weakness: '', drill: '' }
+  };
+  await openClean(page, { legacyState });
   await expect(page.locator('[data-profile="targetRole"]')).toHaveValue('Quant Researcher');
   const migrated = await page.evaluate(() => JSON.parse(localStorage.getItem('career-alpha-workbench-v2')));
   expect(migrated.schema_version).toBe('1.0');
@@ -71,8 +71,9 @@ test('legacy v1 local state migrates to schema v1.0', async ({ page }) => {
 });
 
 test('exported JSON contains schema version', async ({ page }) => {
-  await page.locator('#skipGuide').click();
+  await openClean(page);
   page.once('dialog', dialog => dialog.accept());
+  await page.locator('#caseSelect').selectOption('agent');
   await page.locator('#loadCase').click();
 
   const downloadPromise = page.waitForEvent('download');
