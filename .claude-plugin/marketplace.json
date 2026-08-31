@@ -1,35 +1,20 @@
 {
   "name": "career-alpha",
   "description": "Career Alpha AI-native career operating system marketplace.",
-  "owner": {
-    "name": "Lavine",
-    "url": "https://github.com/lavine888"
-  },
+  "owner": {"name": "Lavine", "url": "https://github.com/lavine888"},
   "plugins": [
     {
       "name": "career-alpha",
       "source": "./",
       "displayName": "Career Alpha",
       "description": "Eight evidence-first career skills for trend discovery, asymmetric wedges, proof of work, positioning, interview defense and market feedback.",
-      "version": "0.2.0",
-      "author": {
-        "name": "Lavine",
-        "url": "https://github.com/lavine888"
-      },
+      "version": "0.3.0",
+      "author": {"name": "Lavine", "url": "https://github.com/lavine888"},
       "homepage": "https://github.com/lavine888/career-alpha",
       "repository": "https://github.com/lavine888/career-alpha",
       "license": "MIT",
       "category": "Productivity",
-      "keywords": [
-        "career",
-        "job-search",
-        "proof-of-work",
-        "interview",
-        "resume",
-        "codex",
-        "claude-code",
-        "career-alpha"
-      ]
+      "keywords": ["career", "job-search", "proof-of-work", "interview", "resume", "codex", "claude-code", "career-alpha"]
     }
   ]
 }
