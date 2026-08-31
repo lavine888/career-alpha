@@ -1,0 +1,41 @@
+name: Workbench E2E
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/career-alpha-workbench.html"
+      - "assets/workbench-state.schema.json"
+      - "tests/e2e/**"
+      - "scripts/serve-workbench.mjs"
+      - "playwright.config.mjs"
+      - "package.json"
+      - ".github/workflows/e2e.yml"
+  pull_request:
+    paths:
+      - "assets/career-alpha-workbench.html"
+      - "assets/workbench-state.schema.json"
+      - "tests/e2e/**"
+      - "scripts/serve-workbench.mjs"
+      - "playwright.config.mjs"
+      - "package.json"
+      - ".github/workflows/e2e.yml"
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install test dependencies
+        run: npm install --no-audit --no-fund
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run Workbench E2E
+        run: npm run test:e2e
