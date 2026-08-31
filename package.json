@@ -1,6 +1,6 @@
 {
   "name": "career-alpha",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AI-native career OS for asymmetric opportunity discovery, proof-of-work building, evidence auditing, positioning, interview defense, and market feedback.",
   "license": "MIT",
   "type": "module",
@@ -15,7 +15,8 @@
     "validate:node": "node scripts/validate_node_package.mjs",
     "validate:docs": "node scripts/validate_docs.mjs",
     "validate": "npm run validate:skills && npm run validate:package && npm run validate:node && npm run validate:docs && npm run eval:handoff && npm run eval:integrity",
-    "test": "npm run validate"
+    "test:e2e": "playwright test",
+    "test": "npm run validate && npm run test:e2e"
   },
   "main": "./lib/index.js",
   "exports": {
@@ -60,5 +61,8 @@
   "homepage": "https://github.com/lavine888/career-alpha",
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
   }
 }
