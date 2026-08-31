@@ -281,7 +281,7 @@ career-alpha/
 
 Real anonymized Career Alpha loops, wedge / benchmark patterns, failure cases, routing/eval cases, and Workbench improvements are welcome.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [ROADMAP.md](ROADMAP.md).
+See [.github/CONTRIBUTING_en.md](.github/CONTRIBUTING_en.md) and [ROADMAP.md](ROADMAP.md).
 
 ## License
 
