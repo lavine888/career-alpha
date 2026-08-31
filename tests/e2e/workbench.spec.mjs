@@ -1,3 +1,4 @@
+// Browser-level regression coverage for the local-first Workbench.
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 
