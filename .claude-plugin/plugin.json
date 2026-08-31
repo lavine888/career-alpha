@@ -2,11 +2,8 @@
   "name": "career-alpha",
   "displayName": "Career Alpha",
   "description": "AI-native career workflow: trend radar, opportunity wedge, proof of work, evidence-first positioning, interview defense, and offer pipeline.",
-  "version": "0.2.0",
-  "author": {
-    "name": "Lavine",
-    "url": "https://github.com/lavine888"
-  },
+  "version": "0.3.0",
+  "author": {"name": "Lavine", "url": "https://github.com/lavine888"},
   "homepage": "https://github.com/lavine888/career-alpha",
   "repository": "https://github.com/lavine888/career-alpha",
   "license": "MIT",
