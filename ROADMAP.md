@@ -18,16 +18,30 @@ Career Alpha is intentionally small at the skill-entry layer. The roadmap focuse
 - [x] Importable Workbench example bundles
 - [x] Package / routing / evidence / documentation validation in CI
 
-## v0.3 — Real-world Validation
+## v0.3 — Product Hardening + Real-world Validation
+
+### Shipped
+
+- [x] Role-specific source packs for AI Engineering, Product, Quant and Robotics
+- [x] Workbench Case Lab with four offline role cases
+- [x] Guided 3-step onboarding and next-skill recommendation
+- [x] Three-axis Career Health: Signal / Evidence / Market, without a fake total score
+- [x] Local 1600×900 Share Card export
+- [x] Adaptive Career Alpha Buddy derived from the formal Orb brand
+- [x] Exportable Markdown snapshot via `npm run snapshot`
+- [x] Deterministic Career Integrity Benchmark for planned-work promotion, ownership inflation, backtest-vs-production, confidence escalation and uncertainty loss
+- [x] Real-case collection protocol and anonymized case template
+- [x] Versioned Workbench state schema with legacy v1 → v2 migration
+- [x] Safe JSON import normalization and future-schema rejection
+- [x] Playwright browser E2E for onboarding, Case Lab, persistence, migration, Share Card and export
+- [x] GitHub Pages deployment workflow for a zero-install live Workbench demo
+
+### Needs real users
 
 - [ ] Collect 10+ anonymized real Career Alpha loops
 - [ ] Add outcome taxonomy for interview / recruiter / founder feedback
 - [ ] Add case-quality rubric so anecdotal wins are not treated as universal strategy
-- [x] Add role-specific source packs for AI Engineering, Product, Quant and Robotics
-- [ ] Add semantic evals for ownership inflation, numerical claims and demo-vs-production boundaries
 - [ ] Add model-based benchmark for skill routing and end-to-end handoff consistency
-- [ ] Add Workbench case selector and direct bundle loading
-- [x] Add exportable Career Alpha report / portfolio evidence page (`npm run snapshot`)
 
 ## v0.4 — Research & Market Intelligence
 
