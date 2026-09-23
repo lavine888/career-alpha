@@ -284,6 +284,18 @@ career-alpha/
 
 查看 [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) 与 [ROADMAP.md](ROADMAP.md)。
 
+## Related Projects
+
+Part of a small, evidence-first ecosystem — every project keeps its claims traceable:
+
+| Project | What it is |
+| --- | --- |
+| [Lavine-Skill-Runtime](https://github.com/lavine888/Lavine-Skill-Runtime) | Execution layer that runs reviewed skills end to end |
+| [Accounting-Red-Flag-Detector](https://github.com/lavine888/Accounting-Red-Flag-Detector) | Point-in-time forensic screen for A-share accounting red flags |
+| [ScamCity](https://github.com/lavine888/ScamCity) | Multi-agent sandbox for fraud-intervention experiments |
+| [flux-evidence-lab](https://github.com/lavine888/flux-evidence-lab) | Verifiable decision trail for reviewable AI runs |
+| [skill-buffett-moat-screener](https://github.com/lavine888/skill-buffett-moat-screener) | Point-in-time Buffett moat screener, packaged as a skill |
+
 ## License
 
 MIT
