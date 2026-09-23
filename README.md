@@ -9,7 +9,7 @@
 **Find your career alpha before it becomes consensus.**  
 **在机会成为共识之前，找到你的职业 Alpha。**
 
-[English](README_en.md) · [打开 Workbench](assets/career-alpha-workbench.html) · [5 分钟上手](docs/quickstart.md) · [安装](docs/installation.md) · [案例](docs/cases/README.md)
+[English](README_en.md) · [打开 Workbench](assets/career-alpha-workbench.html) · [在线演示](https://lavine888.github.io/career-alpha/) · [5 分钟上手](docs/quickstart.md) · [安装](docs/installation.md) · [案例](docs/cases/README.md)
 
 ![Version](https://img.shields.io/badge/version-0.3.0-cbb7ff)
 ![License](https://img.shields.io/badge/license-MIT-2f81f7)
@@ -42,6 +42,8 @@ Career Alpha 往前多走一步：
 ## ⚡ Workbench v0.3
 
 [`assets/career-alpha-workbench.html`](assets/career-alpha-workbench.html) 是一个单文件、本地优先的职业操作台。浏览器直接打开即可使用，不需要服务器。
+
+> 🌐 **在线版（GitHub Pages）**：<https://lavine888.github.io/career-alpha/> —— 与本地文件同源，数据仍然只存在你自己的浏览器里。
 
 <img src="assets/workbench-preview.svg" width="100%" alt="Career Alpha Workbench preview" />
 
