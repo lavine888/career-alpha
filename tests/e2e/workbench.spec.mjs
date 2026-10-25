@@ -8,7 +8,9 @@ async function openClean(page, { onboarded = true, legacyState = null } = {}) {
     if (msg.type() === 'error') console.error('WORKBENCH_CONSOLE_ERROR:', msg.text());
   });
   await page.addInitScript(({ onboarded, legacyState }) => {
+    if (localStorage.getItem('career-alpha-e2e-initialized') === '1') return;
     localStorage.clear();
+    localStorage.setItem('career-alpha-e2e-initialized', '1');
     if (onboarded) localStorage.setItem('career-alpha-onboarded-v1', '1');
     if (legacyState) localStorage.setItem('career-alpha-workbench-v1', JSON.stringify(legacyState));
   }, { onboarded, legacyState });
