@@ -9,7 +9,7 @@
 **Find your career alpha before it becomes consensus.**  
 **在机会成为共识之前，找到你的职业 Alpha。**
 
-[English](README_en.md) · [打开 Workbench](assets/career-alpha-workbench.html) · [在线演示](https://lavine888.github.io/career-alpha/) · [5 分钟上手](docs/quickstart.md) · [安装](docs/installation.md) · [案例](docs/cases/README.md)
+[English](README_en.md) · [打开 Workbench](assets/career-alpha-workbench.html) · [Interview Defense Lab](assets/interview-defense-lab.html) · [在线演示](https://lavine888.github.io/career-alpha/) · [5 分钟上手](docs/quickstart.md) · [安装](docs/installation.md) · [案例](docs/cases/README.md)
 
 ![Version](https://img.shields.io/badge/version-0.3.0-cbb7ff)
 ![License](https://img.shields.io/badge/license-MIT-2f81f7)
@@ -61,6 +61,16 @@ v0.3 包含：
 - **Case Lab** — 离线切换 Agent Engineer / AI PM / Quant / Robotics 四套完整状态；
 - **Share Card** — 本地生成 1600×900 Career Alpha Snapshot PNG；
 - **Adaptive Buddy** — 根据证据和市场状态切换 sleepy / focus / happy / celebrate。
+
+### Interview Defense Lab（离线面试训练）
+
+[打开面试训练页](assets/interview-defense-lab.html)，或从 Workbench 顶部点击 **Interview Lab**。
+
+- 从同一个浏览器读取 Workbench 的 `career-alpha-workbench-v2` Claim–Evidence Ledger（只读）。也可以手动输入主张。
+- 风险提醒按证据/归属信息缺口与强主张关键词启发式排序；并非真实性验证、模型判断或综合打分。
+- 进行 5 轮逐题追问，每轮建议 90 秒；下一题根据使用者**自行选择**的薄弱方向确定。
+- 练习记录保存在独立的 `career-alpha-interview-defense-v1` localStorage key，支持中途恢复和 Markdown 导出。此页面不会修改 Workbench 状态，也没有 API 请求。
+- 可以把导出的 Markdown 交给 `/interview` Skill 做进一步动态追问。浏览器的 localStorage 按站点隔离，本地 `file://` 和 GitHub Pages 的记录不共享。
 
 ### Local-first 数据边界
 
