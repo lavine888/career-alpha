@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Interview Defense Lab · Career Alpha</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--bg:#080e19;--panel:#111b2d;--text:#f0f5ff;--muted:#96a7be;--line:#2b3f5b;--mint:#9aebcd;--blue:#94bdff;--violet:#d0baff;--pink:#ffafbc}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;color:var(--text);background:radial-gradient(ellipse 55% 45% at 88% 0,#212142,transparent),radial-gradient(ellipse 45% 45% at 0 52%,#0e2833,transparent),var(--bg);font:14px/1.6 Inter,"Segoe UI",system-ui,sans-serif}
+button,select,textarea{font:inherit}button{cursor:pointer}button,a{transition:.18s ease}a{color:inherit}button:focus-visible,a:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.shell{max-width:1310px;margin:auto;padding:30px 24px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:11px;font-weight:780;letter-spacing:1.7px;font-size:12px}.logo{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(130deg,var(--blue),var(--violet));color:#17223a;font-weight:850}.back{color:var(--muted);text-decoration:none;font-size:13px}.back:hover{color:var(--text)}
+.hero{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:52px 0 38px;border-bottom:1px solid var(--line)}.eyebrow,.kicker{text-transform:uppercase;letter-spacing:2px;font-size:10px;color:var(--mint);font-weight:700}h1{font-size:clamp(40px,6vw,76px);line-height:1.05;letter-spacing:-3px;margin:15px 0 13px}h1 em{font-style:normal;color:var(--violet)}.hero p{color:var(--muted);max-width:660px;margin:0}.hero-count{font-size:60px;line-height:.95;color:var(--violet);text-align:right}.hero-count span{display:block;color:var(--muted);font-size:10px;letter-spacing:1.8px;text-transform:uppercase}
+.note{margin:20px 0 24px;padding:12px 14px;border-radius:12px;border:1px solid #38516a;border-left:3px solid var(--mint);background:#14243a;color:#ced9e7;font-size:12px}.layout{display:grid;grid-template-columns:minmax(270px,345px) minmax(0,1fr);gap:19px;align-items:start}
+.panel{border:1px solid #2e4059;background:linear-gradient(160deg,#152138ed,#0e1727ee);border-radius:22px;padding:22px;box-shadow:0 24px 54px #03061039}.main{min-height:540px}.panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}h2{font-size:16px;margin:2px 0}.count,.chip{border:1px solid #42546d;border-radius:999px;padding:4px 9px;font-size:10px;color:#b9c8df}.chip.high{border-color:#a26680;color:#ffd0d9}.chip.medium{border-color:#987d4e;color:#ffe0aa}.chip.low{border-color:#528b77;color:#b8f2d9}.claims{display:grid;gap:9px;max-height:370px;overflow:auto}.claim{width:100%;background:#0a1424;color:var(--text);border:1px solid #314158;text-align:left;padding:12px;border-radius:14px}.claim:hover,.claim.active{border-color:var(--blue);background:#1b2b46}.claim strong{display:block;font-weight:550;line-height:1.55;overflow-wrap:anywhere}.claim .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.empty{color:var(--muted);border:1px dashed var(--line);border-radius:13px;padding:15px}.divider{height:1px;background:var(--line);margin:20px 0}.muted{color:var(--muted)}.mini{font-size:11px}label{display:block;margin:13px 0 6px;color:#bbcadc;font-size:11px;font-weight:660}textarea,select{width:100%;background:#071321;border:1px solid #3b506c;color:var(--text);border-radius:12px;padding:11px 12px}textarea{resize:vertical;min-height:94px}textarea::placeholder{color:#72849e}select{color-scheme:dark}
+.btn{border:1px solid #445874;border-radius:12px;background:#1c2e48;color:var(--text);font-weight:650;font-size:12px;padding:11px 13px}.btn:hover{transform:translateY(-1px);background:#2a4161}.btn.primary{background:linear-gradient(115deg,#91bfff,#c7b1ff);color:#111b2a;border:0}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.full{width:100%;margin-top:9px}
+.selected{border:1px solid #34465f;background:#0c1829;border-radius:16px;padding:15px;margin-bottom:18px}.selected strong{display:block;font-size:17px;line-height:1.5;margin:9px 0;overflow-wrap:anywhere}.selected p{color:var(--muted);font-size:12px;overflow-wrap:anywhere}.selected ul{margin:8px 0;padding-left:19px;color:#c4d2e2;font-size:11px}
+.ready{display:grid;place-items:center;text-align:center;min-height:220px;border:1px dashed #3b4b65;border-radius:16px;padding:25px;background:#0d192a}.ready .star{font-size:30px;color:var(--violet)}.ready h3{font-size:20px;margin:0}.ready p{max-width:540px;color:var(--muted);font-size:13px}
+.stage{display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:11px}.timer{color:var(--mint);font-size:23px;font-variant-numeric:tabular-nums;font-weight:670}.timer.expired{color:var(--pink)}.progress{height:5px;background:#243650;border-radius:999px;overflow:hidden;margin:14px 0 24px}.progress div{height:100%;background:linear-gradient(90deg,var(--mint),var(--blue),var(--violet));transition:width .25s}
+.question{font-size:clamp(20px,2.3vw,29px);line-height:1.5;letter-spacing:-.7px;margin:12px 0 20px;max-width:820px}.answer{min-height:168px}.answer-row{display:grid;grid-template-columns:1fr auto;gap:13px;align-items:end}.history{border-top:1px solid var(--line);margin-top:24px;padding-top:16px}.history summary{color:var(--blue);cursor:pointer}.history-item{border-bottom:1px solid var(--line);padding:12px 0}.history-item strong{display:block}.history-item p{white-space:pre-wrap;overflow-wrap:anywhere;color:#acbfd4;font-size:12px}
+.final h3{font-size:28px;letter-spacing:-.5px;margin:8px 0}.final p{color:var(--muted)}.summary-tags{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.final-actions{display:flex;gap:10px;flex-wrap:wrap}.footer{text-align:center;color:#6e829c;font-size:11px;padding:28px 0}
+.panel,.answer-row>div{min-width:0}.panel{overflow-wrap:anywhere}.chip{overflow-wrap:anywhere}textarea,select{min-width:0}
+@media(max-width:850px){.shell{padding:18px 12px 40px}.hero{padding:32px 0}.hero-count{display:none}.layout{grid-template-columns:minmax(0,1fr)}.main{min-height:0}.answer-row{grid-template-columns:1fr}.answer-row button{width:100%}h1{letter-spacing:-2px}}
+@media(max-width:480px){.top{flex-wrap:wrap}.brand{letter-spacing:1px;gap:8px}.stage{flex-wrap:wrap}}
+</style>
+</head>
+<body><div class="shell">
+<header class="top"><div class="brand"><span class="logo">CA</span> CAREER ALPHA <span class="muted">/ LAB 01</span></div><a class="back" href="./career-alpha-workbench.html">← 返回 Workbench</a></header>
+<section class="hero"><div><div class="eyebrow">Practice what you can defend</div><h1>Interview<br><em>Defense Lab.</em></h1><p>从一句简历主张出发，做五轮有方向的压力追问。重点不是“说得漂亮”，而是解释决策、个人贡献、证据与边界。</p></div><div class="hero-count">05<span>rounds · 90 sec each</span></div></section>
+<div class="note" id="privacyNote">◎ 本地优先：读取当前浏览器内 Career Alpha Workbench 已保存的主张；练习记录只保存在本浏览器，不会自动上传。风险排序只是启发式提示，不是 AI 评分。</div>
+<div class="layout">
+<aside class="panel"><div class="panel-title"><div><div class="kicker">01 / SOURCE</div><h2>选择要捍卫的主张</h2></div><span class="count" id="claimCount">0</span></div>
+<div class="claims" id="claimList" aria-label="已有项目主张"></div><div class="divider"></div>
+<div class="kicker">OR WRITE YOUR OWN</div><label for="manualClaim">手动输入简历 / 项目主张</label><textarea id="manualClaim" placeholder="例如：我负责设计 AI 工作流的评测方法，并推动团队进行固定样本验收。"></textarea><button class="btn full" id="manualBtn">使用这条主张</button>
+<div class="divider"></div><div class="kicker">SESSION</div><p class="muted mini" id="roleNote">目标岗位：尚未设置</p>
+<button class="btn primary full" id="startBtn" disabled>开始五轮模拟面试</button><button class="btn full" id="exportBtn" disabled>导出 Markdown 复盘</button>
+<p class="note mini" id="storageStatus" role="status" hidden></p>
+<p class="muted mini">你自主标记的薄弱点不代表系统已核验答案真假。</p></aside>
+<main class="panel main"><div class="panel-title"><div><div class="kicker">02 / DEFENSE</div><h2>追问训练</h2></div><span class="count" id="modeStatus">READY</span></div>
+<section class="selected" id="selectedBox" hidden><div class="kicker" id="selectedOrigin"></div><strong id="selectedTitle"></strong><p id="selectedDetails"></p><ul id="riskReasons"></ul></section>
+<div class="ready" id="ready"><span class="star">✦</span><h3 id="readyTitle">先选择一条真实主张</h3><p>从 Workbench 证据账本选一条，或者手动输入。每次只展示一题，下一轮根据你自己标记的薄弱方向追问。</p></div>
+<section id="drill" hidden aria-live="polite"><div class="stage"><span id="roundLabel">ROUND 01 / 05</span><span><span class="timer" id="timer">01:30</span> / 建议答题时间</span></div><div class="progress"><div id="progressFill" style="width:20%"></div></div>
+<div class="kicker" id="focusLabel">OPENING QUESTION</div><h3 class="question" id="question" tabindex="-1"></h3>
+<label for="answer">写下你真实说出的答案（不要提前润色）</label><textarea class="answer" id="answer" placeholder="简短回答也可以，目的是找出模糊之处。"></textarea>
+<div class="answer-row"><div><label for="weakness">哪部分最值得继续追问？</label><select id="weakness"><option value="architecture">技术架构 / 机制理解</option><option value="ownership">个人贡献 / AI 与团队边界</option><option value="evidence">证据 / 指标可核验性</option><option value="tradeoff">工程取舍 / 失败复盘</option><option value="communication">表达清晰度 / 决策逻辑</option></select></div><button class="btn primary" id="nextBtn">保存回答并进入下一问 →</button></div>
+<details class="history"><summary>回看已回答内容（<span id="historyCount">0</span>）</summary><div id="historyItems"></div></details></section>
+<section id="final" class="final" hidden aria-live="polite"><span class="kicker">SESSION COMPLETE</span><h3>五轮追问完成。</h3>
+<p>这是一份自我训练记录，而非技术能力自动判断。请对照项目代码和证据复核回答，再决定加强主张还是降级表达。</p><div class="kicker">你标记的薄弱方向</div><div class="summary-tags" id="focusItems"></div>
+<div class="final-actions"><button class="btn primary" id="finalExportBtn">↓ 导出面试复盘</button><button class="btn" id="restartBtn">再练一次</button></div>
+<details class="history" open><summary>本轮回答明细</summary><div id="finalHistory"></div></details></section></main></div>
+<footer class="footer">CAREER ALPHA · Evidence before confidence · No external API calls</footer></div>
+<script>
+"use strict";
+(() => {
+const SOURCE_KEY="career-alpha-workbench-v2",LAB_KEY="career-alpha-interview-defense-v1",MAX=5,SECONDS=90;
+const labels={architecture:"架构与机制",ownership:"个人贡献与边界",evidence:"证据与指标",tradeoff:"工程取舍与失败",communication:"决策与表达"};
+const ladders={
+architecture:["请描述输入、核心处理步骤、输出与最难的技术边界。","如果关键依赖失效，系统会发生什么？你验证过哪些恢复路径？","规模扩大十倍，最先成为瓶颈的部分是什么？为什么？"],
+ownership:["哪些决策是你本人完成的？队友和 AI 工具分别负责什么？","举出一个你推动的具体变化，哪些证据能证明它是你的贡献？","如果去掉你的参与，成果会发生什么具体变化？"],
+evidence:["最重要的结论对应哪项原始证据？哪些仍是未经验证的假设？","若涉及提升数字：基线、样本、方法、波动分别是什么？","面试官要复现结果，你会提供哪些文件、命令和失败案例？"],
+tradeoff:["讲一次真实失败：怎样复现，第一次修复为什么不够好？","为什么没选择另一种方案？代价和权衡是什么？","现在还有哪个风险未解决？何时会推翻当前设计？"],
+communication:["用非技术同事听得懂的方式讲问题、约束、决定和结果。","如果面试官说“所以不是你亲自开发的”，你怎样说明贡献边界？","删掉所有抽象形容词，给出一个可核验的具体例子。"]
+};
+const $=id=>document.getElementById(id);
+const txt=v=>typeof v==="string"?v.trim():"";
+const clean=(c,origin)=>({claim:txt(c.claim).slice(0,1500),confidence:txt(c.confidence),evidence:txt(c.evidence).slice(0,2500),ownership:txt(c.ownership).slice(0,1200),risk:txt(c.risk).slice(0,1200),origin});
+const make=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=value;return n};
+let claims=[],role="",selected=null,session=null,deadline=0,interval=null;
+function risk(c){
+const reasons=[];
+if(c.confidence==="PLANNED")reasons.push("仍是 PLANNED，不能当作已交付成果");
+if(c.confidence==="SELF-REPORTED")reasons.push("仍是自述，需标明证据边界");
+if(!c.evidence)reasons.push("缺少可核验证据记录");
+if(!c.ownership)reasons.push("尚未描述个人与团队的贡献边界");
+if(c.risk)reasons.push("已有风险备注："+c.risk);
+if(/\b(led|owned|architected|production|scale|improved|increased)\b|负责|主导|提升|降低|上线|\d+\s*%/i.test(c.claim))reasons.push("强动作词或量化表述，需要准备后续追问");
+return {reasons,level:reasons.length>=3?"high":reasons.length?"medium":"low"};
+}
+function readSource(){
+try{
+const raw=localStorage.getItem(SOURCE_KEY);if(!raw)return;
+const data=JSON.parse(raw);if(data.schema_version!=="1.0"){$("privacyNote").textContent="Workbench 数据版本不受支持，已跳过读取。可手动输入，不会更改原有数据。";return}
+role=txt(data.profile&&data.profile.targetRole);
+claims=(Array.isArray(data.claims)?data.claims:[]).map(c=>clean(c||{},"WORKBENCH")).filter(c=>c.claim).sort((a,b)=>risk(b).reasons.length-risk(a).reasons.length);
+}catch(e){$("privacyNote").textContent="Workbench 本地数据无法解析。仍可手动输入，原数据不会被修改。"}
+}
+function storageStatus(failed){$("storageStatus").hidden=!failed;$("storageStatus").textContent=failed?"本地保存失败。刷新或关闭页面可能丢失记录，请先提交回答并导出复盘。":""}
+function save(){try{localStorage.setItem(LAB_KEY,JSON.stringify(session));storageStatus(false)}catch(e){storageStatus(true)}}
+function resume(){
+try{
+const s=JSON.parse(localStorage.getItem(LAB_KEY)||"null");
+if(!s||!s.claim||!Array.isArray(s.steps)||s.steps.length>MAX||!txt(s.claim.claim))return;
+selected=clean(s.claim,s.claim.origin==="WORKBENCH"?"WORKBENCH":"MANUAL");
+session={claim:selected,role:txt(s.role),steps:s.steps.filter(x=>x&&typeof x.question==="string"&&typeof x.answer==="string"&&labels[x.focus]).slice(0,MAX),currentQuestion:txt(s.currentQuestion)||opening(),currentFocus:labels[s.currentFocus]?s.currentFocus:"communication",finished:false,draft:typeof s.draft==="string"?s.draft:"",draftFocus:labels[s.draftFocus]?s.draftFocus:"architecture",deadline:Number.isFinite(s.deadline)&&s.deadline>0?s.deadline:0};
+if(session.steps.length>=MAX)session.finished=true;
+}catch(e){/* Ignore malformed local drill only. */}
+}
+function choose(c){
+if(session&&!session.finished&&!confirm("当前练习尚未完成。切换主张会清除这一轮记录，确定继续吗？"))return;
+selected=c;session=null;clearInterval(interval);deadline=0;try{localStorage.removeItem(LAB_KEY);storageStatus(false)}catch(e){storageStatus(true)}$("answer").value="";$("answer").setCustomValidity("");render();
+}
+function renderClaims(){
+$("claimCount").textContent=String(claims.length);const list=$("claimList");list.replaceChildren();
+if(!claims.length)list.append(make("div","empty","目前还没有保存的证据主张。下方可直接手动输入。"));
+claims.forEach(c=>{
+const b=make("button","claim"+(selected&&selected.origin==="WORKBENCH"&&selected.claim===c.claim?" active":"" ));b.type="button";
+b.append(make("strong","",c.claim));const tags=make("div","tags");const level=risk(c).level;
+tags.append(make("span","chip "+level,level==="high"?"优先练习":level==="medium"?"建议追问":"待人工复核"));
+if(c.confidence)tags.append(make("span","chip",c.confidence));b.append(tags);b.addEventListener("click",()=>choose(c));list.append(b);
+});
+}
+function opening(){return "请用 90 秒说明：这项工作真正解决了什么问题、你个人做了哪些关键决策，最后实际验证到了什么。"}
+function nextQuestion(focus,steps){return ladders[focus][(steps.filter(s=>s.focus===focus).length-1)%ladders[focus].length]}
+function start(){
+if(!selected)return;
+session={claim:selected,role,steps:[],currentQuestion:opening(),currentFocus:"communication",finished:false,draft:"",draftFocus:"architecture",deadline:Date.now()+SECONDS*1000};deadline=session.deadline;save();$("answer").setCustomValidity("");render();runTimer();$("question").focus();
+}
+function remaining(){return Math.min(SECONDS,Math.max(0,Math.ceil((deadline-Date.now())/1000)))}
+function tick(){const t=remaining();$("timer").textContent=String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0");$("timer").classList.toggle("expired",t===0);if(!t)clearInterval(interval)}
+function runTimer(){clearInterval(interval);tick();if(remaining())interval=setInterval(tick,500)}
+function record(){
+if(!session||session.finished)return;
+const answer=$("answer").value.trim();
+if(!answer){$("answer").setCustomValidity("请先写下真实回答");$("answer").reportValidity();$("answer").focus();return}
+$("answer").setCustomValidity("");
+const focus=$("weakness").value;
+session.steps.push({question:session.currentQuestion,answer:answer.slice(0,16000),focus,secondsUsed:SECONDS-remaining()});
+session.draft="";session.draftFocus=focus;
+if(session.steps.length>=MAX)session.finished=true;
+else{session.currentQuestion=nextQuestion(focus,session.steps);session.currentFocus=focus;session.deadline=Date.now()+SECONDS*1000;deadline=session.deadline}
+save();render();if(session.finished)clearInterval(interval);else{runTimer();$("question").focus()}
+}
+function renderHistory(node){
+node.replaceChildren();if(!session)return;
+session.steps.forEach((s,i)=>{const box=make("div","history-item");
+box.append(make("strong","","Q"+(i+1)+" · "+s.question),make("p","",s.answer),make("span","chip","自选薄弱点："+labels[s.focus]));node.append(box)});
+}
+function render(){
+renderClaims();$("roleNote").textContent="目标岗位："+((session?session.role:role)||"尚未设置");
+$("selectedBox").hidden=!selected;
+if(selected){
+$("selectedOrigin").textContent=selected.origin==="WORKBENCH"?"IMPORTED FROM LOCAL WORKBENCH":"MANUAL CLAIM";
+$("selectedTitle").textContent=selected.claim;
+$("selectedDetails").textContent="证据："+(selected.evidence||"未提供")+" · 个人贡献："+(selected.ownership||"未提供");
+const reasons=risk(selected).reasons;if(!reasons.length)reasons.push("没有识别到关键词风险，仍需自行核验真实性。");
+$("riskReasons").replaceChildren(...reasons.map(x=>make("li","",x)));
+}
+$("startBtn").disabled=!selected||!!(session&&!session.finished);$("startBtn").textContent=session&&session.finished?"重新开始五轮模拟面试":"开始五轮模拟面试";$("exportBtn").disabled=!session||!session.steps.length;
+$("ready").hidden=!!session;$("drill").hidden=!session||session.finished;$("final").hidden=!session||!session.finished;
+$("modeStatus").textContent=!session?"READY":session.finished?"FINISHED":"LIVE";
+if(!session){$("readyTitle").textContent=selected?"主张已就绪，开始五轮压力追问。":"先选择一条真实主张";return}
+if(!session.finished){
+const round=session.steps.length+1;
+$("roundLabel").textContent="ROUND "+String(round).padStart(2,"0")+" / 05";
+$("progressFill").style.width=round*100/MAX+"%";
+$("focusLabel").textContent=session.steps.length?labels[session.currentFocus]:"OPENING QUESTION";
+$("question").textContent=session.currentQuestion;
+$("answer").value=session.draft;$("weakness").value=session.draftFocus;
+$("nextBtn").textContent=round===MAX?"完成并生成复盘 →":"保存回答并进入下一问 →";
+$("historyCount").textContent=String(session.steps.length);renderHistory($("historyItems"));
+}else{
+const counts={};session.steps.forEach(s=>counts[s.focus]=(counts[s.focus]||0)+1);
+$("focusItems").replaceChildren(...Object.keys(counts).sort((a,b)=>counts[b]-counts[a]).map(k=>make("span","chip",labels[k]+" · "+counts[k]+" 次")));
+renderHistory($("finalHistory"));
+}
+}
+function literal(value){const text=String(value);const longest=Math.max(0,...Array.from(text.matchAll(/`+/g),m=>m[0].length));const fence="`".repeat(Math.max(3,longest+1));return fence+"text\n"+text+"\n"+fence}
+function exportReview(){
+if(!session||!session.steps.length)return;
+const lines=["# Career Alpha — Interview Defense Review","",
+"- 目标岗位：\n"+literal(session.role||"未设置"),"- 主张：\n"+literal(session.claim.claim),"- 来源："+session.claim.origin,
+"- 原始信心等级：\n"+literal(session.claim.confidence||"未标注"),"- 已记录证据：\n"+literal(session.claim.evidence||"未提供"),
+"- 个人贡献边界：\n"+literal(session.claim.ownership||"未提供"),"- 原始风险备注：\n"+literal(session.claim.risk||"未提供"),"- 状态："+(session.finished?"五轮完成":"练习中"),"",
+"> 此文件仅包含自我练习，不代表答案真实、技术正确或获得自动评分。",""];
+session.steps.forEach((s,i)=>lines.push("## Question "+(i+1),"",literal(s.question),"","**实际回答：**","",literal(s.answer),"",
+"**自主标记的薄弱点：** "+labels[s.focus],"**耗时：** "+s.secondsUsed+" 秒",""));
+lines.push("## 下一步","","1. 对照代码、PR 与测试记录核验每个技术事实和贡献归属。",
+"2. 区分知识缺口、证据缺口与表达缺口，不要编造缺失事实。",
+"3. 交给 Career Alpha /interview，基于本次回答逐题深入追问。",
+"","> /interview 请依据上述实际回答，逐项核验知识、证据与 ownership 边界。每次只问一题，不要编造经历。");
+const blob=new Blob([lines.join("\n")+"\n"],{type:"text/markdown;charset=utf-8"});
+const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="career-alpha-interview-review.md";
+document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+$("manualBtn").addEventListener("click",()=>{
+const value=$("manualClaim").value.trim();
+if(!value){$("manualClaim").focus();return}
+choose(clean({claim:value},"MANUAL"));
+});
+$("answer").addEventListener("input",()=>{$("answer").setCustomValidity("");if(session&&!session.finished){session.draft=$("answer").value;save()}});
+$("weakness").addEventListener("change",()=>{if(session&&!session.finished){session.draftFocus=$("weakness").value;save()}});
+$("startBtn").addEventListener("click",start);$("nextBtn").addEventListener("click",record);
+$("exportBtn").addEventListener("click",exportReview);$("finalExportBtn").addEventListener("click",exportReview);
+$("restartBtn").addEventListener("click",start);
+readSource();resume();if(!selected&&claims.length)selected=claims[0];render();
+if(session&&!session.finished){deadline=session.deadline||Date.now()+SECONDS*1000;session.deadline=deadline;save();runTimer()}
+})();
+</script></body></html>
