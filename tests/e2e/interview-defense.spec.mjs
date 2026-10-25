@@ -28,6 +28,7 @@ test('Workbench claims flow into Lab with heuristic risk warning and directional
   await expect(page.locator('#selectedTitle')).toContainText('Led production rollout');
   await expect(page.locator('#riskReasons')).toContainText('PLANNED');
   await page.locator('#startBtn').click();
+  await expect(page.locator('#startBtn')).toBeDisabled(); // In-progress session cannot be reset accidentally.
   await expect(page.locator('#question')).toContainText('真正解决了什么问题');
   await page.locator('#answer').fill('I defined the test protocol; the system was not deployed yet.');
   await page.locator('#weakness').selectOption('ownership');
@@ -69,6 +70,8 @@ test('Manual claim can complete five rounds without Workbench data', async ({ pa
     await page.locator('#nextBtn').click();
   }
   await expect(page.locator('#final')).toBeVisible();
+  await expect(page.locator('#startBtn')).toBeEnabled();
+  await expect(page.locator('#startBtn')).toHaveText('重新开始五轮模拟面试');
   await expect(page.locator('#focusItems')).toContainText('工程取舍与失败');
   const session = await page.evaluate(key => JSON.parse(localStorage.getItem(key)), STORAGE);
   expect(session.steps).toHaveLength(5);
