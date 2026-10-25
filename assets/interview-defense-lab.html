@@ -4,6 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Interview Defense Lab · Career Alpha</title>
+<link rel="icon" href="data:,">
 <style>
 :root{--bg:#080e19;--panel:#111b2d;--text:#f0f5ff;--muted:#96a7be;--line:#2b3f5b;--mint:#9aebcd;--blue:#94bdff;--violet:#d0baff;--pink:#ffafbc}
 *{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;color:var(--text);background:radial-gradient(ellipse 55% 45% at 88% 0,#212142,transparent),radial-gradient(ellipse 45% 45% at 0 52%,#0e2833,transparent),var(--bg);font:14px/1.6 Inter,"Segoe UI",system-ui,sans-serif}
@@ -18,7 +19,9 @@ button,select,textarea{font:inherit}button{cursor:pointer}button,a{transition:.1
 .stage{display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:11px}.timer{color:var(--mint);font-size:23px;font-variant-numeric:tabular-nums;font-weight:670}.timer.expired{color:var(--pink)}.progress{height:5px;background:#243650;border-radius:999px;overflow:hidden;margin:14px 0 24px}.progress div{height:100%;background:linear-gradient(90deg,var(--mint),var(--blue),var(--violet));transition:width .25s}
 .question{font-size:clamp(20px,2.3vw,29px);line-height:1.5;letter-spacing:-.7px;margin:12px 0 20px;max-width:820px}.answer{min-height:168px}.answer-row{display:grid;grid-template-columns:1fr auto;gap:13px;align-items:end}.history{border-top:1px solid var(--line);margin-top:24px;padding-top:16px}.history summary{color:var(--blue);cursor:pointer}.history-item{border-bottom:1px solid var(--line);padding:12px 0}.history-item strong{display:block}.history-item p{white-space:pre-wrap;overflow-wrap:anywhere;color:#acbfd4;font-size:12px}
 .final h3{font-size:28px;letter-spacing:-.5px;margin:8px 0}.final p{color:var(--muted)}.summary-tags{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.final-actions{display:flex;gap:10px;flex-wrap:wrap}.footer{text-align:center;color:#6e829c;font-size:11px;padding:28px 0}
-@media(max-width:850px){.shell{padding:18px 12px 40px}.hero{padding:32px 0}.hero-count{display:none}.layout{grid-template-columns:1fr}.main{min-height:0}.answer-row{grid-template-columns:1fr}.answer-row button{width:100%}h1{letter-spacing:-2px}}
+.panel,.answer-row>div{min-width:0}.panel{overflow-wrap:anywhere}.chip{overflow-wrap:anywhere}textarea,select{min-width:0}
+@media(max-width:850px){.shell{padding:18px 12px 40px}.hero{padding:32px 0}.hero-count{display:none}.layout{grid-template-columns:minmax(0,1fr)}.main{min-height:0}.answer-row{grid-template-columns:1fr}.answer-row button{width:100%}h1{letter-spacing:-2px}}
+@media(max-width:480px){.top{flex-wrap:wrap}.brand{letter-spacing:1px;gap:8px}.stage{flex-wrap:wrap}}
 </style>
 </head>
 <body><div class="shell">
@@ -31,12 +34,13 @@ button,select,textarea{font:inherit}button{cursor:pointer}button,a{transition:.1
 <div class="kicker">OR WRITE YOUR OWN</div><label for="manualClaim">手动输入简历 / 项目主张</label><textarea id="manualClaim" placeholder="例如：我负责设计 AI 工作流的评测方法，并推动团队进行固定样本验收。"></textarea><button class="btn full" id="manualBtn">使用这条主张</button>
 <div class="divider"></div><div class="kicker">SESSION</div><p class="muted mini" id="roleNote">目标岗位：尚未设置</p>
 <button class="btn primary full" id="startBtn" disabled>开始五轮模拟面试</button><button class="btn full" id="exportBtn" disabled>导出 Markdown 复盘</button>
+<p class="note mini" id="storageStatus" role="status" hidden></p>
 <p class="muted mini">你自主标记的薄弱点不代表系统已核验答案真假。</p></aside>
 <main class="panel main"><div class="panel-title"><div><div class="kicker">02 / DEFENSE</div><h2>追问训练</h2></div><span class="count" id="modeStatus">READY</span></div>
 <section class="selected" id="selectedBox" hidden><div class="kicker" id="selectedOrigin"></div><strong id="selectedTitle"></strong><p id="selectedDetails"></p><ul id="riskReasons"></ul></section>
 <div class="ready" id="ready"><span class="star">✦</span><h3 id="readyTitle">先选择一条真实主张</h3><p>从 Workbench 证据账本选一条，或者手动输入。每次只展示一题，下一轮根据你自己标记的薄弱方向追问。</p></div>
 <section id="drill" hidden aria-live="polite"><div class="stage"><span id="roundLabel">ROUND 01 / 05</span><span><span class="timer" id="timer">01:30</span> / 建议答题时间</span></div><div class="progress"><div id="progressFill" style="width:20%"></div></div>
-<div class="kicker" id="focusLabel">OPENING QUESTION</div><h3 class="question" id="question"></h3>
+<div class="kicker" id="focusLabel">OPENING QUESTION</div><h3 class="question" id="question" tabindex="-1"></h3>
 <label for="answer">写下你真实说出的答案（不要提前润色）</label><textarea class="answer" id="answer" placeholder="简短回答也可以，目的是找出模糊之处。"></textarea>
 <div class="answer-row"><div><label for="weakness">哪部分最值得继续追问？</label><select id="weakness"><option value="architecture">技术架构 / 机制理解</option><option value="ownership">个人贡献 / AI 与团队边界</option><option value="evidence">证据 / 指标可核验性</option><option value="tradeoff">工程取舍 / 失败复盘</option><option value="communication">表达清晰度 / 决策逻辑</option></select></div><button class="btn primary" id="nextBtn">保存回答并进入下一问 →</button></div>
 <details class="history"><summary>回看已回答内容（<span id="historyCount">0</span>）</summary><div id="historyItems"></div></details></section>
@@ -80,19 +84,20 @@ role=txt(data.profile&&data.profile.targetRole);
 claims=(Array.isArray(data.claims)?data.claims:[]).map(c=>clean(c||{},"WORKBENCH")).filter(c=>c.claim).sort((a,b)=>risk(b).reasons.length-risk(a).reasons.length);
 }catch(e){$("privacyNote").textContent="Workbench 本地数据无法解析。仍可手动输入，原数据不会被修改。"}
 }
-function save(){try{localStorage.setItem(LAB_KEY,JSON.stringify(session))}catch(e){$("modeStatus").textContent="SAVE FAILED"}}
+function storageStatus(failed){$("storageStatus").hidden=!failed;$("storageStatus").textContent=failed?"本地保存失败。刷新或关闭页面可能丢失记录，请先提交回答并导出复盘。":""}
+function save(){try{localStorage.setItem(LAB_KEY,JSON.stringify(session));storageStatus(false)}catch(e){storageStatus(true)}}
 function resume(){
 try{
 const s=JSON.parse(localStorage.getItem(LAB_KEY)||"null");
 if(!s||!s.claim||!Array.isArray(s.steps)||s.steps.length>MAX||!txt(s.claim.claim))return;
 selected=clean(s.claim,s.claim.origin==="WORKBENCH"?"WORKBENCH":"MANUAL");
-session={claim:selected,role:txt(s.role),steps:s.steps.filter(x=>x&&typeof x.question==="string"&&typeof x.answer==="string"&&labels[x.focus]).slice(0,MAX),currentQuestion:txt(s.currentQuestion)||opening(),currentFocus:labels[s.currentFocus]?s.currentFocus:"communication",finished:!!s.finished};
+session={claim:selected,role:txt(s.role),steps:s.steps.filter(x=>x&&typeof x.question==="string"&&typeof x.answer==="string"&&labels[x.focus]).slice(0,MAX),currentQuestion:txt(s.currentQuestion)||opening(),currentFocus:labels[s.currentFocus]?s.currentFocus:"communication",finished:false,draft:typeof s.draft==="string"?s.draft:"",draftFocus:labels[s.draftFocus]?s.draftFocus:"architecture",deadline:Number.isFinite(s.deadline)&&s.deadline>0?s.deadline:0};
 if(session.steps.length>=MAX)session.finished=true;
 }catch(e){/* Ignore malformed local drill only. */}
 }
 function choose(c){
-if(session&&!session.finished&&session.steps.length&&!confirm("当前练习尚未完成。切换主张会清除这一轮记录，确定继续吗？"))return;
-selected=c;session=null;clearInterval(interval);try{localStorage.removeItem(LAB_KEY)}catch(e){}render();
+if(session&&!session.finished&&!confirm("当前练习尚未完成。切换主张会清除这一轮记录，确定继续吗？"))return;
+selected=c;session=null;clearInterval(interval);deadline=0;try{localStorage.removeItem(LAB_KEY);storageStatus(false)}catch(e){storageStatus(true)}$("answer").value="";$("answer").setCustomValidity("");render();
 }
 function renderClaims(){
 $("claimCount").textContent=String(claims.length);const list=$("claimList");list.replaceChildren();
@@ -108,11 +113,11 @@ function opening(){return "请用 90 秒说明：这项工作真正解决了什�
 function nextQuestion(focus,steps){return ladders[focus][(steps.filter(s=>s.focus===focus).length-1)%ladders[focus].length]}
 function start(){
 if(!selected)return;
-session={claim:selected,role,steps:[],currentQuestion:opening(),currentFocus:"communication",finished:false};save();render();resetTimer();
+session={claim:selected,role,steps:[],currentQuestion:opening(),currentFocus:"communication",finished:false,draft:"",draftFocus:"architecture",deadline:Date.now()+SECONDS*1000};deadline=session.deadline;save();$("answer").setCustomValidity("");render();runTimer();$("question").focus();
 }
-function remaining(){return Math.max(0,Math.ceil((deadline-Date.now())/1000))}
+function remaining(){return Math.min(SECONDS,Math.max(0,Math.ceil((deadline-Date.now())/1000)))}
 function tick(){const t=remaining();$("timer").textContent=String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0");$("timer").classList.toggle("expired",t===0);if(!t)clearInterval(interval)}
-function resetTimer(){clearInterval(interval);deadline=Date.now()+SECONDS*1000;tick();interval=setInterval(tick,500)}
+function runTimer(){clearInterval(interval);tick();if(remaining())interval=setInterval(tick,500)}
 function record(){
 if(!session||session.finished)return;
 const answer=$("answer").value.trim();
@@ -120,9 +125,10 @@ if(!answer){$("answer").setCustomValidity("请先写下真实回答");$("answer"
 $("answer").setCustomValidity("");
 const focus=$("weakness").value;
 session.steps.push({question:session.currentQuestion,answer:answer.slice(0,16000),focus,secondsUsed:SECONDS-remaining()});
+session.draft="";session.draftFocus=focus;
 if(session.steps.length>=MAX)session.finished=true;
-else{session.currentQuestion=nextQuestion(focus,session.steps);session.currentFocus=focus}
-save();render();if(session.finished)clearInterval(interval);else{$("answer").value="";resetTimer()}
+else{session.currentQuestion=nextQuestion(focus,session.steps);session.currentFocus=focus;session.deadline=Date.now()+SECONDS*1000;deadline=session.deadline}
+save();render();if(session.finished)clearInterval(interval);else{runTimer();$("question").focus()}
 }
 function renderHistory(node){
 node.replaceChildren();if(!session)return;
@@ -130,7 +136,7 @@ session.steps.forEach((s,i)=>{const box=make("div","history-item");
 box.append(make("strong","","Q"+(i+1)+" · "+s.question),make("p","",s.answer),make("span","chip","自选薄弱点："+labels[s.focus]));node.append(box)});
 }
 function render(){
-renderClaims();$("roleNote").textContent="目标岗位："+(role||"尚未设置");
+renderClaims();$("roleNote").textContent="目标岗位："+((session?session.role:role)||"尚未设置");
 $("selectedBox").hidden=!selected;
 if(selected){
 $("selectedOrigin").textContent=selected.origin==="WORKBENCH"?"IMPORTED FROM LOCAL WORKBENCH":"MANUAL CLAIM";
@@ -149,6 +155,7 @@ $("roundLabel").textContent="ROUND "+String(round).padStart(2,"0")+" / 05";
 $("progressFill").style.width=round*100/MAX+"%";
 $("focusLabel").textContent=session.steps.length?labels[session.currentFocus]:"OPENING QUESTION";
 $("question").textContent=session.currentQuestion;
+$("answer").value=session.draft;$("weakness").value=session.draftFocus;
 $("nextBtn").textContent=round===MAX?"完成并生成复盘 →":"保存回答并进入下一问 →";
 $("historyCount").textContent=String(session.steps.length);renderHistory($("historyItems"));
 }else{
@@ -157,14 +164,15 @@ $("focusItems").replaceChildren(...Object.keys(counts).sort((a,b)=>counts[b]-cou
 renderHistory($("finalHistory"));
 }
 }
+function literal(value){const text=String(value);const longest=Math.max(0,...Array.from(text.matchAll(/`+/g),m=>m[0].length));const fence="`".repeat(Math.max(3,longest+1));return fence+"text\n"+text+"\n"+fence}
 function exportReview(){
 if(!session||!session.steps.length)return;
 const lines=["# Career Alpha — Interview Defense Review","",
-"- 目标岗位："+(session.role||"未设置"),"- 主张："+session.claim.claim,"- 来源："+session.claim.origin,
-"- 原始信心等级："+(session.claim.confidence||"未标注"),"- 已记录证据："+(session.claim.evidence||"未提供"),
-"- 个人贡献边界："+(session.claim.ownership||"未提供"),"- 状态："+(session.finished?"五轮完成":"练习中"),"",
+"- 目标岗位：\n"+literal(session.role||"未设置"),"- 主张：\n"+literal(session.claim.claim),"- 来源："+session.claim.origin,
+"- 原始信心等级：\n"+literal(session.claim.confidence||"未标注"),"- 已记录证据：\n"+literal(session.claim.evidence||"未提供"),
+"- 个人贡献边界：\n"+literal(session.claim.ownership||"未提供"),"- 原始风险备注：\n"+literal(session.claim.risk||"未提供"),"- 状态："+(session.finished?"五轮完成":"练习中"),"",
 "> 此文件仅包含自我练习，不代表答案真实、技术正确或获得自动评分。",""];
-session.steps.forEach((s,i)=>lines.push("## Question "+(i+1),"",s.question,"","**实际回答：**","",s.answer,"",
+session.steps.forEach((s,i)=>lines.push("## Question "+(i+1),"",literal(s.question),"","**实际回答：**","",literal(s.answer),"",
 "**自主标记的薄弱点：** "+labels[s.focus],"**耗时：** "+s.secondsUsed+" 秒",""));
 lines.push("## 下一步","","1. 对照代码、PR 与测试记录核验每个技术事实和贡献归属。",
 "2. 区分知识缺口、证据缺口与表达缺口，不要编造缺失事实。",
@@ -179,11 +187,12 @@ const value=$("manualClaim").value.trim();
 if(!value){$("manualClaim").focus();return}
 choose(clean({claim:value},"MANUAL"));
 });
-$("answer").addEventListener("input",()=>$("answer").setCustomValidity(""));
+$("answer").addEventListener("input",()=>{$("answer").setCustomValidity("");if(session&&!session.finished){session.draft=$("answer").value;save()}});
+$("weakness").addEventListener("change",()=>{if(session&&!session.finished){session.draftFocus=$("weakness").value;save()}});
 $("startBtn").addEventListener("click",start);$("nextBtn").addEventListener("click",record);
 $("exportBtn").addEventListener("click",exportReview);$("finalExportBtn").addEventListener("click",exportReview);
 $("restartBtn").addEventListener("click",start);
 readSource();resume();if(!selected&&claims.length)selected=claims[0];render();
-if(session&&!session.finished)resetTimer();
+if(session&&!session.finished){deadline=session.deadline||Date.now()+SECONDS*1000;session.deadline=deadline;save();runTimer()}
 })();
 </script></body></html>

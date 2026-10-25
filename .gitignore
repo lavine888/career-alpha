@@ -6,3 +6,9 @@
 Thumbs.db
 *.log
 node_modules/
+
+# Browser diagnostics can contain local practice data.
+test-results/
+playwright-report/
+.playwright-cli/
+output/playwright/

@@ -70,6 +70,8 @@ v0.3 包含：
 - 风险提醒按证据/归属信息缺口与强主张关键词启发式排序；并非真实性验证、模型判断或综合打分。
 - 进行 5 轮逐题追问，每轮建议 90 秒；下一题根据使用者**自行选择**的薄弱方向确定。
 - 练习记录保存在独立的 `career-alpha-interview-defense-v1` localStorage key，支持中途恢复和 Markdown 导出。此页面不会修改 Workbench 状态，也没有 API 请求。
+- 当前回答草稿、薄弱点选择和本题倒计时会随刷新恢复；倒计时到零后仍可继续作答。存储不可用时会持续提示，请提交回答后及时导出。
+- Markdown 只导出已提交的回答，保留原始信心等级、证据、贡献边界和风险备注；输入内容按纯文本导出。记录在浏览器中以明文保存，导出文件也含练习内容，分享前请自行检查。
 - 可以把导出的 Markdown 交给 `/interview` Skill 做进一步动态追问。浏览器的 localStorage 按站点隔离，本地 `file://` 和 GitHub Pages 的记录不共享。
 
 ### Local-first 数据边界
@@ -189,7 +191,7 @@ Onboarding
 运行：
 
 ```bash
-npm install
+npm ci
 npx playwright install chromium
 npm run test:e2e
 ```

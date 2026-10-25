@@ -85,3 +85,33 @@ test('exported JSON contains schema version', async ({ page }) => {
   expect(exported.schema_version).toBe('1.0');
   expect(exported.profile.targetRole).toContain('Agent');
 });
+
+test('JSON import, Interview Lab round trip and subsequent editing preserve Workbench data', async ({ page }) => {
+  await openClean(page);
+  const fixture = JSON.parse(await fs.readFile(new URL('../../examples/workbench/agent-engineer.json', import.meta.url), 'utf8'));
+  page.once('dialog', dialog => {
+    expect(dialog.message()).toContain('imported safely');
+    return dialog.accept();
+  });
+  await page.locator('#fileInput').setInputFiles({name:'agent.json', mimeType:'application/json', buffer:Buffer.from(JSON.stringify(fixture))});
+  await expect(page.locator('[data-profile="targetRole"]')).toHaveValue(fixture.profile.targetRole);
+  await expect(page.locator('#claimList .claim')).toHaveCount(fixture.claims.length);
+  const source = await page.evaluate(() => localStorage.getItem('career-alpha-workbench-v2'));
+  await page.locator('#defenseLabLink').click();
+  await expect(page.locator('#claimCount')).toHaveText(String(fixture.claims.length));
+  await page.locator('#startBtn').click();
+  await page.locator('#answer').fill('This is a local practice answer, not a new verified claim.');
+  await page.locator('#nextBtn').click();
+  expect(await page.evaluate(() => localStorage.getItem('career-alpha-workbench-v2'))).toBe(source);
+  await page.getByRole('link', {name:'← 返回 Workbench'}).click();
+  await expect(page.locator('[data-profile="targetRole"]')).toHaveValue(fixture.profile.targetRole);
+  await page.locator('[data-profile="weeklyTime"]').fill('9h / week');
+  await page.reload();
+  await expect(page.locator('[data-profile="weeklyTime"]')).toHaveValue('9h / week');
+  page.once('dialog', dialog => {
+    expect(dialog.message()).toContain('Import rejected');
+    return dialog.accept();
+  });
+  await page.locator('#fileInput').setInputFiles({name:'invalid.json', mimeType:'application/json', buffer:Buffer.from('{invalid')});
+  await expect(page.locator('[data-profile="weeklyTime"]')).toHaveValue('9h / week');
+});
