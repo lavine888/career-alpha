@@ -139,7 +139,7 @@ $("selectedDetails").textContent="证据："+(selected.evidence||"未提供")+" 
 const reasons=risk(selected).reasons;if(!reasons.length)reasons.push("没有识别到关键词风险，仍需自行核验真实性。");
 $("riskReasons").replaceChildren(...reasons.map(x=>make("li","",x)));
 }
-$("startBtn").disabled=!selected;$("exportBtn").disabled=!session||!session.steps.length;
+$("startBtn").disabled=!selected||!!(session&&!session.finished);$("startBtn").textContent=session&&session.finished?"重新开始五轮模拟面试":"开始五轮模拟面试";$("exportBtn").disabled=!session||!session.steps.length;
 $("ready").hidden=!!session;$("drill").hidden=!session||session.finished;$("final").hidden=!session||!session.finished;
 $("modeStatus").textContent=!session?"READY":session.finished?"FINISHED":"LIVE";
 if(!session){$("readyTitle").textContent=selected?"主张已就绪，开始五轮压力追问。":"先选择一条真实主张";return}
