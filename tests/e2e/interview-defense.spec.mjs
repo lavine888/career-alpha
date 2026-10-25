@@ -7,7 +7,7 @@ const WORKBENCH = 'career-alpha-workbench-v2';
 
 async function openWithClaims(page) {
   await page.addInitScript(({ sourceKey, drillKey }) => {
-    localStorage.clear();
+    if (localStorage.getItem(sourceKey)) return;
     localStorage.setItem(sourceKey, JSON.stringify({
       schema_version: '1.0',
       profile: { targetRole: 'AI Solution Consultant' },
@@ -16,7 +16,7 @@ async function openWithClaims(page) {
         { claim: 'Led production rollout and improved metric by 35%', confidence: 'PLANNED', evidence: '', ownership: '', risk: 'No deployment logs' }
       ]
     }));
-    localStorage.removeItem(drillKey);
+  // Leave drill storage intact on page.reload() for persistence test.
   }, { sourceKey: WORKBENCH, drillKey: STORAGE });
   await page.goto('/interview-defense-lab.html');
 }
